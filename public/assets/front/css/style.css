@@ -3623,6 +3623,7 @@ textarea.form-control {
   text-align: center;
   -webkit-transition: all .4s ease;
   transition: all .4s ease;
+  height: 82%;
 }
 
 .ps-block--category a {
@@ -11398,9 +11399,39 @@ textarea.form-control {
   border: none;
   padding: 10px;
 }
+.search-mobile-silde{
+  width: 100%!important;
+  height: 100%!important;
+  margin-top: 5px;
+}
+.search-mobile-silde-icon{
+  position: relative;
+  right: 50%;
+  left: 50%;
+  font-size: 20px;
+  font-weight: 700;
+}
+.search-mobile-silde-icon{
+  position: relative;
+  right: 50%;
+  left: 50%;
+  font-size: 20px;
+  font-weight: 700;
+}
+.search-mobile-silde-icon-span{
+    position: relative;
+    right: 50%;
+    bottom: 5px;
+    color: white;
+    margin-right: 5px;
+}
+.ps-block__left-search-mobile-silde{
+  color: #000000;
+}
 
 .ps-form--search-mobile button i {
   color: #ffffff;
+  font-size: 30px;
 }
 
 .ps-form--subscribe-popup {
@@ -16423,10 +16454,10 @@ html .bg--parallax {
   padding: 0;
   list-style: none;
 }
-body, html, ul,li,ol,p.h1,h2,h3,h4,h5,h6,a,strong,input,button,hr,b, a, blockquote{
+body, html, ul,li,ol,p,h1,h2,h3,h4,h5,h6,a,strong,input,button,hr,b, a, blockquote, span,select,option{
   direction: rtl; 
   text-align: right;
-  font-family: 'neo-sans-arabic' !important;
+  font-family: 'Almarai', sans-serif !important;
 }
 .owl-carousel,
 .bx-wrapper { direction: ltr; }

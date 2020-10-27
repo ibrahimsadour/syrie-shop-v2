@@ -10,7 +10,7 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <title>Martfury - Multi Vendor &amp; Marketplace</title>
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;amp;subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('assets/front/plugins/font-awesome/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/front/fonts/Linearicons/Linearicons/Font/demo-files/demo.css')}}">
     <link rel="stylesheet" href="{{asset('assets/front/plugins/bootstrap4/css/bootstrap.min.css')}}">
@@ -61,9 +61,7 @@
 
     @include('front.includes.footer')
 
-    <a id="scroll-top" class="backtotop show-scroll" href="#page-top">
-		<i class="arrow_carrot_up_alt"></i>
-	</a>
+
 
     <div class="ps-popup" id="subscribe" data-time="500">
         <div class="ps-popup__content bg--cover" data-background="{{asset('assets/front/img/bg/subscribe.jpg')}}"><a class="ps-popup__close" href="#"><i class="icon-cross"></i></a>
@@ -100,6 +98,7 @@
         </div>
     </div>
     
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </script><script src="{{asset('assets/front/plugins/jquery-1.12.4.min.js')}}"></script>
     <script src="{{asset('assets/front/plugins/popper.min.js')}}"></script>
     <script src="{{asset('assets/front/plugins/owl-carousel/owl.carousel.min.js')}}"></script>

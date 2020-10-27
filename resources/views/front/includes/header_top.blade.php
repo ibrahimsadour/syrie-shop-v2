@@ -98,8 +98,8 @@
                 <div class="header__center">
                     <form class="ps-form--quick-search" action="index.html" method="get">
                         <div class="form-group--icon"><i class="icon-chevron-down"></i>
-                            <select class="form-control">
-                                <option value="0" selected="selected">الجميع</option>
+                            <select class="form-control" style="margin-left: 10px">
+                                <option value="0" selected="selected">كل الأقسام</option>
                                 <option class="level-0" value="babies-moms">الأطفال والأمهات</option>
                                 <option class="level-0" value="books-office">الكتب والمكتب</option>
                                 <option class="level-0" value="cars-motocycles">سيارات ودراجات نارية</option>
@@ -168,6 +168,17 @@
                                 <option class="level-1" value="wine-cabinets">   Wine Cabinets</option>
                             </select>
                         </div>
+                        <div class="form-group--icon" style="border-right: 1px solid #f8f8f8; border-radius: 0 0px 0px 0; "><i class="icon-chevron-down"></i>
+                            <select class="form-control" style="margin-left: 50px">
+                                <option value="0" selected="selected" >كل المناطق</option>
+                                <option class="level-0" value="babies-moms">الأطفال والأمهات</option>
+                                <option class="level-0" value="books-office">الكتب والمكتب</option>
+                                <option class="level-0" value="cars-motocycles">سيارات ودراجات نارية</option>
+                                <option class="level-0" value="clothing-apparel">الملابس </option>
+
+                            </select>
+                        </div>
+
                         <input class="form-control" type="text" placeholder="أنا أبحث عن...">
                         <button>بحث</button>
                     </form>

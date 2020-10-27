@@ -740,5 +740,17 @@
         $('body').addClass('loaded');
         subscribePopup();
     });
+    
+    // this for header mobile search form:
+    $(document).ready(function(){
+        $(".form-group--nest").click(function(){
+            
+            if ( $( ".choose-items" ).first().is( ":hidden" ) ) {
+                $( ".choose-items" ).slideDown( "slow" );
+            } else {
+                $( ".choose-items" ).slideUp();
+            }
+        });
+    });
 
 })(jQuery);

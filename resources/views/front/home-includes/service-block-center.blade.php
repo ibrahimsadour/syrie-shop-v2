@@ -4,22 +4,22 @@
             <div class="ps-block__item">
                 <div class="ps-block__left"><i class="icon-rocket"></i></div>
                 <div class="ps-block__right">
-                    <h4>توصيل مجاني</h4>
-                    <p>لجميع الطلبات التي تزيد عن 500 ريال</p>
+                    <h4>نقدم لك أفضل مالدينا</h4>
+                    <p>تحديث مستمر وحل جميع المشاكل</p>
                 </div>
             </div>
             <div class="ps-block__item">
                 <div class="ps-block__left"><i class="icon-sync"></i></div>
                 <div class="ps-block__right">
-                    <h4>إرجاع خلال 30 يوماً</h4>
-                    <p>إذا كانت السلع بها مشاكل</p>
+                    <h4>تواصل مباشرة مع العميل</h4>
+                    <p>سهولة التواصل بين العملاء</p>
                 </div>
             </div>
             <div class="ps-block__item">
                 <div class="ps-block__left"><i class="icon-credit-card"></i></div>
                 <div class="ps-block__right">
-                    <h4>دفع امن</h4>
-                    <p>دفع آمن 100٪ بالفيزا</p>
+                    <h4>حافظ على نقودك</h4>
+                    <p>دفع آمن 100٪ </p>
                 </div>
             </div>
             <div class="ps-block__item">
