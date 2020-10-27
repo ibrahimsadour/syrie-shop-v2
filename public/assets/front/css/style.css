@@ -3639,6 +3639,7 @@ textarea.form-control {
   font-size: 16px;
   margin-bottom: 0;
   font-weight: 500;
+  text-align: center;
 }
 
 .ps-block--category:hover {
@@ -11431,7 +11432,7 @@ textarea.form-control {
 
 .ps-form--search-mobile button i {
   color: #ffffff;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .ps-form--subscribe-popup {
@@ -14787,17 +14788,21 @@ textarea.form-control {
 .navigation .navigation__left {
   max-width: 260px;
 }
-
+.navigation__right {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
 .navigation .navigation__right {
   display: -webkit-box;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-          flex-flow: row nowrap;
+  flex-flow: row nowrap;
   -webkit-box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   padding-right: 35px;
 }
 
@@ -15185,7 +15190,7 @@ textarea.form-control {
           flex-flow: row nowrap;
   -webkit-box-pack: justify;
           justify-content: space-between;
-  background-color: #f4f5f5;
+  background-color: rgb(219, 165, 0);
   padding: 15px 30px;
 }
 

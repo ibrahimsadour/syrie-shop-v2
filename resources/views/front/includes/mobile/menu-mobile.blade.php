@@ -1,10 +1,10 @@
 <div class="ps-panel--sidebar" id="menu-mobile">
     <div class="ps-panel__header">
-        <h3>Menu</h3>
+        <h3>الأقسام</h3>
     </div>
     <div class="ps-panel__content">
         <ul class="menu--mobile">
-            <li class="menu-item-has-children"><a href="index.html">Home</a><span class="sub-toggle"></span>
+            <li class="menu-item-has-children"><a href="index.html">الرئيسية</a><span class="sub-toggle"></span>
                 <ul class="sub-menu">
                     <li class="current-menu-item "><a href="homepage-2.html">قطع غيار السيارات </a>
                     </li>

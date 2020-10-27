@@ -67,15 +67,15 @@
         <div class="ps-popup__content bg--cover" data-background="{{asset('assets/front/img/bg/subscribe.jpg')}}"><a class="ps-popup__close" href="#"><i class="icon-cross"></i></a>
             <form class="ps-form--subscribe-popup" action="index.html" method="get">
                 <div class="ps-form__content">
-                    <h4>Get <strong>25%</strong> Discount</h4>
-                    <p>Subscribe to the Martfury mailing list <br /> to receive updates on new arrivals, special offers <br /> and our promotions.</p>
+                    <h4>أحصل <strong>25%</strong> تخفيض</h4>
+                    <p>اشترك في أخر الأخبار    <br /> لكي تحصل على جميع العروض التي تضاف مؤخرا <br /></p>
                         <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Email Address" required>
-                            <button class="ps-btn">Subscribe</button>
+                            <input class="form-control" type="text" placeholder="البريد الألكتروني" required>
+                            <button class="ps-btn">أشتراك</button>
                         </div>
                         <div class="ps-checkbox">
                             <input class="form-control" type="checkbox" id="not-show" name="not-show">
-                            <label for="not-show">Don't show this popup again</label>
+                            <label for="not-show">لا تظهر هذه النافذة  مرة أخرى</label>
                         </div>
                 </div>
             </form>

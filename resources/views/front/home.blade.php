@@ -122,10 +122,6 @@
         @include('front.home-includes.todays-action')
         <!-- End tody action -->
 
-        <!-- Begin service block center -->
-        @include('front.home-includes.service-block-center')
-        <!-- End service block center -->
-
         <div class="ps-home-ads">
             <div class="ps-container">
                 <div class="row">
