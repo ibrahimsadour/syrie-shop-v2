@@ -44,23 +44,9 @@
                     </ul>
                 </aside>
             </div>
-            <div class="ps-footer__links">
-                <p><strong>Consumer Electric:</strong><a href="#">Air Conditioners</a><a href="#">Audios &amp; Theaters</a><a href="#">Car الكترونياتs</a><a href="#">Office الكترونياتs</a><a href="#">TV Televisions</a><a href="#">Washing Machines</a>
-                </p>
-                <p><strong>الملابس:</strong><a href="#">Printers</a><a href="#">Projectors</a><a href="#">Scanners</a><a href="#">Store &amp; Business</a><a href="#">4K Ultra HD TVs</a><a href="#">LED TVs</a><a href="#">OLED TVs</a>
-                </p>
-                <p><strong>المنزل &#038; الحديقة &#038; المطبخ:</strong><a href="#">Cookware</a><a href="#">Decoration</a><a href="#">Furniture</a><a href="#">Garden Tools</a><a href="#">Garden Equipments</a><a href="#">Powers And Hand Tools</a><a href="#">Utensil &amp; Gadget</a>
-                </p>
-                <p><strong>الصحة &#038; الجمال:</strong><a href="#">Hair Care</a><a href="#">Decoration</a><a href="#">Hair Care</a><a href="#">Makeup</a><a href="#">Body Shower</a><a href="#">Skin Care</a><a href="#">Cologine</a><a href="#">Perfume</a>
-                </p>
-                <p><strong>Jewelry &amp; Watches:</strong><a href="#">Necklace</a><a href="#">Pendant</a><a href="#">Diamond Ring</a><a href="#">Sliver Earing</a><a href="#">Leather Watcher</a><a href="#">Gucci</a>
-                </p>
-                <p><strong>أجهزة الكمبيوتر:</strong><a href="#">Desktop PC</a><a href="#">لابتوب</a><a href="#">Smartphones</a><a href="#">Tablet</a><a href="#">Game Controller</a><a href="#">Audio &amp; Video</a><a href="#">Wireless Speaker</a><a href="#">Done</a>
-                </p>
-            </div>
             <div class="ps-footer__copyright">
-                <p>© 2018 Martfury. All Rights Reserved</p>
-                <p><span>We Using Safe Payment For:</span><a href="#"><img src="{{asset('assets/front/img/payment-method/1.jpg')}}" alt=""></a><a href="#"><img src="{{asset('assets/front/img/payment-method/2.jpg')}}" alt=""></a><a href="#"><img src="{{asset('assets/front/img/payment-method/3.jpg')}}" alt=""></a><a href="#"><img src="{{asset('assets/front/img/payment-method/4.jpg')}}" alt=""></a><a href="#"><img src="{{asset('assets/front/img/payment-method/5.jpg')}}" alt=""></a></p>
+                <p>جميع الحقوق محفوظة لـ شركة صدور</p>
+                <p><span>وفر وقتك وحافظ على نقودك</span><a href="#"><img src="{{asset('assets/front/img/payment-method/1.jpg')}}" alt=""></a><a href="#"><img src="{{asset('assets/front/img/payment-method/2.jpg')}}" alt=""></a><a href="#"><img src="{{asset('assets/front/img/payment-method/3.jpg')}}" alt=""></a><a href="#"><img src="{{asset('assets/front/img/payment-method/4.jpg')}}" alt=""></a><a href="#"><img src="{{asset('assets/front/img/payment-method/5.jpg')}}" alt=""></a></p>
             </div>
         </div>
     </footer>

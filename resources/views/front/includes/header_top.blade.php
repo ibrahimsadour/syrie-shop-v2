@@ -169,7 +169,7 @@
                             </select>
                         </div>
                         <input class="form-control" type="text" placeholder="أنا أبحث عن...">
-                        <button>Search</button>
+                        <button>بحث</button>
                     </form>
                 </div>
                 <div class="header__right">
