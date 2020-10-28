@@ -7,7 +7,7 @@
         <div class="container">
             <ul class="breadcrumbs">
                 <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                    <a class="home" href="../index.html" itemprop="item"><span itemprop="name">الرئيسية
+                    <a class="home" href="../{{route('site.index')}}" itemprop="item"><span itemprop="name">الرئيسية
                         </span></a>
                 </li><span class="sep">/</span>
                 <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">

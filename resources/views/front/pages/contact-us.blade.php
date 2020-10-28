@@ -5,7 +5,7 @@
     <div class="ps-breadcrumb">
         <div class="container">
             <ul class="breadcrumb">
-                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="{{route('site.index')}}">الرئيسية</a></li>
                 <li>أتصل بنا</li>
             </ul>
         </div>
@@ -61,7 +61,7 @@
     </div>
     <div class="ps-contact-form">
         <div class="container">
-            <form class="ps-form--contact-us" action="index.html" method="get">
+            <form class="ps-form--contact-us" action="{{route('site.index')}}" method="get">
                 <h3>ابقى على تواصل</h3>
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 ">

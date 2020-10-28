@@ -28,7 +28,7 @@
                 <aside class="widget widget_footer">
                     <h4 class="widget-title">الشركة</h4>
                     <ul class="ps-list--link">
-                        <li><a href="about-us.html">معلومات عنا</a></li>
+                        <li><a href="{{route('site.about-us.index')}}">معلومات عنا</a></li>
                         <li><a href="#">شركة تابعة</a></li>
                         <li><a href="#">مسار مهني مسار وظيفي</a></li>
                         <li><a href="contact-us.html">اتصل</a></li>

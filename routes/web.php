@@ -26,10 +26,10 @@ Route::get('/contact-us', function () {
     return view('front.pages.contact-us');
 })->name('site.contact-us.index');
 
-// // about-us
-// Route::get('/about-us', function () {
-//     return view('front.pages.about-us');
-// })->name('site.about-us.index');
+// about-us
+Route::get('/about-us', function () {
+    return view('front.pages.about-us');
+})->name('site.about-us.index');
 
 // // store-listing
 // Route::get('/store-listing', function () {
@@ -41,16 +41,20 @@ Route::get('/store', function () {
     return view('front.pages.store');
 })->name('site.store.index');
 
-// // faqs
-// Route::get('/faqs', function () {
-//     return view('front.pages.faqs');
-// })->name('site.faqs.index');
+// faqs
+Route::get('/faqs', function () {
+    return view('front.pages.faqs');
+})->name('site.faqs.index');
 
-// // coming-soon
-// Route::get('/coming-soon', function () {
-//     return view('front.pages.coming-soon');
-// })->name('site.coming-soon.index');
+// coming-soon
+Route::get('/coming-soon', function () {
+    return view('front.pages.coming-soon');
+})->name('site.coming-soon.index');
 
+// 404-page
+Route::get('/404-page', function () {
+    return view('front.pages.404-page');
+})->name('site.404-page.index');
 
 // // become-a-vendor
 // Route::get('/become-a-vendor', function () {
@@ -72,7 +76,7 @@ Route::get('/store', function () {
 //     return view('front.pages.our-press');
 // })->name('site.our-press.index');
 
-// // wish-list
-// Route::get('/wish-list', function () {
-//     return view('front.pages.wish-list');
-// })->name('site.wish-list.index');
+// wish-list
+Route::get('/wish-list', function () {
+    return view('front.pages.wish-list');
+})->name('site.wish-list.index');

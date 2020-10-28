@@ -16458,7 +16458,7 @@ html .bg--parallax {
   padding: 0;
   list-style: none;
 }
-body, html, ul,li,ol,p,h1,h2,h3,h4,h5,h6,a,strong,input,button,hr,b, a, blockquote, span,select,option{
+body, html, ul,li,ol,p,h1,h2,h3,h4,h5,h6,a,strong,input,button,hr,b, a, blockquote, span,select,option,td,tr,table,tbody{
   direction: rtl; 
   text-align: right;
   font-family: 'Almarai', sans-serif !important;

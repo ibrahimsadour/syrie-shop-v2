@@ -65,7 +65,7 @@
 
     <!-- <div class="ps-popup" id="subscribe" data-time="500">
         <div class="ps-popup__content bg--cover" data-background="{{asset('assets/front/img/bg/subscribe.jpg')}}"><a class="ps-popup__close" href="#"><i class="icon-cross"></i></a>
-            <form class="ps-form--subscribe-popup" action="index.html" method="get">
+            <form class="ps-form--subscribe-popup" action="{{route('site.index')}}" method="get">
                 <div class="ps-form__content">
                     <h4>أحصل <strong>25%</strong> تخفيض</h4>
                     <p>اشترك في أخر الأخبار    <br /> لكي تحصل على جميع العروض التي تضاف مؤخرا <br /></p>

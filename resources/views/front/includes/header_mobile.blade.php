@@ -16,17 +16,17 @@
                         </div>
                     </li>
                     <li>
-                        <div class=" language"><a href="#"><img src="{{asset('assets/front/img/flag/en.png')}}" alt=""> معلومات عنا</a>
+                        <div class=" language"><a href="{{route('site.about-us.index')}}"><img src="{{asset('assets/front/img/flag/en.png')}}" alt=""> معلومات عنا</a>
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="navigation--mobile">
-            <div class="navigation__left"><a class="ps-logo" href="index.html"><img src="{{asset('assets/front/img/logo_light.png')}}" alt=""></a></div>
+            <div class="navigation__left"><a class="ps-logo" href="{{route('site.index')}}"><img src="{{asset('assets/front/img/logo_light.png')}}" alt=""></a></div>
             <div class="navigation__right">
                 <div class="header__actions">
-                    <div class="ps-cart--mini"><a class="header__extra" href="#"><i class="icon-heart"></i><span><i>0</i></span></a>
+                    <div class="ps-cart--mini"><a class="header__extra" href="{{route('site.wish-list.index')}}"><i class="icon-heart"></i><span><i>0</i></span></a>
 
                     </div>
                     <div class="ps-block--user-header">
@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="ps-search--mobile">
-            <form class="ps-form--search-mobile" action="index.html" method="get">
+            <form class="ps-form--search-mobile" action="{{route('site.index')}}" method="get">
                 <div class="form-group--nest">
 
                     <input class="form-control" type="text" placeholder="أنا أبحث عن">

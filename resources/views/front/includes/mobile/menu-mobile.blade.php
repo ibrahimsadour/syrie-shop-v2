@@ -4,7 +4,7 @@
     </div>
     <div class="ps-panel__content">
         <ul class="menu--mobile">
-            <li class="menu-item-has-children"><a href="index.html">الرئيسية</a><span class="sub-toggle"></span>
+            <li class="menu-item-has-children"><a href="{{route('site.index')}}">الرئيسية</a><span class="sub-toggle"></span>
                 <ul class="sub-menu">
                     <li class="current-menu-item "><a href="homepage-2.html">قطع غيار السيارات </a>
                     </li>
@@ -30,7 +30,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="menu-item-has-children has-mega-menu"><a href="shop-default.html">Shop</a><span class="sub-toggle"></span>
+            <li class="menu-item-has-children has-mega-menu"><a href="shop-default.html">السوق</a><span class="sub-toggle"></span>
                 <div class="mega-menu">
                     <div class="mega-menu__column">
                         <h4>Catalog Pages<span class="sub-toggle"></span></h4>
@@ -110,39 +110,39 @@
                     </div>
                 </div>
             </li>
-            <li class="menu-item-has-children has-mega-menu"><a href="#">Pages</a><span class="sub-toggle"></span>
+            <li class="menu-item-has-children has-mega-menu"><a href="#">الصفحات</a><span class="sub-toggle"></span>
                 <div class="mega-menu">
                     <div class="mega-menu__column">
-                        <h4>Basic Page<span class="sub-toggle"></span></h4>
+                        <h4>الصفحات الأساسية<span class="sub-toggle"></span></h4>
                         <ul class="mega-menu__list">
-                            <li class="current-menu-item "><a href="about-us.html">About Us</a>
+                            <li class="current-menu-item "><a href="{{route('site.about-us.index')}}">معلومات عنا</a>
                             </li>
-                            <li class="current-menu-item "><a href="contact-us.html">Contact</a>
+                            <li class="current-menu-item "><a href="{{route('site.contact-us.index')}}">اتصل بنا</a>
                             </li>
-                            <li class="current-menu-item "><a href="faqs.html">Faqs</a>
+                            <li class="current-menu-item "><a href="{{route('site.faqs.index')}}">الاسئلة الشائعة</a>
                             </li>
-                            <li class="current-menu-item "><a href="comming-soon.html">Comming Soon</a>
+                            <li class="current-menu-item "><a href="{{route('site.coming-soon.index')}}">الموقع قيد الإنشاء</a>
                             </li>
-                            <li class="current-menu-item "><a href="404-page.html">404 Page</a>
+                            <li class="current-menu-item "><a href="{{route('site.404-page.index')}}">404 Page</a>
                             </li>
                         </ul>
                     </div>
                     <div class="mega-menu__column">
-                        <h4>Vendor Pages<span class="sub-toggle"></span></h4>
+                        <h4>صفحات التجار<span class="sub-toggle"></span></h4>
                         <ul class="mega-menu__list">
-                            <li class="current-menu-item "><a href="become-a-vendor.html">Become a Vendor</a>
+                            <li class="current-menu-item "><a href="become-a-vendor.html">افتح متجرك في سوق البلد</a>
                             </li>
-                            <li class="current-menu-item "><a href="vendor-store.html">Vendor Store</a>
+                            <li class="current-menu-item "><a href="vendor-store.html">متجر البائع</a>
                             </li>
-                            <li class="current-menu-item "><a href="vendor-dashboard-free.html">Vendor Dashboard Free</a>
+                            <li class="current-menu-item "><a href="vendor-dashboard-free.html">بائع لوحة القيادة مجانا</a>
                             </li>
-                            <li class="current-menu-item "><a href="vendor-dashboard-pro.html">Vendor Dashboard Pro</a>
+                            <li class="current-menu-item "><a href="vendor-dashboard-pro.html">بائع لوحة القيادة مجانا</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </li>
-            <li class="menu-item-has-children has-mega-menu"><a href="#">Blogs</a><span class="sub-toggle"></span>
+            <li class="menu-item-has-children has-mega-menu"><a href="#">مدونة</a><span class="sub-toggle"></span>
                 <div class="mega-menu">
                     <div class="mega-menu__column">
                         <h4>Blog Layout<span class="sub-toggle"></span></h4>

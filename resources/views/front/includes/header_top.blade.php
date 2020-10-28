@@ -93,10 +93,10 @@
                                 </li>
                             </ul>
                         </div>
-                    </div><a class="ps-logo" href="index.html"><img src="{{asset('assets/front/img/logo_light.png')}}" alt=""></a>
+                    </div><a class="ps-logo" href="{{route('site.index')}}"><img src="{{asset('assets/front/img/logo_light.png')}}" alt=""></a>
                 </div>
                 <div class="header__center">
-                    <form class="ps-form--quick-search" action="index.html" method="get">
+                    <form class="ps-form--quick-search" action="{{route('site.index')}}" method="get">
                         <div class="form-group--icon"><i class="icon-chevron-down"></i>
                             <select class="form-control" style="margin-left: 10px">
                                 <option value="0" selected="selected">كل الأقسام</option>
@@ -185,7 +185,7 @@
                 </div>
                 <div class="header__right">
                     <div class="header__actions">
-                        <a class="header__extra" href="#"><i class="icon-heart"></i><span><i>0</i></span></a>
+                        <a class="header__extra" href="{{route('site.wish-list.index')}}"><i class="icon-heart"></i><span><i>0</i></span></a>
                         <div class="ps-cart--mini">
 
                             <a class="header__extra" href="#"><i class="icon-plus-circle"></i><span style="border-radius: 10%;width: 40px;top: 36px;"><i>اعلانك </i></span></a>
