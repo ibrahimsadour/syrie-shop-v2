@@ -122,7 +122,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="menu-item-has-children has-mega-menu"><a href="shop-default.html">السوق</a><span class="sub-toggle"></span>
+                        <li class="menu-item-has-children has-mega-menu"><a href="{{route('site.store.index')}}">السوق</a><span class="sub-toggle"></span>
                             <div class="mega-menu">
                                 <div class="mega-menu__column">
                                     <h4>Catalog Pages<span class="sub-toggle"></span></h4>
@@ -266,7 +266,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="menu-item"><a href="#">اتصل بنا</a></li>
+                        <li class="menu-item"><a href="{{route('site.contact-us.index')}}">اتصل بنا</a></li>
                     </ul>
                     <ul class="navigation__extra">
                         <li><a href="#">قائمة المتاجر</a></li>

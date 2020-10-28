@@ -76,12 +76,12 @@
             $('.ps-site-overlay').toggleClass('active');
         });
 
-        $('#filter-sidebar').on('click', function(e) {
+        $('.ps-shop__filter-mb').on('click', function(e) {
             e.preventDefault();
-            filterSidebar.addClass('active');
+            $(this).addClass('active')
+            filterSidebar.removeClass('active');
             $('.ps-site-overlay').addClass('active');
         });
-
         $('.ps-filter--sidebar .ps-filter__header .ps-btn--close').on('click', function(e) {
             e.preventDefault();
             filterSidebar.removeClass('active');

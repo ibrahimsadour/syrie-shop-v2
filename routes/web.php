@@ -21,10 +21,10 @@ Route::get('/', function () {
     return view('front.home');
 })->name('site.index');
 
-// // contact-us
-// Route::get('/contact-us', function () {
-//     return view('front.pages.contact-us');
-// })->name('site.contact-us.index');
+// contact-us
+Route::get('/contact-us', function () {
+    return view('front.pages.contact-us');
+})->name('site.contact-us.index');
 
 // // about-us
 // Route::get('/about-us', function () {
@@ -36,10 +36,10 @@ Route::get('/', function () {
 //     return view('front.pages.store-listing');
 // })->name('site.store-listing.index');
 
-// // store
-// Route::get('/store', function () {
-//     return view('front.pages.store');
-// })->name('site.store.index');
+// store
+Route::get('/store', function () {
+    return view('front.pages.store');
+})->name('site.store.index');
 
 // // faqs
 // Route::get('/faqs', function () {
