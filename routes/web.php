@@ -56,15 +56,15 @@ Route::get('/404-page', function () {
     return view('front.pages.404-page');
 })->name('site.404-page.index');
 
-// // become-a-vendor
-// Route::get('/become-a-vendor', function () {
-//     return view('front.pages.become-a-vendor');
-// })->name('site.become-a-vendor.index');
+// become-a-vendor
+Route::get('/become-a-vendor', function () {
+    return view('front.pages.become-a-vendor');
+})->name('site.become-a-vendor.index');
 
-// // my-account
-// Route::get('/my-account', function () {
-//     return view('front.pages.auth.my-account');
-// })->name('site.my-account.index');
+// my-account "{{route('site.my-account.index')}}"
+Route::get('/my-account', function () {
+    return view('front.pages.auth.my-account');
+})->name('site.my-account.index');
 
 // // lost-password
 // Route::get('/my-account/lost-password', function () {

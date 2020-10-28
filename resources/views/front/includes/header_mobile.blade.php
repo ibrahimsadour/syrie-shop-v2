@@ -31,7 +31,7 @@
                     </div>
                     <div class="ps-block--user-header">
                         <div class="ps-block__left"><i class="icon-user-plus"></i></div>
-                        <div class="ps-block__right"><a href="my-account.html">تسجيل الدخول</a><a href="my-account.html">الأشتراك</a></div>
+                        <div class="ps-block__right"><a href="{{route('site.my-account.index')}}">تسجيل الدخول</a><a href="{{route('site.my-account.index')}}">الأشتراك</a></div>
                     </div>
                 </div>
             </div>

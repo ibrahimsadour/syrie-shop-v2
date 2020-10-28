@@ -104,7 +104,7 @@
                             </li>
                             <li class="current-menu-item "><a href="order-tracking.html">Order Tracking</a>
                             </li>
-                            <li class="current-menu-item "><a href="my-account.html">My Account</a>
+                            <li class="current-menu-item "><a href="{{route('site.my-account.index')}}">My Account</a>
                             </li>
                         </ul>
                     </div>
@@ -130,7 +130,7 @@
                     <div class="mega-menu__column">
                         <h4>صفحات التجار<span class="sub-toggle"></span></h4>
                         <ul class="mega-menu__list">
-                            <li class="current-menu-item "><a href="become-a-vendor.html">افتح متجرك في سوق البلد</a>
+                            <li class="current-menu-item "><a href="{{route('site.become-a-vendor.index')}}">افتح متجرك في سوق البلد</a>
                             </li>
                             <li class="current-menu-item "><a href="vendor-store.html">متجر البائع</a>
                             </li>
