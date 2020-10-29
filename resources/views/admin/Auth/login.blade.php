@@ -1,5 +1,5 @@
 @extends('admin.layouts.login')
-@section('title','Login')
+@section('title','تسجيل الدخول')
 @section('content')
     <section class="flexbox-container">
         <div class="col-12 d-flex align-items-center justify-content-center">
@@ -13,7 +13,7 @@
                             </div>
                         </div>
                         <h6 class="card-subtitle line-on-side text-muted text-center font-small-3 pt-2">
-                            <span>Log in to the dashboard </span>
+                            <span>@lang('login.Log in to the dashboard') </span>
                         </h6>
                     </div>
                     @include('admin.includes.alerts.errors')
@@ -25,7 +25,7 @@
                                 @csrf
                                 <fieldset class="form-group position-relative has-icon-left mb-0">
                                     <input type="text" name="email" class="form-control form-control-lg input-lg"
-                                           value="{{old('email')}}" id="email" placeholder="Enter your email ">
+                                           value="{{old('email')}}" id="email" placeholder="@lang('login.Enter your email')">
                                     <div class="form-control-position">
                                         <i class="ft-user"></i>
                                     </div>
@@ -37,7 +37,7 @@
                                 <fieldset class="form-group position-relative has-icon-left">
                                     <input type="password" name="password" class="form-control form-control-lg input-lg"
                                            id="user-password"
-                                           placeholder="Enter the password">
+                                           placeholder="@lang('login.Enter the password')">
                                     <div class="form-control-position">
                                         <i class="la la-key"></i>
                                     </div>
@@ -50,12 +50,12 @@
                                         <fieldset>
                                             <input type="checkbox" name="remember_me" id="remember-me"
                                                    class="chk-remember">
-                                            <label for="remember-me">Remember me</label>
+                                            <label for="remember-me">@lang('login.Remember me')</label>
                                         </fieldset>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-info btn-lg btn-block"><i class="ft-unlock"></i>
-                                    Login
+                                    @lang('login.Login')
                                 </button>
                             </form>
                         </div>

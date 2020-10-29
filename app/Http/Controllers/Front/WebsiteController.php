@@ -4,12 +4,28 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\MainCategory;
 
 class WebsiteController extends Controller
 {
+        
+    /**
+     * home_page
+     *
+     * @return void
+     */
     public function home_page (){
-        return view('front.home');
+
+        // selection() deze methode is gemaakt in de Models 
+        $default_lang = get_default_lang();
+        $categories = MainCategory::where('translation_lang', $default_lang)
+            ->Active()
+            ->selection()
+            ->get();
+
+        return view('front.home', compact('categories'));
     }
+
     public function contact_us (){
         return view('front.pages.contact-us');
     }

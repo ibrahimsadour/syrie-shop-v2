@@ -114,6 +114,7 @@ class MainCategoriesController extends Controller
             return redirect()->route('admin.maincategories')->with(['success' => 'تم الحفظ بنجاح']);
 
         } catch (\Exception $ex) {
+            return $ex;
             DB::rollback();
             return redirect()->route('admin.maincategories')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
         }
