@@ -1,4 +1,4 @@
-<div class="ps-home-banner ps-home-banner--1">
+<div class="ps-home-banner ps-home-banner--1" id="slider-show">
     <div class="ps-container">
         <div class="ps-section__left">
             <div class="ps-carousel--nav-inside owl-slider" data-owl-auto="true" data-owl-loop="true"

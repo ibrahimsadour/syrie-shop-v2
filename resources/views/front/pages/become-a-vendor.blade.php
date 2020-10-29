@@ -6,7 +6,7 @@
     <div class="ps-breadcrumb">
         <div class="container">
             <ul class="breadcrumb">
-                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="{{route('site.index')}}">الرئيسية</a></li>
                 <li>افتح متجرك في سوق</li>
             </ul>
         </div>

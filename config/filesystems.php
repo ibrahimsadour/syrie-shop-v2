@@ -54,6 +54,27 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
+        // Hier bij wordt alle foto van de maincategories (الاقسام) opgeslaagd
+        'maincategories' => [
+            'driver' => 'local',
+            'root' => public_path() . '/assets/images/maincategories/',
+            'url' => env('APP_URL') . '/public',
+            'visibility' => 'public',
+        ],
+        // Hier bij wordt alle foto van de vendors (التجار) opgeslaagd
+        'vendors' => [
+            'driver' => 'local',
+            'root' => public_path() . '/assets/images/vendors/',
+            'url' => env('APP_URL') . '/public',
+            'visibility' => 'public',
+        ],
+        // Hier bij wordt alle foto van de sub categoru (الاقسام) opgeslaagd
+        'subcategories' => [
+            'driver' => 'local',
+            'root' => public_path() . '/assets/images/subcategories/',
+            'url' => env('APP_URL') . '/public',
+            'visibility' => 'public',
+        ],
 
         's3' => [
             'driver' => 's3',

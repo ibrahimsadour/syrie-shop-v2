@@ -753,4 +753,17 @@
         });
     });
 
+    // this for header mobile search form:
+    $(document).ready(function(){
+        if($(".register-As-Vendor").click(function(){
+                $( ".as-Vendor" ).slideDown( "slow" );
+        }));
+
+    });
+    $(document).ready(function(){
+        if($(".register-As-Coustomer").click(function(){
+            $( ".as-Vendor" ).slideUp( "slow" );
+        }));
+    });
+
 })(jQuery);

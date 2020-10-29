@@ -18,7 +18,7 @@
 <body>
     <div class="ps-page--comming-soon">
         <div class="container">
-            <div class="ps-page__header"><a class="ps-logo" href="index.html"><img src="{{asset('assets/front/img/coming-soon-logo.png')}}" alt=""></a>
+            <div class="ps-page__header"><a class="ps-logo" href="{{route('site.index')}}"><img src="{{asset('assets/front/img/coming-soon-logo.png')}}" alt=""></a>
                 <h1 style="text-align: center;"> ترقبوا افتتاح الموقع قريبا</h1>
                 <p style="text-align: center;"> الموقع قيد الإنشاء و التطوير</a>
             </div>

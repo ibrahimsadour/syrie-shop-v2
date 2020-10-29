@@ -17,169 +17,169 @@
                     <aside class="widget widget_shop">
                         <h4 class="widget-title">الاقسام</h4>
                         <ul class="ps-list--categories">
-                            <li class="menu-item-has-children"><a href="shop-default.html">الملابس &amp; الالبسة</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
+                            <li class="menu-item-has-children"><a href="{{route('site.store')}}">الملابس &amp; الالبسة</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
                                 <ul class="sub-menu">
-                                    <li><a href="shop-default.html">النساء</a>
+                                    <li><a href="{{route('site.store')}}">النساء</a>
                                     </li>
-                                    <li><a href="shop-default.html">الرجال</a>
+                                    <li><a href="{{route('site.store')}}">الرجال</a>
                                     </li>
-                                    <li><a href="shop-default.html">الحفائب</a>
+                                    <li><a href="{{route('site.store')}}">الحفائب</a>
                                     </li>
-                                    <li><a href="shop-default.html">النظارات</a>
+                                    <li><a href="{{route('site.store')}}">النظارات</a>
                                     </li>
-                                    <li><a href="shop-default.html">الاكسسوارات</a>
+                                    <li><a href="{{route('site.store')}}">الاكسسوارات</a>
                                     </li>
-                                    <li><a href="shop-default.html">أزياء الاطفال</a>
+                                    <li><a href="{{route('site.store')}}">أزياء الاطفال</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="menu-item-has-children"><a href="shop-default.html">حديقة &amp; مطبخ</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
+                            <li class="menu-item-has-children"><a href="{{route('site.store')}}">حديقة &amp; مطبخ</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
                                 <ul class="sub-menu">
-                                    <li><a href="shop-default.html">تجهيزات المطابخ</a>
+                                    <li><a href="{{route('site.store')}}">تجهيزات المطابخ</a>
                                     </li>
-                                    <li><a href="shop-default.html">زخرفة</a>
+                                    <li><a href="{{route('site.store')}}">زخرفة</a>
                                     </li>
-                                    <li><a href="shop-default.html">أثاث المنزل</a>
+                                    <li><a href="{{route('site.store')}}">أثاث المنزل</a>
                                     </li>
-                                    <li><a href="shop-default.html">أدوات الحدائق</a>
+                                    <li><a href="{{route('site.store')}}">أدوات الحدائق</a>
                                     </li>
-                                    <li><a href="shop-default.html">تحسين المنزل</a>
+                                    <li><a href="{{route('site.store')}}">تحسين المنزل</a>
                                     </li>
-                                    <li><a href="shop-default.html">Powers And Hand Tools</a>
+                                    <li><a href="{{route('site.store')}}">Powers And Hand Tools</a>
                                     </li>
-                                    <li><a href="shop-default.html">Utensil &amp; Gadget</a>
+                                    <li><a href="{{route('site.store')}}">Utensil &amp; Gadget</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="menu-item-has-children"><a href="shop-default.html">الكترونيات</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
+                            <li class="menu-item-has-children"><a href="{{route('site.store')}}">الكترونيات</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
                                 <ul class="sub-menu">
-                                    <li class="menu-item-has-children"><a href="shop-default.html">مكيفات الهواء</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
+                                    <li class="menu-item-has-children"><a href="{{route('site.store')}}">مكيفات الهواء</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
                                         <ul class="sub-menu">
-                                            <li><a href="shop-default.html">الاكسسوارات</a>
+                                            <li><a href="{{route('site.store')}}">الاكسسوارات</a>
                                             </li>
-                                            <li><a href="shop-default.html">Type Hanging Cell</a>
+                                            <li><a href="{{route('site.store')}}">Type Hanging Cell</a>
                                             </li>
-                                            <li><a href="shop-default.html">Type Hanging Wall</a>
+                                            <li><a href="{{route('site.store')}}">Type Hanging Wall</a>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="menu-item-has-children"><a href="shop-default.html">صوتيات ومسارح</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
+                                    <li class="menu-item-has-children"><a href="{{route('site.store')}}">صوتيات ومسارح</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
                                         <ul class="sub-menu">
-                                            <li><a href="shop-default.html">سماعات</a>
+                                            <li><a href="{{route('site.store')}}">سماعات</a>
                                             </li>
-                                            <li><a href="shop-default.html">Home Theater System</a>
+                                            <li><a href="{{route('site.store')}}">Home Theater System</a>
                                             </li>
-                                            <li><a href="shop-default.html">مكبرات الصوت</a>
+                                            <li><a href="{{route('site.store')}}">مكبرات الصوت</a>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="menu-item-has-children"><a href="shop-default.html"> الكترونيات</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
+                                    <li class="menu-item-has-children"><a href="{{route('site.store')}}"> الكترونيات</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
                                         <ul class="sub-menu">
-                                            <li><a href="shop-default.html">Audio &amp; Video</a>
+                                            <li><a href="{{route('site.store')}}">Audio &amp; Video</a>
                                             </li>
-                                            <li><a href="shop-default.html">Car Security</a>
+                                            <li><a href="{{route('site.store')}}">Car Security</a>
                                             </li>
-                                            <li><a href="shop-default.html">Radar Detector</a>
+                                            <li><a href="{{route('site.store')}}">Radar Detector</a>
                                             </li>
-                                            <li><a href="shop-default.html">Vehicle GPS</a>
+                                            <li><a href="{{route('site.store')}}">Vehicle GPS</a>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="menu-item-has-children"><a href="shop-default.html">Office الكترونياتs</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
+                                    <li class="menu-item-has-children"><a href="{{route('site.store')}}">Office الكترونياتs</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
                                         <ul class="sub-menu">
-                                            <li><a href="shop-default.html">طابعات</a>
+                                            <li><a href="{{route('site.store')}}">طابعات</a>
                                             </li>
-                                            <li><a href="shop-default.html">أجهزة عرض</a>
+                                            <li><a href="{{route('site.store')}}">أجهزة عرض</a>
                                             </li>
-                                            <li><a href="shop-default.html">الماسحات الضوئية</a>
+                                            <li><a href="{{route('site.store')}}">الماسحات الضوئية</a>
                                             </li>
-                                            <li><a href="shop-default.html">Store Business</a>
+                                            <li><a href="{{route('site.store')}}">Store Business</a>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="menu-item-has-children"><a href="shop-default.html">التلفزيونات</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
+                                    <li class="menu-item-has-children"><a href="{{route('site.store')}}">التلفزيونات</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
                                         <ul class="sub-menu">
-                                            <li><a href="shop-default.html">تلفزيونات 4K Ultra HD</a>
+                                            <li><a href="{{route('site.store')}}">تلفزيونات 4K Ultra HD</a>
                                             </li>
-                                            <li><a href="shop-default.html">LED تلفزيونات</a>
+                                            <li><a href="{{route('site.store')}}">LED تلفزيونات</a>
                                             </li>
-                                            <li><a href="shop-default.html">تلفزيونات OLED</a>
+                                            <li><a href="{{route('site.store')}}">تلفزيونات OLED</a>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="menu-item-has-children"><a href="shop-default.html">غسالة ملابس</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
+                                    <li class="menu-item-has-children"><a href="{{route('site.store')}}">غسالة ملابس</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
                                         <ul class="sub-menu">
-                                            <li><a href="shop-default.html">Type Drying Clothes</a>
+                                            <li><a href="{{route('site.store')}}">Type Drying Clothes</a>
                                             </li>
-                                            <li><a href="shop-default.html">Type Horizontal</a>
+                                            <li><a href="{{route('site.store')}}">Type Horizontal</a>
                                             </li>
-                                            <li><a href="shop-default.html">Type Vertical</a>
+                                            <li><a href="{{route('site.store')}}">Type Vertical</a>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a href="shop-default.html">ثلاجات</a>
+                                    <li><a href="{{route('site.store')}}">ثلاجات</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="menu-item-has-children"><a href="shop-default.html">الصحة والجمال</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
+                            <li class="menu-item-has-children"><a href="{{route('site.store')}}">الصحة والجمال</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
                                 <ul class="sub-menu">
-                                    <li><a href="shop-default.html">Equipments</a>
+                                    <li><a href="{{route('site.store')}}">Equipments</a>
                                     </li>
-                                    <li><a href="shop-default.html">العناية بالشعر</a>
+                                    <li><a href="{{route('site.store')}}">العناية بالشعر</a>
                                     </li>
-                                    <li><a href="shop-default.html">العطور</a>
+                                    <li><a href="{{route('site.store')}}">العطور</a>
                                     </li>
-                                    <li><a href="shop-default.html">عناية البشرة</a>
+                                    <li><a href="{{route('site.store')}}">عناية البشرة</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="menu-item-has-children"><a href="shop-default.html">Computers &amp; Technologies</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
+                            <li class="menu-item-has-children"><a href="{{route('site.store')}}">Computers &amp; Technologies</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
                                 <ul class="sub-menu">
-                                    <li><a href="shop-default.html">Desktop PC</a>
+                                    <li><a href="{{route('site.store')}}">Desktop PC</a>
                                     </li>
-                                    <li><a href="shop-default.html">Laptop</a>
+                                    <li><a href="{{route('site.store')}}">Laptop</a>
                                     </li>
-                                    <li><a href="shop-default.html">Smartphones</a>
+                                    <li><a href="{{route('site.store')}}">Smartphones</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="menu-item-has-children"><a href="shop-default.html">Jewelry &amp; Watches</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
+                            <li class="menu-item-has-children"><a href="{{route('site.store')}}">Jewelry &amp; Watches</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
                                 <ul class="sub-menu">
-                                    <li><a href="shop-default.html">Gemstone Jewelry</a>
+                                    <li><a href="{{route('site.store')}}">Gemstone Jewelry</a>
                                     </li>
-                                    <li><a href="shop-default.html">Men's Watches</a>
+                                    <li><a href="{{route('site.store')}}">Men's Watches</a>
                                     </li>
-                                    <li><a href="shop-default.html">Women's Watches</a>
+                                    <li><a href="{{route('site.store')}}">Women's Watches</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="menu-item-has-children"><a href="shop-default.html">Phones &amp; Accessories</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
+                            <li class="menu-item-has-children"><a href="{{route('site.store')}}">Phones &amp; Accessories</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
                                 <ul class="sub-menu">
-                                    <li><a href="shop-default.html">Iphone 8</a>
+                                    <li><a href="{{route('site.store')}}">Iphone 8</a>
                                     </li>
-                                    <li><a href="shop-default.html">Iphone X</a>
+                                    <li><a href="{{route('site.store')}}">Iphone X</a>
                                     </li>
-                                    <li><a href="shop-default.html">Sam Sung Note 8</a>
+                                    <li><a href="{{route('site.store')}}">Sam Sung Note 8</a>
                                     </li>
-                                    <li><a href="shop-default.html">Sam Sung S8</a>
+                                    <li><a href="{{route('site.store')}}">Sam Sung S8</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="menu-item-has-children"><a href="shop-default.html">Sport &amp; Outdoor</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
+                            <li class="menu-item-has-children"><a href="{{route('site.store')}}">Sport &amp; Outdoor</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
                                 <ul class="sub-menu">
-                                    <li><a href="shop-default.html">Freezer Burn</a>
+                                    <li><a href="{{route('site.store')}}">Freezer Burn</a>
                                     </li>
-                                    <li><a href="shop-default.html">Fridge Cooler</a>
+                                    <li><a href="{{route('site.store')}}">Fridge Cooler</a>
                                     </li>
-                                    <li><a href="shop-default.html">Wine Cabinets</a>
+                                    <li><a href="{{route('site.store')}}">Wine Cabinets</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="shop-default.html">Babies &amp; Moms</a>
+                            <li><a href="{{route('site.store')}}">Babies &amp; Moms</a>
                             </li>
-                            <li><a href="shop-default.html">Books &amp; Office</a>
+                            <li><a href="{{route('site.store')}}">Books &amp; Office</a>
                             </li>
-                            <li><a href="shop-default.html">Cars &amp; Motocycles</a>
+                            <li><a href="{{route('site.store')}}">Cars &amp; Motocycles</a>
                             </li>
                         </ul>
                     </aside>
@@ -718,7 +718,7 @@
                             </div>
                         </div>
                     </div> -->
-                    <div class="ps-shopping ps-tab-root"><a class="ps-shop__filter-mb" href="#" id="filter-sidebar"><i class="icon-menu"></i> عرض الفلتر</a>
+                    <div class="ps-shopping ps-tab-root"><a class="ps-shop__filter-mb" href="#" id="filter-sidebar"><i class="fa fa-filter" aria-hidden="true"></i> عرض الفلتر</a>
                         <div class="ps-shopping__header">
                             <p>تم العثور على  <strong>  36 </strong> </p>
                             <div class="ps-shopping__actions">

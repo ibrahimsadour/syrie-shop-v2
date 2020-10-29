@@ -16,7 +16,7 @@
                         </div>
                     </li>
                     <li>
-                        <div class=" language"><a href="{{route('site.about-us.index')}}"><img src="{{asset('assets/front/img/flag/en.png')}}" alt=""> معلومات عنا</a>
+                        <div class=" language"><a href="{{route('site.about-us')}}"><img src="{{asset('assets/front/img/flag/en.png')}}" alt=""> معلومات عنا</a>
                         </div>
                     </li>
                 </ul>
@@ -26,12 +26,16 @@
             <div class="navigation__left"><a class="ps-logo" href="{{route('site.index')}}"><img src="{{asset('assets/front/img/logo_light.png')}}" alt=""></a></div>
             <div class="navigation__right">
                 <div class="header__actions">
-                    <div class="ps-cart--mini"><a class="header__extra" href="{{route('site.wish-list.index')}}"><i class="icon-heart"></i><span><i>0</i></span></a>
+                    <div class="ps-cart--mini"><a class="header__extra" href="{{route('site.wish-list')}}"><i class="icon-heart"></i><span><i>0</i></span></a>
 
                     </div>
                     <div class="ps-block--user-header">
-                        <div class="ps-block__left"><i class="icon-user-plus"></i></div>
-                        <div class="ps-block__right"><a href="{{route('site.my-account.index')}}">تسجيل الدخول</a><a href="{{route('site.my-account.index')}}">الأشتراك</a></div>
+                        <div class="ps-block__left"><i class="icon-user-plus"></i>
+                            <div class="ps-block__right">
+                                <a href="{{route('site.my-account')}}">تسجيل الدخول</a>
+                                <a href="{{route('site.my-account')}}">الأشتراك</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

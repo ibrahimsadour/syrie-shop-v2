@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Front\WebsiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,70 +14,93 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+/** 
+*--------------------------------------------------------------------------
+* Wbsite Routes
+*--------------------------------------------------------------------------
+*@todo this Route was made by Ibrahim sadour
+*@todo Here is all route of the Front End Site
+*/
+Route::group( [
+    'prefix' => '/'
+],function() {
+
+    /** Home Page route 
+    * @todo URL:www.DomeinName.com
+    * @todo Route name : site.index
+    */
+    Route::get('',[WebsiteController::class ,'home_page']) -> name('site.index');
+
+    /** contact-us page
+    * @todo URL:www.DomeinName.com/contact-us
+    * @todo Route name : site.contact-us
+    */
+    Route::get('contact-us',[WebsiteController::class ,'contact_us']) -> name('site.contact-us');
+
+    /** about-us page
+    * @todo URL:www.DomeinName.com/about-us
+    * @todo Route name : site.about-us
+    */
+    Route::get('about-us',[WebsiteController::class ,'about_us']) -> name('site.about-us');
+
+    /** store page
+    * @todo URL:www.DomeinName.com/store
+    * @todo Route name : site.store
+    */
+    Route::get('store',[WebsiteController::class ,'store']) -> name('site.store');
+
+    /** faqs page
+    * @todo URL:www.DomeinName.com/faqs
+    * @todo Route name : site.faqs
+    */
+    Route::get('faqs',[WebsiteController::class ,'faqs']) -> name('site.faqs');
+
+    /** coming-soon page
+    * @todo URL:www.DomeinName.com/coming-soon
+    * @todo Route name : site.coming-soon
+    */
+    Route::get('coming-soon',[WebsiteController::class ,'coming_soon']) -> name('site.coming-soon');
+
+    /** 404-page page
+    * @todo URL:www.DomeinName.com/404-page
+    * @todo Route name : site.404-page
+    */
+    Route::get('404-page',[WebsiteController::class ,'page_404']) -> name('site.404-page');
+
+    /** become-a-vendor page
+    * @todo URL:www.DomeinName.com/become-a-vendor
+    * @todo Route name : site.become-a-vendor
+    */
+    Route::get('become-a-vendor',[WebsiteController::class ,'become_a_vendor']) -> name('site.become-a-vendor');
+
+    /** my-account page
+    * @todo URL:www.DomeinName.com/my-account
+    * @todo Route name : site.my-account
+    */
+    Route::get('my-account',[WebsiteController::class ,'my_account']) -> name('site.my-account');
+
+    /** lost-password page
+    * @todo URL:www.DomeinName.com/my-account/lost-password
+    * @todo Route name : site.lost-password
+    */
+    Route::get('my-account/lost-password',[WebsiteController::class ,'lost_password']) -> name('site.lost-password');
+
+    /** wish-list page
+    * @todo URL:www.DomeinName.com/wish-list
+    * @todo Route name : site.wish-list
+    */
+    Route::get('wish-list',[WebsiteController::class ,'wish_list']) -> name('site.wish-list');
 });
 
-Route::get('/', function () {
-    return view('front.home');
-})->name('site.index');
-
-// contact-us
-Route::get('/contact-us', function () {
-    return view('front.pages.contact-us');
-})->name('site.contact-us.index');
-
-// about-us
-Route::get('/about-us', function () {
-    return view('front.pages.about-us');
-})->name('site.about-us.index');
 
 // // store-listing
 // Route::get('/store-listing', function () {
 //     return view('front.pages.store-listing');
 // })->name('site.store-listing.index');
 
-// store
-Route::get('/store', function () {
-    return view('front.pages.store');
-})->name('site.store.index');
-
-// faqs
-Route::get('/faqs', function () {
-    return view('front.pages.faqs');
-})->name('site.faqs.index');
-
-// coming-soon
-Route::get('/coming-soon', function () {
-    return view('front.pages.coming-soon');
-})->name('site.coming-soon.index');
-
-// 404-page
-Route::get('/404-page', function () {
-    return view('front.pages.404-page');
-})->name('site.404-page.index');
-
-// become-a-vendor
-Route::get('/become-a-vendor', function () {
-    return view('front.pages.become-a-vendor');
-})->name('site.become-a-vendor.index');
-
-// my-account "{{route('site.my-account.index')}}"
-Route::get('/my-account', function () {
-    return view('front.pages.auth.my-account');
-})->name('site.my-account.index');
-
-// // lost-password
-// Route::get('/my-account/lost-password', function () {
-//     return view('front.pages.auth.lost-password');
-// })->name('site.lost-password.index');
 
 // // our-press
 // Route::get('/our-press', function () {
 //     return view('front.pages.our-press');
 // })->name('site.our-press.index');
 
-// wish-list
-Route::get('/wish-list', function () {
-    return view('front.pages.wish-list');
-})->name('site.wish-list.index');

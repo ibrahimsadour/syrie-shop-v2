@@ -70,7 +70,7 @@
     </div>
     <div class="ps-call-to-action">
         <div class="container">
-            <h3 style="text-align: center;">نحن هنا للمساعدة !<a href="{{route('site.contact-us.index')}}"> اتصل بنا</a></h3>
+            <h3 style="text-align: center;">نحن هنا للمساعدة !<a href="{{route('site.contact-us')}}"> اتصل بنا</a></h3>
         </div>
     </div>
 </div>

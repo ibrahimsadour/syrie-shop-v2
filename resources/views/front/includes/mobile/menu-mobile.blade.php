@@ -30,14 +30,14 @@
                     </li>
                 </ul>
             </li>
-            <li class="menu-item-has-children has-mega-menu"><a href="shop-default.html">السوق</a><span class="sub-toggle"></span>
+            <li class="menu-item-has-children has-mega-menu"><a href="{{route('site.store')}}">السوق</a><span class="sub-toggle"></span>
                 <div class="mega-menu">
                     <div class="mega-menu__column">
                         <h4>Catalog Pages<span class="sub-toggle"></span></h4>
                         <ul class="mega-menu__list">
-                            <li class="current-menu-item "><a href="shop-default.html">Shop Default</a>
+                            <li class="current-menu-item "><a href="{{route('site.store')}}">Shop Default</a>
                             </li>
-                            <li class="current-menu-item "><a href="shop-default.html">Shop Fullwidth</a>
+                            <li class="current-menu-item "><a href="{{route('site.store')}}">Shop Fullwidth</a>
                             </li>
                             <li class="current-menu-item "><a href="shop-categories.html">Shop Categories</a>
                             </li>
@@ -104,7 +104,7 @@
                             </li>
                             <li class="current-menu-item "><a href="order-tracking.html">Order Tracking</a>
                             </li>
-                            <li class="current-menu-item "><a href="{{route('site.my-account.index')}}">My Account</a>
+                            <li class="current-menu-item "><a href="{{route('site.my-account')}}">My Account</a>
                             </li>
                         </ul>
                     </div>
@@ -115,22 +115,22 @@
                     <div class="mega-menu__column">
                         <h4>الصفحات الأساسية<span class="sub-toggle"></span></h4>
                         <ul class="mega-menu__list">
-                            <li class="current-menu-item "><a href="{{route('site.about-us.index')}}">معلومات عنا</a>
+                            <li class="current-menu-item "><a href="{{route('site.about-us')}}">معلومات عنا</a>
                             </li>
-                            <li class="current-menu-item "><a href="{{route('site.contact-us.index')}}">اتصل بنا</a>
+                            <li class="current-menu-item "><a href="{{route('site.contact-us')}}">اتصل بنا</a>
                             </li>
-                            <li class="current-menu-item "><a href="{{route('site.faqs.index')}}">الاسئلة الشائعة</a>
+                            <li class="current-menu-item "><a href="{{route('site.faqs')}}">الاسئلة الشائعة</a>
                             </li>
-                            <li class="current-menu-item "><a href="{{route('site.coming-soon.index')}}">الموقع قيد الإنشاء</a>
+                            <li class="current-menu-item "><a href="{{route('site.coming-soon')}}">الموقع قيد الإنشاء</a>
                             </li>
-                            <li class="current-menu-item "><a href="{{route('site.404-page.index')}}">404 Page</a>
+                            <li class="current-menu-item "><a href="{{route('site.404-page')}}">404 Page</a>
                             </li>
                         </ul>
                     </div>
                     <div class="mega-menu__column">
                         <h4>صفحات التجار<span class="sub-toggle"></span></h4>
                         <ul class="mega-menu__list">
-                            <li class="current-menu-item "><a href="{{route('site.become-a-vendor.index')}}">افتح متجرك في سوق البلد</a>
+                            <li class="current-menu-item "><a href="{{route('site.become-a-vendor')}}">افتح متجرك في سوق البلد</a>
                             </li>
                             <li class="current-menu-item "><a href="vendor-store.html">متجر البائع</a>
                             </li>

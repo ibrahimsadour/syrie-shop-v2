@@ -11,102 +11,105 @@
         <!-- Begin The best selling sections /الاقسام الافضل مبيعا -->
         <div class="ps-top-categories" style="padding: 10px 0 20px;">
             <div class="ps-container">
-                <h3>الأقسام الأفضل مبيعاً</h3>
+                <h3>الأقسام</h3>
                 <div class="row">
                     <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
-                        <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img
-                                src="{{asset('assets/front/img/categories/1.jpg')}}" alt="">
-                            <p>الكترونيات</p>
+                        <div class="ps-block--category"><a class="ps-block__overlay" href="{{route('site.store')}}"></a><img
+                                src="{{asset('assets/front/img/categories/smart phone.jpg')}}" alt="">
+                            <p>الهواتف الذكية</p>
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
-                        <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img
-                                src="{{asset('assets/front/img/categories/2.jpg')}}" alt="">
-                            <p>ملابس</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
-                        <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img
+                        <div class="ps-block--category"><a class="ps-block__overlay" href="{{route('site.store')}}"></a><img
                                 src="{{asset('assets/front/img/categories/3.jpg')}}" alt="">
                             <p>أجهزةالكمبيوتر</p>
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
-                        <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img
-                                src="{{asset('assets/front/img/categories/4.jpg')}}" alt="">
-                            <p>المنزل والمطبخ</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
-                        <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img
-                                src="{{asset('assets/front/img/categories/5.jpg')}}" alt="">
-                            <p>الصحة &amp; الجمال</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
-                        <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img
-                                src="{{asset('assets/front/img/categories/6.jpg')}}" alt="">
-                            <p>الصحة &amp; الجمال</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
-                        <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img
-                                src="{{asset('assets/front/img/categories/7.jpg')}}" alt="">
-                            <p>المجوهرات & الساعات</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
-                        <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img
-                                src="{{asset('assets/front/img/categories/8.jpg')}}" alt="">
-                            <p>ألعاب التكنولوجيا</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
-                        <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img
+                        <div class="ps-block--category"><a class="ps-block__overlay" href="{{route('site.store')}}"></a><img
                                 src="{{asset('assets/front/img/categories/1.jpg')}}" alt="">
                             <p>الكترونيات</p>
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
-                        <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img
-                                src="{{asset('assets/front/img/categories/2.jpg')}}" alt="">
-                            <p>ملابس</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
-                        <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img
-                                src="{{asset('assets/front/img/categories/3.jpg')}}" alt="">
-                            <p>أجهزةالكمبيوتر</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
-                        <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img
-                                src="{{asset('assets/front/img/categories/4.jpg')}}" alt="">
+                        <div class="ps-block--category"><a class="ps-block__overlay" href="{{route('site.store')}}"></a><img
+                                src="{{asset('assets/front/img/categories/Home-and-kitchen.png')}}" alt="">
                             <p>المنزل والمطبخ</p>
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
-                        <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img
-                                src="{{asset('assets/front/img/categories/5.jpg')}}" alt="">
+                        <div class="ps-block--category"><a class="ps-block__overlay" href="{{route('site.store')}}"></a><img
+                                src="{{asset('assets/front/img/categories/furniture.png')}}" alt="">
+                            <p>أثاث ومفروشات</p>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
+                        <div class="ps-block--category"><a class="ps-block__overlay" href="{{route('site.store')}}"></a><img
+                                src="{{asset('assets/front/img/categories/Baby essentials.png')}}" alt="">
+                            <p>مستلزمات الأطفال</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
+                        <div class="ps-block--category"><a class="ps-block__overlay" href="{{route('site.store')}}"></a><img
+                                src="{{asset('assets/front/img/categories/health-products.png')}}" alt="">
                             <p>الصحة &amp; الجمال</p>
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
-                        <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img
-                                src="{{asset('assets/front/img/categories/6.jpg')}}" alt="">
-                            <p>الصحة &amp; الجمال</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
-                        <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img
-                                src="{{asset('assets/front/img/categories/7.jpg')}}" alt="">
+                        <div class="ps-block--category"><a class="ps-block__overlay" href="{{route('site.store')}}"></a><img
+                                src="{{asset('assets/front/img/categories/Jewelry & watches.jpg')}}" alt="">
                             <p>المجوهرات & الساعات</p>
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
-                        <div class="ps-block--category"><a class="ps-block__overlay" href="shop-default.html"></a><img
-                                src="{{asset('assets/front/img/categories/8.jpg')}}" alt="">
-                            <p>ألعاب التكنولوجيا</p>
+                        <div class="ps-block--category"><a class="ps-block__overlay" href="{{route('site.store')}}"></a><img
+                                src="{{asset('assets/front/img/categories/Vehicles.png')}}" alt="">
+                            <p>المركبات</p>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
+                        <div class="ps-block--category"><a class="ps-block__overlay" href="{{route('site.store')}}"></a><img
+                                src="{{asset('assets/front/img/categories/Real estate.png')}}" alt="">
+                            <p>العقارات</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
+                        <div class="ps-block--category"><a class="ps-block__overlay" href="{{route('site.store')}}"></a><img
+                                src="{{asset('assets/front/img/categories/generators.png')}}" alt="">
+                            <p>مولدات الكهرباء</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
+                        <div class="ps-block--category"><a class="ps-block__overlay" href="{{route('site.store')}}"></a><img
+                                src="{{asset('assets/front/img/categories/Jobs and careers.png')}}" alt="">
+                            <p>وظائف ومهن</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
+                        <div class="ps-block--category"><a class="ps-block__overlay" href="{{route('site.store')}}"></a><img
+                                src="{{asset('assets/front/img/categories/meals.png')}}" alt="">
+                            <p>المطاعم</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
+                        <div class="ps-block--category"><a class="ps-block__overlay" href="{{route('site.store')}}"></a><img
+                                src="{{asset('assets/front/img/categories/Clothes.jpg')}}" alt="">
+                            <p>الملابس</p>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
+                        <div class="ps-block--category"><a class="ps-block__overlay" href="{{route('site.store')}}"></a><img
+                                src="{{asset('assets/front/img/categories/Other sections.png')}}" alt="">
+                            <p>أقسام أخرى</p>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
+                        <div class="ps-block--category"><a class="ps-block__overlay" href="{{route('site.store')}}"></a><img
+                                src="{{asset('assets/front/img/categories/coming soon.png')}}" alt="">
+                            <!-- <p>coming soon</p> -->
                         </div>
                     </div>
                 </div>
