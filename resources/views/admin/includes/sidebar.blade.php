@@ -72,10 +72,10 @@
                         class="badge badge badge-warning  badge-pill float-right mr-2">400</span>
                 </a>
                 <ul class="menu-content">
-                    <li class=""><a class="menu-item" href=""
+                    <li class=""><a class="menu-item" href="{{route('admin.brands')}}"
                                           data-i18n="nav.dash.ecommerce"> عرض الكل الماركات </a>
                     </li>
-                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto">أضافة ماركة جديدة</a>
+                    <li><a class="menu-item" href="{{route('admin.brands.create')}}" data-i18n="nav.dash.crypto">أضافة ماركة جديدة</a>
                     </li>
                 </ul>
             </li>

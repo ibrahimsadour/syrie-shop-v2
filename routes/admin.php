@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LanguagesController;
 use App\Http\Controllers\Admin\MainCategoriesController;
+use App\Http\Controllers\Admin\BrandsController;
 use App\Http\Controllers\Admin\VendorsController;
 use App\Http\Controllers\Admin\SubCategoriesController;
 /*
@@ -73,6 +74,21 @@ Route::group(['namespace'=>'Admin','middleware' => 'auth:admin'], function() {
 
     });
     ######################### End  Sub Categoris Routes  ########################
+
+
+    ######################### Begin  Brands Routes ########################
+    Route::group(['prefix' => 'brands'], function () {
+
+        Route::get('/', [BrandsController::class ,'index']) -> name('admin.brands');
+        Route::get('create',[BrandsController::class ,'create']) -> name('admin.brands.create');
+        Route::post('store',[BrandsController::class ,'store']) -> name('admin.brands.store');
+        Route::get('edit/{id}',[BrandsController::class ,'edit']) -> name('admin.brands.edit');
+        Route::post('update/{id}',[BrandsController::class ,'update']) -> name('admin.brands.update');
+        Route::get('delete/{id}',[BrandsController::class ,'destroy']) -> name('admin.brands.delete');
+        //change Status the brands 
+        Route::get('changeStatus/{id}',[MainCategoriesController::class ,'changeStatus']) -> name('admin.brands.status');
+    });
+    ######################### End   Brands Routes  ########################
 
 
     ######################### Begin vendors Routes ###############################
