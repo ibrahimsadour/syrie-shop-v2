@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Observers\MainCategoryObserver;
 use App\Models\SubCategory;
+use App\Models\Brands;
+use App\Models\Vendor;
 class MainCategory extends Model
 {
     use HasFactory;
@@ -63,16 +65,32 @@ class MainCategory extends Model
         return $this->hasMany(self::class, 'translation_of');
     }
 
-  
-    // get all subCategories 
+
+    ######################### Begin relationship ########################
+    /**
+     * subCategories
+     * @todo get all subCategories
+     * @return void
+     */
     public  function subCategories(){
         return $this -> hasMany(SubCategory::class,'category_id','id');
     }
-
-
-
+    /**
+     * vendors
+     * @todo get all vendors 
+     * @return void
+     */
     public function vendors(){
-
-        return $this -> hasMany('App\Models\Vendor','category_id','id');
+        return $this -> hasMany(Vendor::class,'category_id','id');
     }
+    /**
+     * brands
+     * @todo get all Brands 
+     * @return void
+     */
+    public  function brands(){
+        return $this -> hasMany(Brands::class,'category_id','id');
+    }
+    ######################### End relationship  ########################
+
 }

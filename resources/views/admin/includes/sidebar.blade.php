@@ -67,13 +67,11 @@
 
 
             <li class="nav-item"><a href=""><i class="la la-male"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">الماركات  </span>
-                    <span
-                        class="badge badge badge-warning  badge-pill float-right mr-2">400</span>
+                     <span class="menu-title" data-i18n="nav.dash.main">الماركات </span>
+                    <span   class="badge badge badge-warning  badge-pill float-right mr-2">{{App\Models\Brands::count()}}</span>
                 </a>
                 <ul class="menu-content">
-                    <li class=""><a class="menu-item" href="{{route('admin.brands')}}"
-                                          data-i18n="nav.dash.ecommerce"> عرض الكل الماركات </a>
+                    <li class=""><a class="menu-item" href="{{route('admin.brands')}}" data-i18n="nav.dash.ecommerce"> عرض الكل الماركات </a>
                     </li>
                     <li><a class="menu-item" href="{{route('admin.brands.create')}}" data-i18n="nav.dash.crypto">أضافة ماركة جديدة</a>
                     </li>

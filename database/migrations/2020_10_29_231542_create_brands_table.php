@@ -15,6 +15,8 @@ class CreateBrandsTable extends Migration
     {
         Schema::create('brands', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('parent_id')->default('0');
+            $table->integer('category_id')->unsigned()->nullable();
             $table->string('translation_lang');
             $table->integer('translation_of')->unsigned();
             $table->string('name');

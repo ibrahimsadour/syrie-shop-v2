@@ -1,17 +1,18 @@
-@extends('admin.layouts.admin')
 
+@extends('admin.layouts.admin')
 @section('content')
+
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2">
-                    <h3 class="content-header-title">  Brands</h3>
+                    <h3 class="content-header-title">@lang('admin/create.Brands')  </h3>
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Main</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">@lang('admin/create.Main') </a>
                                 </li>
-                                <li class="breadcrumb-item active"> Brands
+                                <li class="breadcrumb-item active"> @lang('admin/create.Brands') 
                                 </li>
                             </ol>
                         </div>
@@ -25,7 +26,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title"> All  brands</h4>
+                                    <h4 class="card-title"> @lang('admin/create.Brands')  </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -47,11 +48,13 @@
                                             class="table display nowrap table-striped table-bordered scroll-horizontal">
                                             <thead class="">
                                             <tr>
-                                                <th>Brands </th>
-                                                <th> language</th>
-                                                 <th>Status</th>
-                                                 <th>image brands</th>
-                                                <th>Action</th>
+                                                <th> @lang('admin/index.Name')  </th>
+                                                <th> @lang('admin/index.Main catergories') </th>
+                                                <th> @lang('admin/index.Slug') </th>
+                                                <th> @lang('admin/index.language') </th>
+                                                <th>@lang('admin/index.Status') </th>
+                                                <th>@lang('admin/index.image') </th>
+                                                <th>@lang('admin/index.Action') </th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -60,9 +63,16 @@
                                                 @foreach($brands as $brand)
                                                     <tr>
                                                         <td>{{$brand -> name}}</td>
+                                                        <td>@if($brand->category_id === 0) 
+                                                        <b class="warning">@lang('admin/create.without section')
+                                                         @else  
+                                                         <b class="">{{$brand->mainCategory->name}}</b>
+                                                        @endif
+                                                        </td> <!--Relation betwen sub cayegory and Main Category -->
+                                                        <td>{{$brand -> slug}}</td>
                                                         <td>{{get_default_lang()}}</td>
                                                         <td>
-                                                         @if($brand -> getActive() === "active") 
+                                                         @if($brand -> getActive() === "active" || $brand -> getActive() === "مفعل") 
                                                          <b class="success">{{$brand -> getActive() }}
                                                          @else  
                                                          <b class="warning">{{$brand -> getActive()}}</b>
@@ -72,23 +82,21 @@
                                                         <td>
                                                             <div class="btn-group" role="group"
                                                                  aria-label="Basic example">
-                                                                <a href="{{route('admin.maincategories.edit',$brand -> id)}}"
-                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">edit</a>
+                                                                <a href="{{route('admin.brands.edit',$brand -> id)}}"
+                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">@lang('admin/index.Edit')</a>
 
 
-                                                                <a href="{{route('admin.maincategories.delete',$brand -> id)}}"
-                                                                   class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">remove</a>
+                                                                <a href="{{route('admin.brands.delete',$brand -> id)}}"
+                                                                   class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">@lang('admin/index.Remove')</a>
 
-
-                                                                    @if($brand -> active == 0)
-                                                                    <a href="{{route('admin.maincategories.status',$brand -> id)}}"
-                                                                   class="btn btn-outline-success btn-min-width box-shadow-3 mr-1 mb-1">active</a>
+                                                                   @if($brand -> active == 0)
+                                                                    <a href="{{route('admin.brands.status',$brand -> id)}}"
+                                                                   class="btn btn-outline-success btn-min-width box-shadow-3 mr-1 mb-1">@lang('admin/index.Active')</a>
                                                                         @else
-                                                                    <a href="{{route('admin.maincategories.status',$brand -> id)}}"
+                                                                    <a href="{{route('admin.brands.status',$brand -> id)}}"
                                                                    class="btn btn-outline-warning btn-min-width box-shadow-3 mr-1 mb-1">
-                                                                   Deactivate</a>
+                                                                   @lang('admin/index.Deactivate')</a>
                                                                     @endif
-                                                                
 
 
                                                             </div>
@@ -112,4 +120,5 @@
             </div>
         </div>
     </div>
-@endsection
+
+    @stop

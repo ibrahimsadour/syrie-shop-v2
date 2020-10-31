@@ -75,6 +75,13 @@ return [
             'url' => env('APP_URL') . '/public',
             'visibility' => 'public',
         ],
+        // Hier bij wordt alle foto van de brand (الماركات) opgeslaagd
+        'brands' => [
+            'driver' => 'local',
+            'root' => public_path() . '/assets/images/brands/',
+            'url' => env('APP_URL') . '/public',
+            'visibility' => 'public',
+        ],
 
         's3' => [
             'driver' => 's3',

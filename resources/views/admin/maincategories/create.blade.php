@@ -9,11 +9,11 @@
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="">Main </a>
+                                <li class="breadcrumb-item"><a href="">@lang('admin/create.Main')  </a>
                                 </li>
-                                <li class="breadcrumb-item"><a href=""> Main Category </a>
+                                <li class="breadcrumb-item"><a href=""> @lang('admin/create.Main Catgegory')  </a>
                                 </li>
-                                <li class="breadcrumb-item active">Add a new section
+                                <li class="breadcrumb-item active"> @lang('admin/create.Add a MainCategory')
                                 </li>
                             </ol>
                         </div>
@@ -27,7 +27,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> add new section </h4>
+                                    <h4 class="card-title" id="basic-layout-form"> @lang('admin/create.Add a MainCategory') </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -46,7 +46,7 @@
                                         <form class="form" action="{{route('admin.maincategories.store')}}" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-group">
-                                                <label> section image </label>
+                                                <label>@lang('admin/create.Seactin image') </label>
                                                 <label id="projectinput7" class="file center-block">
                                                     <input type="file" id="file" name="photo">
                                                     <span class="file-custom"></span>
@@ -58,14 +58,14 @@
 
                                             <div class="form-body">
 
-                                                <h4 class="form-section"><i class="ft-home"></i> section data </h4>
+                                                <h4 class="form-section"><i class="ft-home"></i> @lang('admin/create.section data') </h4>
 
                                                 @if(get_languages() -> count() > 0)
                                                     @foreach(get_languages() as $index => $lang)
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label for="projectinput1"> section name - {{__('messages.'.$lang -> abbr)}} </label>
+                                                                    <label for="projectinput1">  @lang('admin/index.Name') - {{__('admin/create.'.$lang -> abbr)}} </label>
                                                                     <input type="text" value="" id="name"
                                                                            class="form-control"
                                                                            placeholder="  "
@@ -77,7 +77,7 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label for="projectinput1"> Slug - {{__('messages.'.$lang -> abbr)}}
+                                                                    <label for="projectinput1"> @lang('admin/index.Slug')  - {{__('admin/create.'.$lang -> abbr)}}
                                                                     </label>
                                                                     <input type="text" id="name"
                                                                             class="form-control"
@@ -93,7 +93,7 @@
 
                                                             <div class="col-md-6 hidden">
                                                                 <div class="form-group">
-                                                                    <label for="projectinput1"> أختصار اللغة {{__('messages.'.$lang -> abbr)}} </label>
+                                                                    <label for="projectinput1"> أختصار اللغة {{__('admin/create.'.$lang -> abbr)}} </label>
                                                                     <input type="text" id="abbr"
                                                                            class="form-control"
                                                                            placeholder="  "
@@ -117,7 +117,7 @@
                                                                            class="switchery" data-color="success"
                                                                            checked/>
                                                                     <label for="switcheryColor4"
-                                                                           class="card-title ml-1">ststus  {{__('messages.'.$lang -> abbr)}} </label>
+                                                                           class="card-title ml-1">@lang('admin/index.Status') -  {{__('admin/create.'.$lang -> abbr)}} </label>
 
                                                                     @error("category.$index.active")
                                                                     <span class="text-danger"> </span>
@@ -133,10 +133,10 @@
                                             <div class="form-actions">
                                                 <button type="button" class="btn btn-warning mr-1"
                                                         onclick="history.back();">
-                                                    <i class="ft-x"></i> back
+                                                    <i class="ft-x"></i> @lang('admin/create.Back')
                                                 </button>
                                                 <button type="submit" class="btn btn-primary">
-                                                    <i class="la la-check-square-o"></i> save
+                                                    <i class="la la-check-square-o"></i> @lang('admin/create.Add')
                                                 </button>
                                             </div>
                                         </form>

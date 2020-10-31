@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\MainCategory;
 class Brands extends Model
 {
     use HasFactory;
@@ -14,7 +14,7 @@ class Brands extends Model
     protected $table = 'brands';
 
     protected $fillable = [
-        'id ', 'translation_lang','translation_of','name','slug','photo','active','created_at','updated_at'
+        'id ','parent_id','category_id', 'translation_lang','translation_of','name','slug','photo','active','created_at','updated_at'
     ];
 
  
@@ -28,7 +28,7 @@ class Brands extends Model
     public function scopeSelection($query)
     {
 
-        return $query->select('id', 'translation_lang', 'name', 'slug', 'photo', 'active', 'translation_of');
+        return $query->select('id','parent_id','category_id', 'translation_lang', 'name', 'slug', 'photo', 'active', 'translation_of');
     }
 
     //whene you get Photo from database (automacly added http://dominName/ecommerce/assets/)
@@ -41,7 +41,9 @@ class Brands extends Model
 
     public function getActive()
     {
-        return $this->active == 1 ? 'active'  : 'inactive';
+        $inactive = __('admin/index.inactive');
+        $active = __('admin/index.active');
+        return $this->active == 1 ? $active  : $inactive;
 
     }
 
@@ -56,6 +58,14 @@ class Brands extends Model
         return $this->hasMany(self::class, 'translation_of');
     }
 
-  
+    /**
+     * mainCategory
+     * Get all main category of the sub category    
+     * @return void
+    */
+    public  function mainCategory(){
+        return $this -> belongsTo(MainCategory::class,'category_id','id');
+    }
+    
  
 }

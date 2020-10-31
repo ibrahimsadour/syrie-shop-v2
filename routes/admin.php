@@ -86,7 +86,7 @@ Route::group(['namespace'=>'Admin','middleware' => 'auth:admin'], function() {
         Route::post('update/{id}',[BrandsController::class ,'update']) -> name('admin.brands.update');
         Route::get('delete/{id}',[BrandsController::class ,'destroy']) -> name('admin.brands.delete');
         //change Status the brands 
-        Route::get('changeStatus/{id}',[MainCategoriesController::class ,'changeStatus']) -> name('admin.brands.status');
+        Route::get('changeStatus/{id}',[BrandsController::class ,'changeStatus']) -> name('admin.brands.status');
     });
     ######################### End   Brands Routes  ########################
 

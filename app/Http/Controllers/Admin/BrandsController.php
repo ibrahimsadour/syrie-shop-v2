@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
+use App\Http\Requests\BrandsRequest;
 use DB;
 use App\Models\Brands;
 use Illuminate\Support\Str;
+use App\Models\MainCategory;
 class BrandsController extends Controller
 {
     public function index()
@@ -17,26 +19,28 @@ class BrandsController extends Controller
         $default_lang = get_default_lang();
         $brands = Brands::where('translation_lang', $default_lang)
             ->selection()
-            ->get();
-
+            ->orderBy('id','DESC') -> paginate(PAGINATION_COUNT);
+        // return $brands;
         return view('admin.brands.index', compact('brands'));
     }
 
     public function create()
     {
-        return view('admin.brands.create');
+        $default_lang = get_default_lang();
+        $categories = MainCategory::where('translation_lang', $default_lang)->active()->orderBy('id','DESC') -> get();
+        return view('admin.brands.create', compact('categories'));
     }
 
 
-    public function store(MainCategoryRequest $request)
+    public function store(BrandsRequest $request)
     {
 
         try {
-            //return $request;
-
 
             //  veranderen van object(array) naar collection with deze regel
-            $main_categories = collect($request->brand);
+            $brands = collect($request->brand);
+
+            // return $brands;
 
 
             /*
@@ -50,18 +54,18 @@ class BrandsController extends Controller
             Bijvoorbeeld : in de form voeg ik de foto daarna de name in bepalde taal 
             en de tweede naam is de vertaling van de eerste naam.
             */
-            $filter = $main_categories->filter(function ($value, $key) {
+            $filter = $brands->filter(function ($value, $key) {
                 return $value['abbr'] == get_default_lang();
             });
 
             // veranderen van object naar array
-            $default_category = array_values($filter->all()) [0];
+            $default_brand = array_values($filter->all()) [0];
 
 
             $filePath = "";
             if ($request->has('photo')) {
 
-                $filePath = uploadImage('maincategories', $request->photo);
+                $filePath = uploadImage('brands', $request->photo);
             }
 
             DB::beginTransaction(); 
@@ -76,107 +80,115 @@ class BrandsController extends Controller
             ### }
 
 
-            $default_category_id = Brands::insertGetId([
-                'translation_lang' => $default_category['abbr'],
+            $default_brand_id = Brands::insertGetId([
+                'translation_lang' => $default_brand['abbr'],
                 'translation_of' => 0,
-                'name' => $default_category['name'],
-                'slug' => $default_category['slug'],
+                'category_id'=>$request->category_id,
+                'name' => $default_brand['name'],
+                'slug' => $default_brand['slug'],
                 'photo' => $filePath
             ]);
-
-            $categories = $main_categories->filter(function ($value, $key) {
+            
+            // here is the second insert for the second lang
+            $brandsLng = $brands->filter(function ($value, $key) {
                 return $value['abbr'] != get_default_lang();
             });
 
 
-            if (isset($categories) && $categories->count()) {
+            if (isset($brandsLng) && $brandsLng->count()) {
 
-                $categories_arr = [];
-                foreach ($categories as $category) {
-                    $categories_arr[] = [
-                        'translation_lang' => $category['abbr'],
-                        'translation_of' => $default_category_id,
-                        'name' => $category['name'],
-                        'slug' => $category['slug'],
+                $brandsLng_arr = [];
+                foreach ($brandsLng as $brandLng) {
+                    $brandsLng_arr[] = [
+                        'translation_lang' => $brandLng['abbr'],
+                        'translation_of' => $default_brand_id,
+                        'category_id'=>$request->category_id,
+                        'name' => $brandLng['name'],
+                        'slug' => $brandLng['slug'],
                         'photo' => $filePath
                     ];
                 }
 
-                Brands::insert($categories_arr);
+                Brands::insert($brandsLng_arr);
             }
 
             DB::commit();
 
-            return redirect()->route('admin.maincategories')->with(['success' => 'تم الحفظ بنجاح']);
+            return redirect()->route('admin.brands')->with(['success' => 'تم الحفظ بنجاح']);
 
         } catch (\Exception $ex) {
             return $ex;
             DB::rollback();
-            return redirect()->route('admin.maincategories')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+            return redirect()->route('admin.brands')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
         }
 
     }
 
 
-    public function edit($mainCat_id)
+    public function edit($id)
     {
         //get specific categories and its translations
-        $mainCategory = Brands::with('categories')
-            ->selection()
-            ->find($mainCat_id);
+        $brands = Brands::Selection()->find($id);
 
-        if (!$mainCategory)
-            return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود ']);
+        if (!$brands)
+            return redirect()->route('admin.brands')->with(['error' => 'هذا القسم غير موجود ']);
 
-        return view('admin.maincategories.edit', compact('mainCategory'));
+        $default_lang = get_default_lang();
+        $main_categories = MainCategory::where('translation_lang', $default_lang)->active()->orderBy('id','DESC') -> get();
+
+
+        return view('admin.brands.edit', compact('main_categories','brands'));
     }
 
 
-    public function update($mainCat_id, MainCategoryRequest $request)
+    public function update($id, BrandsRequest $request)
     {
-            //validation => MainCategoryRequest
+            //validation => BrandsRequest
 
 
 
         try {
             //find main
-            $main_category = Brands::find($mainCat_id);
+            $brands = Brands::find($id);
 
-            if (!$main_category)
-                return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود ']);
+            if (!$brands)
+                return redirect()->route('admin.brands')->with(['error' => 'هذا القسم غير موجود ']);
 
             // update date
+            $allBrands = array_values($request->brand) [0];
+            // return $allBrands;
+            // return $request->category_id;
 
-            $category = array_values($request->category) [0];
-
-            if (!$request->has('category.0.active'))
+            if (!$request->has('brand.0.active'))
                 $request->request->add(['active' => 0]);
             else
                 $request->request->add(['active' => 1]);
 
 
-            Brands::where('id', $mainCat_id)
+            Brands::where('id', $id)
                 ->update([
-                    'name' => $category['name'],
-                    'slug' => $category['slug'],
+                    'category_id'=>$request->category_id,
+                    'name' => $allBrands['name'],
+                    'slug' => $allBrands['slug'],
                     'active' => $request->active,
                 ]);
 
             // save image
 
             if ($request->has('photo')) {
-                $filePath = uploadImage('maincategories', $request->photo);
-                Brands::where('id', $mainCat_id)
+                $filePath = uploadImage('brands', $request->photo);
+                Brands::where('id', $id)
                     ->update([
                         'photo' => $filePath,
                     ]);
             }
 
 
-            return redirect()->route('admin.maincategories')->with(['success' => 'تم ألتحديث بنجاح']);
-        } catch (\Exception $ex) {
+            return redirect()->route('admin.brands')->with(['success' => 'تم ألتحديث بنجاح']);
 
-            return redirect()->route('admin.maincategories')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+        } catch (\Exception $ex) {
+            // return $ex;
+            return redirect()->route('admin.brands')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
         }
 
     }
@@ -186,51 +198,46 @@ class BrandsController extends Controller
     {
 
         try {
-            $maincategory = Brands::find($id);
-            if (!$maincategory)
-                return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود ']);
+            $brands = Brands::find($id);
+            if (!$brands)
+                return redirect()->route('admin.brands')->with(['error' => 'هذا القسم غير موجود ']);
 
-            // relatie tussen de maincategory en vendors ( als de maincategory bevat vendors kan het niet verwijderen )
-            $vendors = $maincategory->vendors();
-            if (isset($vendors) && $vendors->count() > 0) {
-                return redirect()->route('admin.maincategories')->with(['error' => 'لأ يمكن حذف هذا القسم  ']);
-            }
 
             ## Delet image
             ##Srt is cutting helper method
-            $image = Str::after($maincategory->photo, 'assets/');
+            $image = Str::after($brands->photo, 'assets/');
             $image = public_path('assets/' . $image);
             unlink($image); //delete from folder
 
             #Delet all translation of the categories
-            $maincategory -> categories() -> delete();
+            $brands -> brands() -> delete();
         
             #delet section
-            $maincategory->delete();
+            $brands->delete();
 
-            return redirect()->route('admin.maincategories')->with(['success' => 'تم حذف القسم بنجاح']);
+            return redirect()->route('admin.brands')->with(['success' => 'تم حذف القسم بنجاح']);
 
         } catch (\Exception $ex) {
             // return $ex;
-            return redirect()->route('admin.maincategories')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+            return redirect()->route('admin.brands')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
         }
     }
 
     public function changeStatus($id)
     {
         try {
-            $maincategory = Brands::find($id);
-            if (!$maincategory)
-                return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود ']);
+            $brands = Brands::find($id);
+            if (!$brands)
+                return redirect()->route('admin.brands')->with(['error' => 'هذا القسم غير موجود ']);
 
-           $status =  $maincategory -> active  == 0 ? 1 : 0;
+           $status =  $brands -> active  == 0 ? 1 : 0;
 
-           $maincategory -> update(['active' =>$status ]);
+           $brands -> update(['active' =>$status ]);
 
-            return redirect()->route('admin.maincategories')->with(['success' => ' تم تغيير الحالة بنجاح ']);
+            return redirect()->route('admin.brands')->with(['success' => ' تم تغيير الحالة بنجاح ']);
 
         } catch (\Exception $ex) {
-            return redirect()->route('admin.maincategories')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+            return redirect()->route('admin.brands')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
         }
     }
 
