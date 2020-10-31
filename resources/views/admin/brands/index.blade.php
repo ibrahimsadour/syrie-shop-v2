@@ -49,7 +49,6 @@
                                             <thead class="">
                                             <tr>
                                                 <th> @lang('admin/index.Name')  </th>
-                                                <th> @lang('admin/index.Main catergories') </th>
                                                 <th> @lang('admin/index.Slug') </th>
                                                 <th> @lang('admin/index.language') </th>
                                                 <th>@lang('admin/index.Status') </th>
@@ -63,12 +62,6 @@
                                                 @foreach($brands as $brand)
                                                     <tr>
                                                         <td>{{$brand -> name}}</td>
-                                                        <td>@if($brand->category_id === 0) 
-                                                        <b class="warning">@lang('admin/create.without section')
-                                                         @else  
-                                                         <b class="">{{$brand->mainCategory->name}}</b>
-                                                        @endif
-                                                        </td> <!--Relation betwen sub cayegory and Main Category -->
                                                         <td>{{$brand -> slug}}</td>
                                                         <td>{{get_default_lang()}}</td>
                                                         <td>

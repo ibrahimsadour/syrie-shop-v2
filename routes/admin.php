@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LanguagesController;
 use App\Http\Controllers\Admin\MainCategoriesController;
 use App\Http\Controllers\Admin\BrandsController;
+use App\Http\Controllers\Admin\TagsController;
 use App\Http\Controllers\Admin\VendorsController;
 use App\Http\Controllers\Admin\SubCategoriesController;
 /*
@@ -74,6 +75,24 @@ Route::group(['namespace'=>'Admin','middleware' => 'auth:admin'], function() {
 
     });
     ######################### End  Sub Categoris Routes  ########################
+
+
+    ######################### Begin  Tags Routes ########################
+    Route::group(['prefix' => 'tags'], function () {
+
+        Route::get('/', [TagsController::class ,'index']) -> name('admin.tags');
+        Route::get('create',[TagsController::class ,'create']) -> name('admin.tags.create');
+        Route::post('store',[TagsController::class ,'insert']) -> name('admin.tags.store');
+        // Route::post('store', function () {
+        //     return'fff';
+        // })-> name('admin.tags.store');
+        Route::get('edit/{id}',[TagsController::class ,'edit']) -> name('admin.tags.edit');
+        Route::post('update/{id}',[TagsController::class ,'update']) -> name('admin.tags.update');
+        Route::get('delete/{id}',[TagsController::class ,'destroy']) -> name('admin.tags.delete');
+        //change Status the tags 
+        Route::get('changeStatus/{id}',[TagsController::class ,'changeStatus']) -> name('admin.tags.status');
+    });
+    ######################### End   BraTagsnds Routes  ########################
 
 
     ######################### Begin  Brands Routes ########################

@@ -13,7 +13,9 @@ return [
     // Brand
     'Brands' => 'Brands',
     'Add a Brand' => 'Add a Brand',
-
+   // Tags
+   'Tags' => 'Tags',
+   'Add a Tags' => 'Add a Tags',
 
     'section data'=>'section data',
     'Seactin image'=>'Seactin image',

@@ -62,15 +62,21 @@
                                                     @foreach($sub_categories as $sub_category)
                                                         <tr>
                                                             <td>{{$sub_category -> name}}</td>
-                                                            <td>{{$sub_category ->mainCategory-> name}}</td> <!--Relation betwen sub cayegory and Main Category -->
+                                                            <td>
+                                                            @if($sub_category->category_id === 0) 
+                                                            <b class="warning">@lang('admin/create.without section')
+                                                            @else  
+                                                            <b class="">{{$sub_category->mainCategory->name}}</b>
+                                                            @endif
+                                                            </td> <!--Relation betwen sub cayegory and Main Category -->
                                                             <td>{{$sub_category -> slug}}</td>
                                                             <td>{{get_default_lang()}}</td>
                                                             <td>
-                                                            @if($sub_category -> getActive() === "active") 
-                                                            <b class="success">{{$sub_category -> getActive() }}
-                                                            @else  
-                                                            <b class="warning">{{$sub_category -> getActive()}}</b>
-                                                            @endif
+                                                                @if($sub_category -> getActive() === "active" || $sub_category -> getActive() === "مفعل") 
+                                                                <b class="success">{{$sub_category -> getActive() }}
+                                                                @else  
+                                                                <b class="warning">{{$sub_category -> getActive()}}</b>
+                                                                @endif
                                                             </td>
                                                             <td> <img style="width: 150px; height: 100px;" src="{{$sub_category -> 	photo}}"></td>
                                                             <td>

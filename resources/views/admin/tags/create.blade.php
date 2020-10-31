@@ -10,9 +10,9 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="">@lang('admin/create.Main') </a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{route('admin.subcategories')}}"> @lang('admin/create.Brands') </a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.tags')}}"> @lang('admin/create.Tags') </a>
                                 </li>
-                                <li class="breadcrumb-item active">  @lang('admin/create.Add a Brand')</li>
+                                <li class="breadcrumb-item active">  @lang('admin/create.Add a Tags')</li>
                             </ol>
                         </div>
                     </div>
@@ -25,7 +25,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> @lang('admin/create.Add a Brand')</h4>
+                                    <h4 class="card-title" id="basic-layout-form"> @lang('admin/create.Add a Tags')</h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -42,24 +42,10 @@
                                 <div class="card-content collapse show">
                                     <div class="card-body">
                                         <form class="form"
-                                              action="{{route('admin.brands.store')}}"
+                                              action="{{route('admin.tags.store')}}"
                                               method="POST"
                                               enctype="multipart/form-data">
                                             @csrf
-
-
-                                            <div class="form-group">
-                                                <label>  @lang('admin/create.Seactin image')</label>
-                                                <label id="projectinput7" class="file center-block">
-                                                    <input type="file" id="file" name="photo" placeholder="">
-                                                    <span class="file-custom"></span>
-                                                </label>
-                                                @error('photo')
-                                                <span class="text-danger">{{$message}}</span>
-                                                @enderror
-                                            </div>
-
-
 
                                                 
                                             <div class="form-body">
@@ -73,8 +59,8 @@
                                                                     <input type="text" value="" id="name"
                                                                         class="form-control"
                                                                         placeholder="  "
-                                                                        name="brand[{{$index}}][name]">
-                                                                    @error("brand.$index.name")
+                                                                        name="tag[{{$index}}][name]">
+                                                                    @error("tag.$index.name")
                                                                     <span class="text-danger"> هذا الحقل مطلوب</span>
                                                                     @enderror
                                                                 </div>
@@ -87,8 +73,8 @@
                                                                             class="form-control"
                                                                             placeholder="  "
                                                                             value="{{old('slug')}}"
-                                                                            name="brand[{{$index}}][slug]">
-                                                                    @error("brand.$index.name")
+                                                                            name="tag[{{$index}}][slug]">
+                                                                    @error("tag.$index.name")
                                                                     <span class="text-danger"> هذا الحقل مطلوب</span>
                                                                     @enderror
                                                                 </div>
@@ -102,9 +88,9 @@
                                                                         class="form-control"
                                                                         placeholder="  "
                                                                         value="{{$lang -> abbr}}"
-                                                                        name="brand[{{$index}}][abbr]">
+                                                                        name="tag[{{$index}}][abbr]">
 
-                                                                    @error("brand.$index.abbr")
+                                                                    @error("tag.$index.abbr")
                                                                     <span class="text-danger"> هذا الحقل مطلوب</span>
                                                                     @enderror
                                                                 </div>
@@ -116,14 +102,14 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group mt-1">
                                                                     <input type="checkbox" value="1"
-                                                                        name="brand[{{$index}}][active]"
+                                                                        name="tag[{{$index}}][active]"
                                                                         id="switcheryColor4"
                                                                         class="switchery" data-color="success"
                                                                         checked/>
                                                                     <label for="switcheryColor4"
                                                                         class="card-title ml-1">@lang('admin/index.Status') - {{__('admin/create.'.$lang -> abbr)}}  </label>
 
-                                                                    @error("brand.$index.active")
+                                                                    @error("tag.$index.active")
                                                                     <span class="text-danger"> </span>
                                                                     @enderror
                                                                 </div>

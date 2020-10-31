@@ -50,7 +50,9 @@ class MainCategory extends Model
 
     public function getActive()
     {
-        return $this->active == 1 ? 'active'  : 'inactive';
+        $inactive = __('admin/index.inactive');
+        $active = __('admin/index.active');
+        return $this->active == 1 ? $active  : $inactive;
 
     }
 

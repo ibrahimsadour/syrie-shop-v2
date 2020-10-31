@@ -4,17 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\MainCategory;
-class Brands extends Model
+
+class Tag extends Model
 {
     use HasFactory;
 
 
     
-    protected $table = 'brands';
+    protected $table = 'tags';
 
     protected $fillable = [
-        'id ', 'translation_lang','translation_of','name','slug','photo','active','created_at','updated_at'
+        'id ', 'translation_lang','translation_of','name','slug','active','created_at','updated_at'
     ];
 
  
@@ -28,15 +28,7 @@ class Brands extends Model
     public function scopeSelection($query)
     {
 
-        return $query->select('id', 'translation_lang', 'name', 'slug', 'photo', 'active', 'translation_of');
-    }
-
-    //whene you get Photo from database (automacly added http://dominName/ecommerce/assets/)
-    //that is made with standard method (asset)
-    public function getPhotoAttribute($val)
-    {
-        return ($val !== null) ? asset('assets/' . $val) : "";
-
+        return $query->select('id', 'translation_lang', 'name', 'slug', 'active', 'translation_of');
     }
 
     public function getActive()
@@ -47,18 +39,16 @@ class Brands extends Model
 
     }
 
-    public function scopeDefaultBrands($query){
+    public function scopeDefaultTags($query){
         return  $query -> where('translation_of',0);
     }
 
     ######################### Begin relationship ########################
-    // get all translation brands
-    public function brands()
+    // get all translation tags
+    public function tags()
     {
         return $this->hasMany(self::class, 'translation_of');
     }
 
     ######################### End relationship  ########################
-
- 
 }

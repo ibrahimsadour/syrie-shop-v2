@@ -10,6 +10,7 @@ use DB;
 use App\Models\Brands;
 use Illuminate\Support\Str;
 use App\Models\MainCategory;
+use App\Models\SubCategory;
 class BrandsController extends Controller
 {
     public function index()
@@ -27,8 +28,7 @@ class BrandsController extends Controller
     public function create()
     {
         $default_lang = get_default_lang();
-        $categories = MainCategory::where('translation_lang', $default_lang)->active()->orderBy('id','DESC') -> get();
-        return view('admin.brands.create', compact('categories'));
+        return view('admin.brands.create'   );
     }
 
 
@@ -83,7 +83,6 @@ class BrandsController extends Controller
             $default_brand_id = Brands::insertGetId([
                 'translation_lang' => $default_brand['abbr'],
                 'translation_of' => 0,
-                'category_id'=>$request->category_id,
                 'name' => $default_brand['name'],
                 'slug' => $default_brand['slug'],
                 'photo' => $filePath
@@ -102,7 +101,6 @@ class BrandsController extends Controller
                     $brandsLng_arr[] = [
                         'translation_lang' => $brandLng['abbr'],
                         'translation_of' => $default_brand_id,
-                        'category_id'=>$request->category_id,
                         'name' => $brandLng['name'],
                         'slug' => $brandLng['slug'],
                         'photo' => $filePath
@@ -133,11 +131,7 @@ class BrandsController extends Controller
         if (!$brands)
             return redirect()->route('admin.brands')->with(['error' => 'هذا القسم غير موجود ']);
 
-        $default_lang = get_default_lang();
-        $main_categories = MainCategory::where('translation_lang', $default_lang)->active()->orderBy('id','DESC') -> get();
-
-
-        return view('admin.brands.edit', compact('main_categories','brands'));
+        return view('admin.brands.edit', compact('brands'));
     }
 
 
@@ -167,7 +161,6 @@ class BrandsController extends Controller
 
             Brands::where('id', $id)
                 ->update([
-                    'category_id'=>$request->category_id,
                     'name' => $allBrands['name'],
                     'slug' => $allBrands['slug'],
                     'active' => $request->active,

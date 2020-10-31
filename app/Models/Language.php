@@ -32,7 +32,11 @@ class Language extends Model
     }
 
     // deze een globaal scope om een active Languages te laat zien with Methode(where('active',1)) 
-    public function getActive(){
-        return   $this -> active == 1 ? 'active'  : 'inactive';
-      }
+    public function getActive()
+    {
+        $inactive = __('admin/index.inactive');
+        $active = __('admin/index.active');
+        return $this->active == 1 ? $active  : $inactive;
+
+    }
 }

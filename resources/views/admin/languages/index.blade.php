@@ -62,7 +62,13 @@
                                                         <td>{{$language -> name}}</td>
                                                         <td>{{$language -> abbr}}</td>
                                                         <td>{{$language -> direction}}</td>
-                                                        <td>{{$language -> getActive()}}</td>
+                                                        <td>
+                                                            @if($language -> getActive() === "active" || $language -> getActive() === "مفعل") 
+                                                            <b class="success">{{$language -> getActive() }}
+                                                            @else  
+                                                            <b class="warning">{{$language -> getActive()}}</b>
+                                                            @endif
+                                                        </td>
                                                         <td>
                                                             <div class="btn-group" role="group"
                                                                  aria-label="Basic example">

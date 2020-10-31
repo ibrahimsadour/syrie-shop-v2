@@ -12,6 +12,9 @@ return [
     // Brand
     'Brands' => 'الماركات',
     'Add a Brand' => 'اضافة ماركة جديدة',
+    // Tags
+    'Tags' => 'العلامات',
+    'Add a Tags' => 'اضافة علامة جديدة',
 
     'section data'=>'قسم البيانات',
     'Seactin image'=>'قسم الصورة',

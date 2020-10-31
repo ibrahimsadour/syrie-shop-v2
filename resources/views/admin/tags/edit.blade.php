@@ -9,11 +9,11 @@
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="">الرئيسية </a>
+                                <li class="breadcrumb-item"><a href="">@lang('admin/create.Main') </a>
                                 </li>
-                                <li class="breadcrumb-item"><a href=""> الاقسام ألفرعية  </a>
+                                <li class="breadcrumb-item"><a href=""> @lang('admin/create.Tags')  </a>
                                 </li>
-                                <li class="breadcrumb-item active"> تعديل - {{$brands -> name}}
+                                <li class="breadcrumb-item active"> @lang('admin/index.Edit') - {{$tags -> name}}
                                 </li>
                             </ol>
                         </div>
@@ -27,7 +27,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> تعديل قسم  فرعي </h4>
+                                    <h4 class="card-title" id="basic-layout-form"> @lang('admin/index.Edit') - @lang('admin/create.Tags') </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -44,58 +44,38 @@
                                 <div class="card-content collapse show">
                                     <div class="card-body">
                                         <form class="form"
-                                              action="{{route('admin.brands.update',$brands -> id)}}"
+                                              action="{{route('admin.tags.update',$tags -> id)}}"
                                               method="POST"
                                               enctype="multipart/form-data">
                                             @csrf
 
-                                            <input name="id" value="{{$brands -> id}}" type="hidden">
-
-                                            <div class="form-group">
-                                                <div class="text-center">
-                                                    <img
-                                                        src="{{$brands -> photo}}"
-                                                        class="rounded-circle  height-150" alt="صورة القسم  ">
-                                                </div>
-                                            </div>
-
-
-                                            <div class="form-group">
-                                                <label> صوره القسم </label>
-                                                <label id="projectinput7" class="file center-block">
-                                                    <input type="file" id="file" name="photo">
-                                                    <span class="file-custom"></span>
-                                                </label>
-                                                @error('photo')
-                                                <span class="text-danger">{{$message}}</span>
-                                                @enderror
-                                            </div>
+                                            <input name="id" value="{{$tags -> id}}" type="hidden">
 
                                             <div class="form-body">
 
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> section name - {{__('messages.'.$brands -> translation_lang)}} </label>
-                                                            <input type="text" value="{{$brands -> name}}" id="name"
+                                                            <label for="projectinput1"> @lang('admin/index.Name')- {{__('admin/create.'.$tags -> translation_lang)}} </label>
+                                                            <input type="text" value="{{$tags -> name}}" id="name"
                                                                 class="form-control"
                                                                 placeholder="  "
-                                                                name="brand[0][name]">
-                                                            @error("brand.0.name")
+                                                                name="tag[0][name]">
+                                                            @error("tag.0.name")
                                                             <span class="text-danger"> هذا الحقل مطلوب</span>
                                                             @enderror
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> Slug - {{__('messages.'.$brands -> translation_lang)}}
+                                                            <label for="projectinput1"> @lang('admin/index.Slug') - {{__('admin/create.'.$tags -> translation_lang)}}
                                                             </label>
                                                             <input type="text" id="name"
                                                                     class="form-control"
                                                                     placeholder="  "
-                                                                    value="{{$brands -> slug}}"
-                                                                    name="brand[0][slug]">
-                                                            @error("brand.0.name")
+                                                                    value="{{$tags -> slug}}"
+                                                                    name="tag[0][slug]">
+                                                            @error("tag.0.name")
                                                             <span class="text-danger"> هذا الحقل مطلوب</span>
                                                             @enderror
                                                         </div>
@@ -104,14 +84,14 @@
 
                                                     <div class="col-md-6 hidden">
                                                         <div class="form-group">
-                                                            <label for="projectinput1"> أختصار اللغة {{__('messages.'.$brands -> translation_lang)}} </label>
+                                                            <label for="projectinput1"> أختصار اللغة {{__('admin/create.'.$tags -> translation_lang)}} </label>
                                                             <input type="text" id="abbr"
                                                                 class="form-control"
                                                                 placeholder="  "
-                                                                value="{{$brands -> translation_lang}}"
-                                                                name="brand[0][abbr]">
+                                                                value="{{$tags -> translation_lang}}"
+                                                                name="tag[0][abbr]">
 
-                                                            @error("brand.0.abbr")
+                                                            @error("tag.0.abbr")
                                                             <span class="text-danger"> هذا الحقل مطلوب</span>
                                                             @enderror
                                                         </div>
@@ -123,14 +103,14 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group mt-1">
                                                             <input type="checkbox" value="1"
-                                                                name="brand[0][active]"
+                                                                name="tag[0][active]"
                                                                 id="switcheryColor4"
                                                                 class="switchery" data-color="success"
                                                                 checked/>
                                                             <label for="switcheryColor4"
-                                                                class="card-title ml-1">ststus  {{__('messages.'.$brands -> translation_lang)}} </label>
+                                                                class="card-title ml-1"> @lang('admin/index.Status')  {{__('admin/create.'.$tags -> translation_lang)}} </label>
 
-                                                            @error("brand.0.active")
+                                                            @error("tag.0.active")
                                                             <span class="text-danger"> </span>
                                                             @enderror
                                                         </div>
@@ -144,10 +124,10 @@
                                             <div class="form-actions">
                                                 <button type="button" class="btn btn-warning mr-1"
                                                         onclick="history.back();">
-                                                    <i class="ft-x"></i> تراجع
+                                                    <i class="ft-x"></i>  @lang('admin/create.Back')
                                                 </button>
                                                 <button type="submit" class="btn btn-primary">
-                                                    <i class="la la-check-square-o"></i> تحديث
+                                                    <i class="la la-check-square-o"></i>  @lang('admin/index.Edit')
                                                 </button>
                                             </div>
                                         </form>
