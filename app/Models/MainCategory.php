@@ -8,17 +8,20 @@ use App\Observers\MainCategoryObserver;
 use App\Models\SubCategory;
 use App\Models\Brands;
 use App\Models\Vendor;
+use App\Models\Product;
 class MainCategory extends Model
 {
     use HasFactory;
 
 
     
-    protected $table = 'main_categories';
+    protected $table = 'categories';
 
     protected $fillable = [
         'id ', 'translation_lang','translation_of','name','slug','photo','active','created_at','updated_at'
     ];
+    
+    public $timestamps = true;
 
     // deze is gemaakt om het alle verkoper uit te zitten wannner is de afdeling uitgezet
 
@@ -93,6 +96,18 @@ class MainCategory extends Model
     public  function brands(){
         return $this -> hasMany(Brands::class,'category_id','id');
     }
+    /**
+     * Product
+     * @todo get all products 
+     * @return void
+     */
+    public  function products(){
+        return $this -> hasMany(Product::class,'category_id','id');
+    }
+    
+
+   
+ 
     ######################### End relationship  ########################
 
 }

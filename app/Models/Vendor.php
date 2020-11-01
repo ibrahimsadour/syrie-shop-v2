@@ -17,6 +17,7 @@ class Vendor extends Model
 
     protected $hidden = ['category_id', 'password'];
 
+    public $timestamps = true;
 
     // als de verkoper active is
     public function scopeActive($query)
@@ -42,6 +43,14 @@ class Vendor extends Model
     {
 
         return $this->belongsTo('App\Models\MainCategory', 'category_id', 'id');
+    }
+    /**
+     * Product
+     * @todo get all products 
+     * @return void
+     */
+    public  function products(){
+        return $this -> hasMany(Product::class,'vendor_id','id');
     }
 
     public function getActive()

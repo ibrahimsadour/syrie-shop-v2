@@ -63,11 +63,13 @@
                                                         <tr>
                                                             <td>{{$sub_category -> name}}</td>
                                                             <td>
-                                                            @if($sub_category->category_id === 0) 
-                                                            <b class="warning">@lang('admin/create.without section')
-                                                            @else  
-                                                            <b class="">{{$sub_category->mainCategory->name}}</b>
-                                                            @endif
+                                                            <th>
+                                                                @if($sub_category->category_id === 0) 
+                                                                <b class="warning">@lang('admin/create.without section')
+                                                                @else  
+                                                                <b class="">{{$sub_category->categories->name}}</b>
+                                                                @endif
+                                                            </th>
                                                             </td> <!--Relation betwen sub cayegory and Main Category -->
                                                             <td>{{$sub_category -> slug}}</td>
                                                             <td>{{get_default_lang()}}</td>

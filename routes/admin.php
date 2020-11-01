@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\BrandsController;
 use App\Http\Controllers\Admin\TagsController;
 use App\Http\Controllers\Admin\VendorsController;
 use App\Http\Controllers\Admin\SubCategoriesController;
+use App\Http\Controllers\Admin\ProductsController;
+Auth::routes(['verify' =>true]);
 /*
 |--------------------------------------------------------------------------
 | Admin Routes
@@ -27,6 +29,7 @@ use App\Http\Controllers\Admin\SubCategoriesController;
 
 //moet de gebruiker ingelogd ben om deze route te berieken
 Route::group(['namespace'=>'Admin','middleware' => 'auth:admin'], function() {
+
     Route::get('/', [DashboardController::class ,'index']) -> name('admin.dashboard');
 
 
@@ -55,8 +58,8 @@ Route::group(['namespace'=>'Admin','middleware' => 'auth:admin'], function() {
         Route::get('edit/{id}',[MainCategoriesController::class ,'edit']) -> name('admin.maincategories.edit');
         Route::post('update/{id}',[MainCategoriesController::class ,'update']) -> name('admin.maincategories.update');
         Route::get('delete/{id}',[MainCategoriesController::class ,'destroy']) -> name('admin.maincategories.delete');
-            //change Status the category and the vendors 
-            Route::get('changeStatus/{id}',[MainCategoriesController::class ,'changeStatus']) -> name('admin.maincategories.status');
+        //change Status the category and the vendors 
+        Route::get('changeStatus/{id}',[MainCategoriesController::class ,'changeStatus']) -> name('admin.maincategories.status');
     });
     ######################### End  Main Categoris Routes  ########################
 
@@ -124,6 +127,20 @@ Route::group(['namespace'=>'Admin','middleware' => 'auth:admin'], function() {
 
     });
     ######################### End  vendors Routes  ################################
+
+    ######################### Begin Products Routes ########################
+    Route::group(['prefix' => 'products'], function () {
+
+        Route::get('/', [ProductsController::class ,'index']) -> name('admin.products');
+        Route::get('create',[ProductsController::class ,'create']) -> name('admin.products.create');
+        Route::post('store',[ProductsController::class ,'store']) -> name('admin.products.store');
+        Route::get('edit/{id}',[ProductsController::class ,'edit']) -> name('admin.products.edit');
+        Route::post('update/{id}',[ProductsController::class ,'update']) -> name('admin.products.update');
+        Route::get('delete/{id}',[ProductsController::class ,'destroy']) -> name('admin.products.delete');
+        //change Status the category and the vendors 
+        Route::get('changeStatus/{id}',[ProductsController::class ,'changeStatus']) -> name('admin.products.status');
+    });
+    ######################### End  Main Categoris Routes  ########################
 
     // this route is allowd just for logined user or admin
     Route::get('logout', [LoginController::class, 'logout'])->name('admin.logout');

@@ -19,8 +19,7 @@ class SubCategoriesController extends Controller
         $sub_categories = SubCategory::where('translation_lang', $default_lang)
             ->selection()
             ->orderBy('id','DESC') -> paginate(PAGINATION_COUNT);
-
-        // $categories = SubCategory::orderBy('id','DESC') -> paginate(PAGINATION_COUNT);
+            
         return view('admin.subcategories.index', compact('sub_categories'));
     }
 

@@ -16,6 +16,8 @@ class Language extends Model
     protected $fillable = [
         'id ', 'abbr','locale','name','direction','active','created_at','updated_at'
     ];
+    
+    public $timestamps = true;
 
 
     // deze een globaal scope om een active Lang   te laat zien with Methode(where('active',1)) 

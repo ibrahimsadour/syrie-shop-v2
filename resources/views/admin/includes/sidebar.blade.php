@@ -78,7 +78,7 @@
                 </ul>
             </li>
 
-            <li class="nav-item"><a href=""><i class="la la-male"></i>
+            <li class="nav-item"><a href=""><i class="la la-tags"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">العلامات  </span>
                     <span
                         class="badge badge badge-warning  badge-pill float-right mr-2">{{App\Models\Tag::count()}}</span>
@@ -94,13 +94,12 @@
             <li class="nav-item"><a href=""><i class="la la-male"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">المنتجات  </span>
                     <span
-                        class="badge badge badge-warning  badge-pill float-right mr-2">500</span>
+                        class="badge badge badge-warning  badge-pill float-right mr-2">{{App\Models\Product::count()}}</span>
                 </a>
                 <ul class="menu-content">
-                    <li class=""><a class="menu-item" href=""
-                                          data-i18n="nav.dash.ecommerce"> عرض الكل المنتجات </a>
+                    <li class=""><a class="menu-item" href="{{route('admin.products')}}" data-i18n="nav.dash.ecommerce"> عرض الكل المنتجات </a>
                     </li>
-                    <li><a class="menu-item" href="" data-i18n="nav.dash.crypto"> أضافة منتج جديد</a>
+                    <li><a class="menu-item" href="{{route('admin.products.create')}}" data-i18n="nav.dash.crypto"> أضافة منتج جديد</a>
                     </li>
                 </ul>
             </li>

@@ -18,7 +18,8 @@ class SubCategory extends Model
         'id ','parent_id','category_id', 'translation_lang','translation_of','name','slug','photo','active','created_at','updated_at'
     ];
 
-    
+    public $timestamps = true;
+
     /**
      * scopeActive
      *  deze een globaal scope om een active product of winkel te laat zien with Methode(where('active',1))
@@ -55,7 +56,12 @@ class SubCategory extends Model
         return ($val !== null) ? asset('assets/' . $val) : "";
 
     }
-
+    
+    /**
+     * getActive
+     * @todo this just to display on the website instead of the number text set
+     * @return void
+     */
     public function getActive()
     {
         $inactive = __('admin/index.inactive');
@@ -74,11 +80,11 @@ class SubCategory extends Model
         return  $query -> where('translation_of',0);
     }
     /**
-     * mainCategory
+     * categories
      * Get all main category of the sub category    
      * @return void
     */
-    public  function mainCategory(){
+    public  function categories(){
         return $this -> belongsTo(MainCategory::class,'category_id','id');
     }
     

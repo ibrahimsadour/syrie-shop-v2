@@ -7,6 +7,7 @@ return [
     // MainCategory
     'Main Catgegory' => 'Main Catgegory',
     'Add a MainCategory' => 'Add a MainCategory',
+    'Catgegory'=>'Catgegory',
     // subCategory
     'Sub Catgegory' => 'Sub Catgegory',
     'Add a subCategory' => 'Add a subCategory',
@@ -16,6 +17,9 @@ return [
    // Tags
    'Tags' => 'Tags',
    'Add a Tags' => 'Add a Tags',
+    // Vendors
+    'Vendors' => 'Vendors',
+    'Add a Vendors' => 'Add a Vendors',
 
     'section data'=>'section data',
     'Seactin image'=>'Seactin image',

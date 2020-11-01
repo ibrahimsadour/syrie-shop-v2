@@ -82,6 +82,13 @@ return [
             'url' => env('APP_URL') . '/public',
             'visibility' => 'public',
         ],
+        // Hier bij wordt alle foto van de products (المنتجات) opgeslaagd
+        'products' => [
+            'driver' => 'local',
+            'root' => public_path() . '/assets/images/products/',
+            'url' => env('APP_URL') . '/public',
+            'visibility' => 'public',
+        ],
 
         's3' => [
             'driver' => 's3',

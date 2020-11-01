@@ -6,6 +6,7 @@ return [
     // MainCategory
     'Main Catgegory' => 'الأقسام الرئيسة',
     'Add a MainCategory' => 'أضافة قسم رئيسي جديد',
+    'Catgegory'=>'القسم',
     // subCategory
     'Sub Catgegory' => 'الاقسام الفرعية',
     'Add a subCategory' => 'اضافة قسم فرعي جديد',
@@ -15,6 +16,12 @@ return [
     // Tags
     'Tags' => 'العلامات',
     'Add a Tags' => 'اضافة علامة جديدة',
+    // Vendors
+    'Vendors' => 'المتاجر',
+    'Add a Vendors' => 'اضافة متجر جديدة',
+    // Products
+    'Products' => 'المنتجات',
+    'Add a Product' => 'اضافة منتج جديدة',
 
     'section data'=>'قسم البيانات',
     'Seactin image'=>'قسم الصورة',

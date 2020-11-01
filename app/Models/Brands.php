@@ -17,7 +17,8 @@ class Brands extends Model
         'id ', 'translation_lang','translation_of','name','slug','photo','active','created_at','updated_at'
     ];
 
- 
+    public $timestamps = true;
+
 
     // deze een globaal scope om een active product of winkel te laat zien with Methode(where('active',1)) 
     public function scopeActive($query)
@@ -56,6 +57,14 @@ class Brands extends Model
     public function brands()
     {
         return $this->hasMany(self::class, 'translation_of');
+    }
+    /**
+     * Product
+     * @todo get all products 
+     * @return void
+     */
+    public  function products(){
+        return $this -> hasMany(Product::class,'brand_id','id');
     }
 
     ######################### End relationship  ########################

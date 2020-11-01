@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Product;
 
 class Tag extends Model
 {
@@ -17,7 +18,8 @@ class Tag extends Model
         'id ', 'translation_lang','translation_of','name','slug','active','created_at','updated_at'
     ];
 
- 
+    public $timestamps = true;
+
 
     // deze een globaal scope om een active product of winkel te laat zien with Methode(where('active',1)) 
     public function scopeActive($query)
@@ -44,11 +46,22 @@ class Tag extends Model
     }
 
     ######################### Begin relationship ########################
-    // get all translation tags
+    /**
+     * tags
+     * get all translation tags 
+     * @return void
+     */
     public function tags()
     {
         return $this->hasMany(self::class, 'translation_of');
     }
-
+    /**
+     * Product
+     * @todo get all products 
+     * @return void
+     */
+    public function products(){
+        return $this -> hasMany(Product::class,'product_tag');
+    }
     ######################### End relationship  ########################
 }
