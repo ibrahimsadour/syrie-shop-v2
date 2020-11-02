@@ -54,6 +54,6 @@ class LoginController extends Controller
         $gaurd = $this->getGaurd();
         $gaurd->logout();
 
-        return redirect()->route('admin.login');
+        return redirect()->route('login');
     }
 }

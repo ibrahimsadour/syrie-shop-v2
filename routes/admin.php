@@ -30,8 +30,7 @@ Auth::routes(['verify' =>true]);
 //moet de gebruiker ingelogd ben om deze route te berieken
 Route::group(['namespace'=>'Admin','middleware' => 'auth:admin'], function() {
 
-    Route::get('/', [DashboardController::class ,'index']) -> name('admin.dashboard');
-
+    Route::get('/dashboard', [DashboardController::class ,'index']) -> name('admin.dashboard');
 
     ############################# Begin Languages Route ###############################
     Route::group(['prefix' => 'languages'], function () {
