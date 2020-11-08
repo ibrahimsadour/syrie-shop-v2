@@ -13,7 +13,14 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'Name' => 'Name',
+    'Phone number' => 'Phone number',
+    'E-Mail Address or username' => 'E-Mail Address or username',
+    'E-Mail Address ' => 'E-Mail Address ',
+    'Password' => 'Password',
+    'confirm Passord' => 'confirm Passord',
+    'Forgot Your Password?' => 'Forgot Your Password?',
+    'Login' => 'Login',
+    'Register' => 'Register',
 
 ];

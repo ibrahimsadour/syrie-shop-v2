@@ -27,16 +27,29 @@
             <div class="navigation__right">
                 <div class="header__actions">
                     <div class="ps-cart--mini"><a class="header__extra" href="{{route('site.wish-list')}}"><i class="icon-heart"></i><span><i>0</i></span></a>
-
                     </div>
+                    @guest
+                        <div class="ps-block--user-header">
+                            <a class="ps-block__left"href="{{route('site.my-account')}}" >
+                                <i class="icon-user-plus"></i>
+                            </a>
+                        </div>    
+                    @else
                     <div class="ps-block--user-header">
-                        <div class="ps-block__left"><i class="icon-user-plus"></i>
-                            <div class="ps-block__right">
-                                <a href="{{route('site.my-account')}}">تسجيل الدخول</a>
-                                <a href="{{route('site.my-account')}}">الأشتراك</a>
-                            </div>
+
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 85%;font-weight: 700; background: #fcb800;">
+                            مرحبا <span>{{ Auth::user()->name }} <span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{ route('user.logout') }}">تسجيل الخروج</a>
+                            <!-- <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Separated link</a> -->
                         </div>
                     </div>
+                    
+                    @endguest
                 </div>
             </div>
         </div>

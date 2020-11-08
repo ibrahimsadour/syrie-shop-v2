@@ -10923,9 +10923,9 @@ textarea.form-control {
   padding: 20px;
 }
 
-.ps-tab {
+/* .ps-tab {
   display: none;
-}
+} */
 
 .ps-tab.active {
   display: block;
@@ -16475,3 +16475,13 @@ body, html, ul,li,ol,p,h1,h2,h3,h4,h5,h6,a,strong,input,button,hr,b, a, blockquo
 .owl-carousel,
 .bx-wrapper { direction: ltr; }
 .owl-carousel .owl-item { direction: rtl; }
+
+.active-login{
+  color: #000!important;
+  background: #fcb800;
+  padding-bottom: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 4px;
+}
+

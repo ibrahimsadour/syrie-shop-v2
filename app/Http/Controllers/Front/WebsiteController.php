@@ -47,9 +47,6 @@ class WebsiteController extends Controller
     public function become_a_vendor (){
         return view('front.pages.become-a-vendor');
     }
-    public function my_account (){
-        return view('front.pages.auth.my-account');
-    }
     public function wish_list (){
         return view('front.pages.wish-list');
     }

@@ -20,12 +20,11 @@
                     <li  onclick="openCity('Paris')"><a href="#register">الإشتراك</a></li>
                 </ul>
                 <div class="ps-tabs">
-
+                    @include('admin.includes.alerts.success')
+                    @include('admin.includes.alerts.errors')
                     <div id="London" class="city">
                         <div class="ps-tab active" id="sign-in">
                             <div class="ps-form__content">
-                                @include('admin.includes.alerts.success')
-                                @include('admin.includes.alerts.errors')
                                 <h5>تسجيل الدخول إلى حسابك</h5>
 
     	                        <form method="POST" action="{{route('login-attempt')}}">
@@ -78,8 +77,6 @@
                     <div id="Paris" class="city" style="display:none">
                         <div class="ps-tab" id="register">
                             <div class="ps-form__content">
-                                @include('admin.includes.alerts.success')
-                                @include('admin.includes.alerts.errors')
                                 <h5>تسجيل حساب جديد</h5>
                                 <!-- @include('admin.includes.alerts.success')
                                 @include('admin.includes.alerts.errors') -->
@@ -88,7 +85,7 @@
                                     <!-- Email -->
                                     <div class="form-group">
                                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="@lang('auth.E-Mail Address')">
-                                        @error('email')
+                                        @error('name')
                                             <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>

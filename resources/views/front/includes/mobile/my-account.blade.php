@@ -1,103 +1,67 @@
 <div class="ps-panel--sidebar" id="my-account">
     <div class="ps-my-account">
         <div class="container">
-            <form class="ps-form--account ps-tab-root" action="link.html" method="get">
+            <div class="ps-form--account ps-tab-root" action="link.html" method="get">
                 <div class="ps-tabs">
                     <div class="ps-tab active" id="sign-in">
+                        
                         <div class="ps-form__content">
-                            <h5>تسجيل الدخول إلى حسابك</h5>
-                            <div class="form-group">
-                                <input class="form-control" type="text" placeholder="اسم المستخدم أو البريد الالكتروني">
-                            </div>
-                            <div class="form-group form-forgot">
-                                <input class="form-control" type="text" placeholder="كلمة المرور">
-                            </div>
-                            <div class="form-group">
-                                <div class="ps-checkbox">
-                                    <input class="form-control" type="checkbox" id="remember-me" name="remember-me">
-                                    <label for="remember-me">تذكرنى</label><a href="{{route('site.lost-password')}}" style="float: left;">نسيت كلمة السر؟</a>
-                                </div>
-                            </div>
-                            <div class="form-group submtit">
-                                <button class="ps-btn ps-btn--fullwidth">تسجيل الدخول  </button>
-                            </div>
+                            @guest
+                                @include('admin.includes.alerts.success')
+                                @include('admin.includes.alerts.errors')
+                                <h5>تسجيل الدخول إلى حسابك</h5>
 
-                            <div class="ps-form__footer">
-                                <p>تسجيل الدخول  بواسطة:</p>
-                                <ul class="ps-list--social">
-                                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a class="google" href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
+                                <form method="POST" action="{{route('login-attempt')}}">
+                                    @csrf
 
-                    </div>
-                    <div class="ps-tab" id="register">
-                        <div class="ps-form__content">
-                            <h5>تسجيل حساب جديد</h5>
-                            <form>
-                                <div class="form-group">
-                                    <input class="form-control" type="text" placeholder="عنوان بريد الكتروني">
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" type="text" placeholder="كلمة المرور">
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" type="text" placeholder="الأسم">
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" type="text" placeholder="رقم الهاتف ">
-                                </div>
-                                <div class="as-Vendor" style="display:none;">
                                     <div class="form-group">
-                                        <input class="form-control" type="text" placeholder="اسم متجرك ">
+                                        <input class="form-control" id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="identify" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="@lang('auth.E-Mail Address or username')">
+                                        @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
+
+                                    <div class="form-group form-forgot">
+                                        <input class="form-control" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="@lang('auth.Password')">
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    
                                     <div class="form-group">
-                                        <input class="form-control" type="text" placeholder="العنوان ">
+                                        <div class="ps-checkbox">
+                                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                            @if (Route::has('password.request'))
+                                                <label for="remember-me">تذكرنى</label><a href="{{route('site.lost-password')}}" style="float: left;">@lang('auth.Forgot Your Password?')</a>
+                                            @endif
+                                        </div>
                                     </div>
-                                </div>
+                                    <div class="form-group submtit">
+                                        <button class="ps-btn ps-btn--fullwidth" type="submit" >@lang('auth.Login') </button>
+                                    </div>
 
-                                <div class="form-group" style="display: inline-grid;">
-                                    <label class="radio woocommerce-form__label-for-checkbox register-As-Coustomer">
-                                        <input type="radio" name="role"
-                                            class="woocommerce-form__input-checkbox"
-                                            value="customer" checked="checked">
-                                        <span style="bottom: 5px;position: relative;cursor: pointer;">تسجيل زبون </span>
-                                    </label>
-
-                                    <label class="radio woocommerce-form__label-for-checkbox register-As-Vendor" >
-                                        <input type="radio" name="role"
-                                            class="woocommerce-form__input-checkbox"
-                                            value="seller">
-                                        <span style="bottom: 5px;position: relative; cursor: pointer;">تسجيل تاجر </span>
-                                    </label>
-                                </div>
-
-                                <div class="form-group">
-                                    <p>سيتم استخدام بياناتك الشخصية لدعم تجربتك عبر موقع الويب
-                                        هذا ، لإدارة الوصول إلى حسابك ، ولأغراض أخرى موصوفة في
-                                        موقعنا <a href="https://market.hvips.com/privacy-policy/" target="_blank">سياسة الخصوصية</a>.</p>
-                                </div>
-                                <div class="form-group submtit">
-                                    <button class="ps-btn ps-btn--fullwidth">الأشتراك    </button>
-                                </div>
-                                <div class="ps-form__footer">
-                                    <p>الإشتراك بواسطة: </p>
-                                    <ul class="ps-list--social">
-                                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a class="google" href="#"><i class="fa fa-google-plus"></i></a></li>
-                                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
-                                    </ul>
-                                </div>
-                            </form>
+                                    <div class="ps-form__footer">
+                                        <p>تسجيل الدخول  بواسطة:</p>
+                                        <ul class="ps-list--social">
+                                            <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a class="google" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                            <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                                            <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </form>
+                            @else
+                                <h5>{{ Auth::user()->name }} مرحبا</h5>
+                                <a href="{{route('user.logout')}}">تسجيل الخروج </a>
+                            @endguest
                         </div>
-
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>

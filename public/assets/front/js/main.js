@@ -371,7 +371,13 @@
             $(this).closest('li').siblings('li').removeClass('active');
             $(this).closest('li').addClass('active');
             $(target).addClass('active');
-            $(target).siblings('.ps-tab').removeClass('active');
+        });
+        $('.login-tab  li > a ').on('click', function(e) {
+            e.preventDefault();
+            var target = $(this).attr('href');
+            $(this).closest('li').siblings('li').removeClass('active-login');
+            $(this).closest('li').addClass('active-login');
+            $(target).addClass('active-login');
         });
         $('.ps-tab-list.owl-slider .owl-item a').on('click', function(e) {
             e.preventDefault();

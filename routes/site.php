@@ -73,11 +73,6 @@ Route::group( [
     */
     Route::get('become-a-vendor',[WebsiteController::class ,'become_a_vendor']) -> name('site.become-a-vendor');
 
-    /** my-account page
-    * @todo URL:www.DomeinName.com/my-account
-    * @todo Route name : site.my-account
-    */
-    Route::get('my-account',[WebsiteController::class ,'my_account']) -> name('site.my-account');
 
     /** lost-password page
     * @todo URL:www.DomeinName.com/my-account/lost-password
@@ -93,14 +88,5 @@ Route::group( [
 });
 
 
-// // store-listing
-// Route::get('/store-listing', function () {
-//     return view('front.pages.store-listing');
-// })->name('site.store-listing.index');
 
-
-// // our-press
-// Route::get('/our-press', function () {
-//     return view('front.pages.our-press');
-// })->name('site.our-press.index');
 

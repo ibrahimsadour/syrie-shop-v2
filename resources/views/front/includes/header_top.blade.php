@@ -191,15 +191,31 @@
                     <a class="header__extra" href="#"><i class="icon-plus-circle"></i><span style="border-radius: 10%;width: 40px;top: 36px;"><i>اعلانك </i></span></a>
 
                 </div>
-                <div class="ps-block--user-header">
-                    <div class="ps-block__left">
-                        <i class="icon-user-plus"></i>
+                @guest
+                    <div class="ps-block--user-header">
+                        <div class="ps-block__left">
+                            <i class="icon-user-plus"></i>
+                        </div>
+                        <div class="ps-block__right">
+                            <a href="{{route('site.my-account')}}">تسجيل الدخول</a>
+                            <a href="{{route('site.my-account')}}">الأشتراك</a>
+                        </div>
                     </div>
-                    <div class="ps-block__right">
-                        <a href="{{route('site.my-account')}}">تسجيل الدخول</a>
-                        <a href="{{route('site.my-account')}}">الأشتراك</a>
+                @else
+                    <div class="ps-block--user-header">
+
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 85%;font-weight: 700; background: #fcb800;">
+                            مرحبا {{ Auth::user()->name }}  
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{ route('user.logout') }}">تسجيل الخروج</a>
+                            <!-- <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Separated link</a> -->
+                        </div>
                     </div>
-                </div>
+                @endguest
             </div>
         </div>
     </div>

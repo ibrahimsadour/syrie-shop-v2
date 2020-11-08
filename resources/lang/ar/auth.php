@@ -12,8 +12,19 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    'Name' => 'الأسم',
+    'Phone number' => 'رقم الهاتف',
+    'E-Mail Address or username' => 'اسم المستخدم أو البريد الالكتروني',
+    'E-Mail Address' => 'البريد الالكتروني',
+    'Password' => 'كلمة المرور',
+    'confirm Passord' => 'تأكيد كلمة المرور',
 
-    'failed' => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'Forgot Your Password?' => 'نسيت كلمة السر؟',
+
+    'Login' => 'تسجيل الدخول ',
+    'Register' => 'الأشتراك',
+
+
+
 
 ];

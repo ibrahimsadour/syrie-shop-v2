@@ -13,7 +13,7 @@
     </div>
     <div class="ps-my-account" style="    min-height: 60vh;">
         <div class="container">
-            <form class="ps-form--account ps-tab-root" action="link.html" method="get">
+            <form class="ps-form--account ps-tab-root" action="" method="get">
                 <ul class="ps-tab-list">
                     <li class="active"><a href="#sign-in"><li>نسيت كلمة السر</li></a></li>
                 </ul>
