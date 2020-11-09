@@ -64,10 +64,10 @@
                                     <div class="ps-form__footer">
                                         <p>تسجيل الدخول  بواسطة:</p>
                                         <ul class="ps-list--social">
-                                            <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a class="google" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a class="facebook" href="{{url('user/login-attempt/facebook')}}"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a class="google" href="{{url('user/login-attempt/google')}}"><i class="fa fa-google-plus"></i></a></li>
+                                            <li><a class="google" href="{{url('user/login-attempt/google')}}"><i class="fa fa-youtube"></i></a></li>
                                             <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
                                         </ul>
                                     </div>
                                 </form>
@@ -81,8 +81,6 @@
                                 @include('admin.includes.alerts.success')
                                 @include('admin.includes.alerts.errors')
                                 <h5>تسجيل حساب جديد</h5>
-                                <!-- @include('admin.includes.alerts.success')
-                                @include('admin.includes.alerts.errors') -->
                                 <form  method="POST" action="{{ route('register') }}">
                                     @csrf
                                     <!-- Email -->
@@ -160,8 +158,8 @@
                                     <div class="ps-form__footer">
                                         <p>الإشتراك بواسطة: </p>
                                         <ul class="ps-list--social">
-                                            <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a class="google" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                            <li><a class="facebook" href="{{url('user/login-attempt/facebook')}}"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a class="google" href="{{url('user/login-attempt/google')}}"><i class="fa fa-google-plus"></i></a></li>
                                             <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
                                             <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
                                         </ul>

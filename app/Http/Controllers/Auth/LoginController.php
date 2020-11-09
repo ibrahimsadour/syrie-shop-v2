@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\Front\LoginRequest;
+use Laravel\Socialite\Facades\Socialite;
 class LoginController extends Controller
 {
     /*
@@ -96,10 +98,85 @@ class LoginController extends Controller
    *
    * @return void
    */
-  public function logout() 
+    public function logout() 
     {
         Session::flush();
         Auth::logout();
         return redirect()->route('site.my-account')->withSuccess('نعم ! تم تسجيل الخروج بنجاح');
+    }
+
+#################################################################
+######### Login With Facebook - Google - Twitter -instegram #####
+    /**
+   * Redirect the user to the GitHub authentication page.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function redirectToProvider($provider)
+  {
+      return Socialite::driver($provider)->redirect();
+  }
+
+
+  /**
+   * Obtain the user information from Google.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function handleProviderCallback($provider)
+
+    {
+        try{
+            if($provider == 'google'){
+
+                $user = Socialite::driver($provider)->stateless()->user();
+                $userEmail  = $user->email;
+                $userName = explode("@", $userEmail);
+                $name=$userName[0];
+
+            }else{
+                $user = Socialite::driver($provider)->user();
+                $name = $user->getName();
+            }
+            // dd($user);
+            /**
+             * If a user has registered before using social auth, return the user
+             * else, create a new user object.
+             * @param  $user Socialite user object
+             * @param $provider Social auth provider
+             * @return  User
+             */
+            $findUser= User::where('provider_id',$user->id)->first();
+
+            if($findUser){
+                
+                Auth::login($findUser);
+                return redirect()->intended('/user/dashboard');
+
+            }else{ //if the user not exist => we need to make new user
+
+                //add new user to database
+                $newUser = new User([
+                'email' => $user->getEmail(),
+                'name' => $name,
+                'provider'=>$provider,
+                'provider_id' => $user->id,
+                'password' => Hash::make('ibrahem810907') //or bcrypt();
+                ]);
+
+                if($newUser->save()){ //check if the crated or not
+                    // login the user
+                    Auth::login($newUser);
+                    return redirect()->intended('/user/dashboard');
+                }else{
+                    return redirect()->route('site.my-account')->withSuccess('هناك شئ خاطئ، يرجى المحاولة فى وقت لاحق');
+                }
+            }
+        } catch (\Exception $ex) {
+            DB::rollback();
+            // return $ex;
+            return redirect()->route('site.my-account')->withSuccess('هناك شئ خاطئ، يرجى المحاولة فى وقت لاحق');
+        }
+
     }
 }

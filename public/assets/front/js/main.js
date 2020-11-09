@@ -76,12 +76,12 @@
             $('.ps-site-overlay').toggleClass('active');
         });
 
-        $('.ps-shop__filter-mb').on('click', function(e) {
+        $('#filter-sidebar').on('click', function(e) {
             e.preventDefault();
-            $(this).addClass('active')
-            filterSidebar.removeClass('active');
+            filterSidebar.addClass('active');
             $('.ps-site-overlay').addClass('active');
         });
+
         $('.ps-filter--sidebar .ps-filter__header .ps-btn--close').on('click', function(e) {
             e.preventDefault();
             filterSidebar.removeClass('active');
@@ -371,6 +371,7 @@
             $(this).closest('li').siblings('li').removeClass('active');
             $(this).closest('li').addClass('active');
             $(target).addClass('active');
+            $(target).siblings('.ps-tab').removeClass('active');
         });
         $('.login-tab  li > a ').on('click', function(e) {
             e.preventDefault();
@@ -758,18 +759,15 @@
             }
         });
     });
-
     // this for header mobile search form:
     $(document).ready(function(){
         if($(".register-As-Vendor").click(function(){
                 $( ".as-Vendor" ).slideDown( "slow" );
         }));
-
     });
     $(document).ready(function(){
         if($(".register-As-Coustomer").click(function(){
             $( ".as-Vendor" ).slideUp( "slow" );
         }));
     });
-
 })(jQuery);

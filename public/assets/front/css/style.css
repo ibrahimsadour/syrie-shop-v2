@@ -10923,9 +10923,9 @@ textarea.form-control {
   padding: 20px;
 }
 
-/* .ps-tab {
+.ps-tab {
   display: none;
-} */
+} 
 
 .ps-tab.active {
   display: block;

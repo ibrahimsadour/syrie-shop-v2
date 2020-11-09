@@ -29,5 +29,21 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'google' => [
+        'client_id' => '928571224000-up51omoik6ngp6lrefnrlrpsahlav9b8.apps.googleusercontent.com',
+        'client_secret' => 'blTRwmepYn_VgtFbKb5I3z50',
+        'redirect' => 'http://localhost:8000/user/login-attempt/callback/google',
+    ],
+
+    'facebook' => [
+        'client_id' => '282452596418616',
+        'client_secret' => '70a721a8a069a93fd813074c36d82fa4',
+        'redirect' => 'http://localhost:8000/user/login-attempt/callback/facebook',
+    ],
+    'linkedin' => [
+        'client_id' => '77gvql509ro51i',
+        'client_secret' => 'Qnw1gUR0j3YsvsQu',
+        'redirect' => 'https://sadour.nl/auth/login/callback/linkedin',
+    ],
 
 ];
