@@ -117,7 +117,7 @@ class SubCategoriesController extends Controller
             return redirect()->route('admin.subcategories')->with(['success' => 'تم الحفظ بنجاح']);
 
         } catch (\Exception $ex) {
-            return $ex;
+            // return $ex;
             DB::rollback();
             return redirect()->route('admin.subcategories')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
         }
@@ -152,7 +152,6 @@ class SubCategoriesController extends Controller
 
             //find sub_categories
             $sub_categories = SubCategory::find($Sub_id);
-
             if (!$sub_categories)
                 return redirect()->route('admin.subcategories')->with(['error' => 'هذا القسم غير موجود']);
 
@@ -170,6 +169,7 @@ class SubCategoriesController extends Controller
                 ->update([
                     'name' => $category['name'],
                     'slug' => $category['slug'],
+                    'category_id'=>$request->category_id,
                     'active' => $request->active,
                 ]);
 

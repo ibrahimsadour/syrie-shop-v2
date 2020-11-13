@@ -84,7 +84,7 @@
                                                                     @if($main_categories && $main_categories -> count() > 0)
                                                                         @foreach($main_categories as $category)
                                                                             <option
-                                                                                value="{{$category -> id }}">{{$category -> name}}</option>
+                                                                                value="{{$category->id }}">{{$category -> name}}</option>
                                                                         @endforeach
                                                                     @endif
                                                                 </optgroup>

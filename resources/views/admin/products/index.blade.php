@@ -70,15 +70,16 @@
                                                         <td>{{$product -> name}}</td>
                                                         <td>{{$product -> price}}</td>
                                                         <th>
-                                                            @if($product->category_id === 0) 
+                                                            @if($product->category_id != true) 
                                                             <b class="warning">@lang('admin/create.without section')
                                                             @else  
                                                             <b class="">{{$product -> categories->name}}</b>
+
                                                             @endif
                                                         </th>
 
                                                         <th>
-                                                            @if($product->vendor_id === 0) 
+                                                            @if($product->vendor_id != true) 
                                                             <b class="warning">@lang('admin/create.without section')
                                                             @else  
                                                             <b class="">{{$product -> vendors->name}}</b>
@@ -86,7 +87,7 @@
                                                         </th>
 
                                                         <th>
-                                                            @if($product->brand_id === 0) 
+                                                            @if($product->brand_id != true) 
                                                             <b class="warning">@lang('admin/create.without section')
                                                             @else  
                                                             <b class="">{{$product -> brands->name}}</b>

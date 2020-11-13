@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\WebsiteController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Front\DashboardController;
+use App\Http\Controllers\Front\AdvertisementController;
+
 Auth::routes();
 
 
@@ -17,6 +19,21 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('user.dashboard');
     Route::get('/logout', [LoginController::class, 'logout'])->name('user.logout');
+
+
+    ######################### Begin advertisement route ###############################
+    /** add-advertisement
+    * @todo URL:www.DomeinName.com/advertisement
+    * @todo Route name : advertisement.index
+    */
+    Route::group(['prefix' => 'advertisement'], function() {
+
+        Route::get('', [AdvertisementController::class, 'index'])->name('advertisement.index');
+        Route::get('{id}', [AdvertisementController::class, 'showSubCategory'])->name('advertisement.showSubCategory');
+
+    });
+    ######################### End advertisement route ###############################
+
 
 });
 

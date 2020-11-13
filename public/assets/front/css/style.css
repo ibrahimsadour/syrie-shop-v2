@@ -3632,6 +3632,7 @@ textarea.form-control {
   -webkit-transition: all .4s ease;
   transition: all .4s ease;
   height: 82%;
+  border-radius: 2%;
 }
 
 .ps-block--category a {
