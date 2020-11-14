@@ -2,30 +2,53 @@
 
 @section('content')
 
-    <div id="homepage-1">
+<div id="content" class="l-page">
+    <div class="category-selection-container box">
+        <div class="form-group">
+            <h3 class="row mr-2 ml-2">ماذا تريد ان تبيع ؟</h3>
+        </div>
+        <form action="/user/advertisement/create-step1" method="post">
+            {{ csrf_field() }}
 
-        <!-- Begin Slider show -->
-        @include('front.home-includes.slideshow-center')
-        <!-- End Slider show -->
+            <div class="form-group">
+                <label id="syi-categories-title" class="selection-title" for="radio-suggestion-manual">
+                        <span> أدخل عنوانا:</span>
+                </label>
+                <input  type="text" class="form-control" value="" name="name">
+            </div>
 
-        <!-- Begin Main Categories  sections /االاقسام ا -->
-        <div class="ps-top-categories" style="padding: 10px 0 20px;">
-            <div class="ps-container">
-                <h3> ماذا تريد أن تبيع؟</h3>
-                <div class="row">
-                    @isset($categories)
-                        @foreach($categories as $category)
-                            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-4 ">
-                                <div class="ps-block--category"><a class="ps-block__overlay" href="{{route('advertisement.showSubCategory',$category-> id)}}" name="{{$category-> id}}"></a><img
-                                          src="{{$category -> photo}}" alt="{{$category -> name}}">
-                                    <p>{{$category -> name}}</p>
-                                </div>
-                            </div>
-                        @endforeach
-                    @endisset
+            <div id="syi-categories-wrap" class="form-group">
+                <div class="syi-categories-select" data-event="list-suggestions">
+                    <label id="syi-categories-title" class="selection-title" for="radio-suggestion-manual">
+                        <span> اختر القسم المناسب:</span>
+                    </label>
+                    <select name="category_id" class="select2 form-control" >
+                        <optgroup label="من فضلك أختر القسم ">
+                            @if($categories && $categories -> count() > 0)
+                                @foreach($categories as $category)
+                                    <option value="{{$category -> id}}">{{$category -> name}}</option>
+                                @endforeach
+                            @endif
+                        </optgroup>
+                    </select>
                 </div>
             </div>
-        </div>
- 
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <div class="form-group">
+                <button  type="submit" class="ps-btn ps-btn--fullwidth"> اضافة باقي المعلومات </button>
+            </div>
+        </form>
+
     </div>
+</div>
+
 @endsection

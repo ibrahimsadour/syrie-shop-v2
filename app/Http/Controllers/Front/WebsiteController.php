@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\MainCategory;
+use App\Models\SubCategory;
 
 class WebsiteController extends Controller
 {
         
     /**
      * home_page
-     *
+     * @todo showCategory
      * @return void
      */
     public function home_page (){
@@ -24,6 +25,25 @@ class WebsiteController extends Controller
             ->get();
 
         return view('front.home', compact('categories'));
+    }
+    
+    /**
+     * showSubCategory
+     * @todo showSubCategory
+     * @param  mixed $request
+     * @return void
+     */
+    public function showSubCategory(Request $request)
+    {
+        $default_lang = get_default_lang();
+        $categories = MainCategory::where('translation_lang', $default_lang)->where('id',$request->id)
+            ->Active()
+            ->get();
+            // return $categories;
+        $subCategories = SubCategory::where('category_id',$request->id) ->Active()->selection()->get();
+
+        return view('front.pages.subcategories  ',compact('subCategories','categories'));
+
     }
 
     public function contact_us (){

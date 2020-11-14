@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\MainCategory;
 use App\Models\SubCategory;
+use App\Models\Product;
 class AdvertisementController extends Controller
 {
     /**
@@ -35,15 +36,5 @@ class AdvertisementController extends Controller
 
     }
 
-    public function showSubCategory(Request $request)
-    {
-        $default_lang = get_default_lang();
-        $categories = MainCategory::where('translation_lang', $default_lang)->where('id',$request->id)
-            ->Active()
-            ->get();
-            // return $categories;
-        $subCategories = SubCategory::where('category_id',$request->id) ->Active()->selection()->get();
-        return view('front.pages.advertisement.subIndex',compact('subCategories','categories'));
 
-    }
 }

@@ -16,8 +16,13 @@
                     @isset($categories)
                         @foreach($categories as $category)
                             <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
-                                <div class="ps-block--category"><a class="ps-block__overlay" href="{{route('site.store')}}"></a><img
-                                        src="{{$category -> photo}}" alt="{{$category -> name}}">
+                                <div class="ps-block--category">
+                                        @if($category->subCategories === NULL)
+                                        <a class="ps-block__overlay" href="{{route('site.store')}}"></a>
+                                        @else
+                                        <a class="ps-block__overlay" href="{{route('site.showSubCategory',$category-> id)}}"></a>
+                                        @endif
+                                    <img src="{{$category -> photo}}" alt="{{$category -> name}}">
                                     <p>{{$category -> name}}</p>
                                 </div>
                             </div>

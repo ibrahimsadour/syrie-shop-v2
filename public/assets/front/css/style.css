@@ -16485,4 +16485,25 @@ body, html, ul,li,ol,p,h1,h2,h3,h4,h5,h6,a,strong,input,button,hr,b, a, blockquo
   padding-right: 8px;
   border-radius: 4px;
 }
+/* advertisement.index */
+#content {
+  padding-bottom: 20px;
+}
+.l-page {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
 
+.box {
+  border-radius: 3px;
+}
+.box {
+  padding: 10px;
+  border: none;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,.14);
+  background-color: #fff;
+}

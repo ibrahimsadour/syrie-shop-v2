@@ -85,6 +85,19 @@ Route::group( [
     * @todo Route name : site.wish-list
     */
     Route::get('wish-list',[WebsiteController::class ,'wish_list']) -> name('site.wish-list');
+
+
+    ######################### Begin subCategory route ###############################
+    /** add-advertisement
+    * @todo URL:www.DomeinName.com/advertisement
+    * @todo Route name : advertisement.index
+    */
+    Route::group(['prefix' => 'sub-category'], function() {
+
+        Route::get('{id}', [WebsiteController::class, 'showSubCategory'])->name('site.showSubCategory');
+
+    });
+    ######################### End subCategory route ###############################
 });
 
 

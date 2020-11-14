@@ -29,7 +29,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::group(['prefix' => 'advertisement'], function() {
 
         Route::get('', [AdvertisementController::class, 'index'])->name('advertisement.index');
-        Route::get('{id}', [AdvertisementController::class, 'showSubCategory'])->name('advertisement.showSubCategory');
 
     });
     ######################### End advertisement route ###############################
