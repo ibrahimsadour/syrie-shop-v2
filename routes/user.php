@@ -26,9 +26,16 @@ Route::group(['middleware' => 'auth'], function() {
     * @todo URL:www.DomeinName.com/advertisement
     * @todo Route name : advertisement.index
     */
-    Route::group(['prefix' => 'advertisement'], function() {
+    Route::group(['prefix' => 'products'], function() {
 
-        Route::get('', [AdvertisementController::class, 'index'])->name('advertisement.index');
+        Route::get('/create-step-one', [AdvertisementController::class, 'createStepOne'])->name('products.create.step.one');
+        Route::post('/create-step-one', [AdvertisementController::class, 'postCreateStepOne'])->name('products.create.step.one.post');
+        
+        Route::get('/create-step-two', [AdvertisementController::class, 'createStepTwo'])->name('products.create.step.two');
+        Route::post('/create-step-two', [AdvertisementController::class, 'postCreateStepTwo'])->name('products.create.step.two.post');
+        
+        Route::get('/create-step-three', [AdvertisementController::class, 'createStepThree'])->name('products.create.step.three');
+        Route::post('/create-step-three', [AdvertisementController::class, 'postCreateStepThree'])->name('products.create.step.three.post');
 
     });
     ######################### End advertisement route ###############################

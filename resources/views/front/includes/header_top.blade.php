@@ -188,7 +188,7 @@
                 <a class="header__extra" href="{{route('site.wish-list')}}"><i class="icon-heart"></i><span><i>0</i></span></a>
                 <div class="ps-cart--mini">
 
-                    <a class="header__extra" href="{{route('advertisement.index')}}"><i class="icon-plus-circle"></i><span style="border-radius: 10%;width: 40px;top: 36px;"><i>اعلانك </i></span></a>
+                    <a class="header__extra" href="{{route('products.create.step.one')}}"><i class="icon-plus-circle"></i><span style="border-radius: 10%;width: 40px;top: 36px;"><i>اعلانك </i></span></a>
 
                 </div>
                 @guest
