@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\WebsiteController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Front\DashboardController;
-use App\Http\Controllers\Front\AdvertisementController;
+use App\Http\Controllers\Front\ProductsController;
 
 Auth::routes();
 
@@ -28,14 +28,18 @@ Route::group(['middleware' => 'auth'], function() {
     */
     Route::group(['prefix' => 'products'], function() {
 
-        Route::get('/create-step-one', [AdvertisementController::class, 'createStepOne'])->name('products.create.step.one');
-        Route::post('/create-step-one', [AdvertisementController::class, 'postCreateStepOne'])->name('products.create.step.one.post');
+        Route::get('/create-step-one', [ProductsController::class, 'createStepOne'])->name('products.create.step.one');
+        Route::post('/create-step-one', [ProductsController::class, 'postCreateStepOne'])->name('products.create.step.one.post');
         
-        Route::get('/create-step-two', [AdvertisementController::class, 'createStepTwo'])->name('products.create.step.two');
-        Route::post('/create-step-two', [AdvertisementController::class, 'postCreateStepTwo'])->name('products.create.step.two.post');
+
+        Route::get('/create-step-two', [ProductsController::class, 'createStepTwo'])->name('products.create.step.two');
+        Route::post('/create-step-two', [ProductsController::class, 'postCreateStepTwo'])->name('products.create.step.two.post');
         
-        Route::get('/create-step-three', [AdvertisementController::class, 'createStepThree'])->name('products.create.step.three');
-        Route::post('/create-step-three', [AdvertisementController::class, 'postCreateStepThree'])->name('products.create.step.three.post');
+        Route::get('/create-step-three', [ProductsController::class, 'createStepThree'])->name('products.create.step.three');
+        Route::post('/create-step-three', [ProductsController::class, 'postCreateStepThree'])->name('products.create.step.three.post');
+
+        Route::post('images', [ProductsController::class,'saveProductImages'])->name('admin.products.images.store');
+        Route::post('images/db', [ProductsController::class,'saveProductImagesDB'])->name('admin.products.images.store.db');
 
     });
     ######################### End advertisement route ###############################

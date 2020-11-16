@@ -329,8 +329,7 @@
                 nextArrow: "<a href='#'><i class='fa fa-angle-down'></i></a>",
                 asNavFor: '.ps-product__gallery',
                 vertical: vertical,
-                responsive: [
-                    {
+                responsive: [{
                         breakpoint: 1200,
                         settings: {
                             arrows: second.data('arrow'),
@@ -747,27 +746,27 @@
         $('body').addClass('loaded');
         subscribePopup();
     });
-    
+
     // this for header mobile search form:
-    $(document).ready(function(){
-        $(".form-group--nest").click(function(){
-            
-            if ( $( ".choose-items" ).first().is( ":hidden" ) ) {
-                $( ".choose-items" ).slideDown( "slow" );
+    $(document).ready(function() {
+        $(".form-group--nest").click(function() {
+
+            if ($(".choose-items").first().is(":hidden")) {
+                $(".choose-items").slideDown("slow");
             } else {
-                $( ".choose-items" ).slideUp();
+                $(".choose-items").slideUp();
             }
         });
     });
     // this for header mobile search form:
-    $(document).ready(function(){
-        if($(".register-As-Vendor").click(function(){
-                $( ".as-Vendor" ).slideDown( "slow" );
-        }));
+    $(document).ready(function() {
+        if ($(".register-As-Vendor").click(function() {
+                $(".as-Vendor").slideDown("slow");
+            }));
     });
-    $(document).ready(function(){
-        if($(".register-As-Coustomer").click(function(){
-            $( ".as-Vendor" ).slideUp( "slow" );
-        }));
+    $(document).ready(function() {
+        if ($(".register-As-Coustomer").click(function() {
+                $(".as-Vendor").slideUp("slow");
+            }));
     });
 })(jQuery);

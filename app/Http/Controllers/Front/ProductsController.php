@@ -7,7 +7,11 @@ use Illuminate\Http\Request;
 use App\Models\MainCategory;
 use App\Models\SubCategory;
 use App\Models\Product;
-class AdvertisementController extends Controller
+use App\Models\Kilometer_vehicle;
+use App\Models\Image;
+use Illuminate\Support\Facades\Route;
+use Session;
+class ProductsController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -20,7 +24,7 @@ class AdvertisementController extends Controller
     }
 
     /**
-     * Show the application Advertisement
+     * Show the application products
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -32,7 +36,7 @@ class AdvertisementController extends Controller
             ->Active()
             ->selection()
             ->get();
-        return view('front.pages.advertisement.index',compact('categories'));
+        return view('front.pages.products.index',compact('categories'));
 
     }
       
@@ -49,11 +53,16 @@ class AdvertisementController extends Controller
             ->selection()
             ->get();
 
+        $default_lang = get_default_lang();
+        $sub_categories = SubCategory::where('translation_lang', $default_lang)
+        ->Active()
+        ->selection()
+        ->get();
         $product = $request->session()->get('product');
   
-        return view('front.pages.advertisement.create-step-one',compact('product','categories'));
+        return view('front.pages.products.create-step-one',compact('product','categories','sub_categories'));
     }
-  
+
     /**  
      * Post Request to store step1 info in session
      *
@@ -100,10 +109,13 @@ class AdvertisementController extends Controller
         ->Active()
         ->selection()
         ->get();
+        // $Kilometer_vehicle = Kilometer_vehicle::where('category_id', 2)
+        // ->Active()
+        // ->selection()
+        // ->get();
         $product = $request->session()->get('product');
-
         // return $sub_categories;
-        return view('front.pages.advertisement.create-step-two',compact('product','categories','sub_categories'));
+        return view('front.pages.products.create-step-two',compact('product','categories','sub_categories'));
     }
   
     /**
@@ -114,13 +126,28 @@ class AdvertisementController extends Controller
     public function postCreateStepTwo(Request $request)
     {
         $validatedData = $request->validate([
+            'name' => 'required|unique:products',
             'price' => 'required',
+            'description' => 'required',
         ]);
-  
+
         $product = $request->session()->get('product');
         $product->fill($validatedData);
         $request->session()->put('product', $product);
-  
+
+        $category_id = $request->session()->get('product')->category_id;
+        if($category_id){
+        // sub_category
+        $categories = MainCategory::find($category_id);
+        $categories_name = $categories->name; 
+        Session::put('categories_name', $categories_name);
+        }
+ 
+
+        // kilometer
+        $kilometer = $request->kilometer;
+        Session::put('kilometer', $kilometer);
+
         return redirect()->route('products.create.step.three');
     }
   
@@ -130,26 +157,82 @@ class AdvertisementController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function createStepThree(Request $request)
-    {
+    {   
         $product = $request->session()->get('product');
-  
-        return view('front.pages.advertisement.create-step-three',compact('product'));
+
+
+        // sub_categories_name
+        $categories_name = Session::get('categories_name');
+
+        // kilometer
+        $kilometer = Session::get('kilometer');
+
+        return view('front.pages.products.create-step-three',compact('product','kilometer','categories_name'));
     }
   
+
+    //to save images to folder only
+    public function saveProductImages(Request $request){
+
+        // save image in folder
+        $file = $request->file('file');
+        $filename = uploadImage('products', $file);
+        // save image in database
+        $product_filename = collect($filename );
+
+        Session::push('product_filename', $product_filename);
+
+        return response()->json(['success'=>$filename]);
+    }
     /**
      * Show the step One Form for creating a new product.
      *
      * @return \Illuminate\Http\Response
      */
-    public function postCreateStepThree(Request $request)
+    public function postCreateStepThree(Request $request )
     {
+
+
+        // products slug ( ' ' ) => ( '-' )
+        $product_name = $request->session()->get('product')->name;
+        $product_description = $request->session()->get('product')->description;
+        $product_price = $request->session()->get('product')->price;
+        $product_slug = str_replace(' ', '-', $product_name); 
+
+        // product_id
+        $category_id = $request->session()->get('product')->category_id;
+
         $product = $request->session()->get('product');
+
+        // new product
+        $product = new Product;
+        $product ->translation_lang ="ar";
+        $product ->translation_of ="0";
+        $product ->category_id =$category_id;;
+        $product ->brand_id =0;
+        $product ->vendor_id =0;
+        $product ->name =$product_name;
+        $product ->slug =$product_slug;
+        $product ->description =$product_description;
+        $product ->price =$product_price;
         $product->save();
-  
+
+        $LastInsertId = $product->id;
+        $filename = Session::get('product_filename');
+        // dd($filename);
+        // save image to database
+        $imageUpload = new Image;
+        $imageUpload->photo =$filename;
+        $imageUpload->product_id = $LastInsertId;
+        $imageUpload->save();
+   
         $request->session()->forget('product');
-  
-        return redirect()->route('products.index');
+
+        return redirect()->route('products.create.step.one');
     }
+
+  
+
 
 
 }

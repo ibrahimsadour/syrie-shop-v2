@@ -8,6 +8,7 @@ use App\Models\MainCategory;
 use App\Models\Tag;
 use App\Models\Brands;
 use App\Models\Vendor;
+use App\Models\Kilometer_vehicle;
 
 class Product extends Model
 {
@@ -158,7 +159,16 @@ class Product extends Model
     {
         return $this->belongsToMany(Tag::class, 'product_tag');
     }
-    
+
+    /**
+     * kilometer_vehicles
+     *
+     * @return void
+     */
+    public function kilometer_vehicles()
+    {
+        return $this->belongsTo(Kilometer_vehicle::class, 'product_id', 'id');
+    } 
     ######################### End relationship  ########################
 
 }

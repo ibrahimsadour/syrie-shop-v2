@@ -1,4 +1,5 @@
 @extends('front.layouts.site')
+<meta name="csrf-token" content="{{ csrf_token() }}">
 
 @section('content')
 
@@ -27,7 +28,7 @@
             </div>
 
             <div id="syi-categories-wrap" class="form-group">
-                <div class="syi-categories-select" data-event="list-suggestions">
+                <div class="syi-categories-select" data-event="list-suggestions" id="categories">
                     <label id="syi-categories-title" class="selection-title" for="radio-suggestion-manual">
                         <span> اختر القسم المناسب:</span>
                     </label>
@@ -41,8 +42,8 @@
                         </optgroup>
                     </select>
                 </div>
-            </div>
 
+            </div>
 
             <div class="form-group">
                 <button  type="submit" class="ps-btn ps-btn--fullwidth"> اضافة باقي المعلومات </button>
@@ -50,6 +51,13 @@
         </form>
 
     </div>
-</div>
+
 
 @endsection
+
+
+<script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+
+</script>    
+
