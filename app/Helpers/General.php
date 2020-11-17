@@ -29,12 +29,6 @@ function uploadImage($folder, $image)
     return $path;
 }
 
-function uploadMultieImage($folder,$image){
-    $image->store('/', $folder);
-    $filename = $image->hashName();
-    return  $filename;
- }
-
 
 function uploadVideo($folder, $video)
 {

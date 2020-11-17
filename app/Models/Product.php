@@ -8,6 +8,7 @@ use App\Models\MainCategory;
 use App\Models\Tag;
 use App\Models\Brands;
 use App\Models\Vendor;
+use App\Models\Image;
 use App\Models\Kilometer_vehicle;
 
 class Product extends Model
@@ -159,7 +160,15 @@ class Product extends Model
     {
         return $this->belongsToMany(Tag::class, 'product_tag');
     }
-
+    /**
+     * images
+     *
+     * @return void
+     */
+    public function images()
+    {
+        return $this -> hasMany(Image::class,'product_id','id');
+    } 
     /**
      * kilometer_vehicles
      *

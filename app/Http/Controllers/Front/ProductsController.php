@@ -11,6 +11,7 @@ use App\Models\Kilometer_vehicle;
 use App\Models\Image;
 use Illuminate\Support\Facades\Route;
 use Session;
+use Illuminate\Support\Str;
 class ProductsController extends Controller
 {
     /**
@@ -126,7 +127,7 @@ class ProductsController extends Controller
     public function postCreateStepTwo(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|unique:products',
+            'name' => 'required',
             'price' => 'required',
             'description' => 'required',
         ]);
@@ -135,18 +136,19 @@ class ProductsController extends Controller
         $product->fill($validatedData);
         $request->session()->put('product', $product);
 
+
         $category_id = $request->session()->get('product')->category_id;
         if($category_id){
-        // sub_category
+        // categories
         $categories = MainCategory::find($category_id);
         $categories_name = $categories->name; 
         Session::put('categories_name', $categories_name);
         }
- 
 
         // kilometer
         $kilometer = $request->kilometer;
         Session::put('kilometer', $kilometer);
+
 
         return redirect()->route('products.create.step.three');
     }
@@ -160,14 +162,15 @@ class ProductsController extends Controller
     {   
         $product = $request->session()->get('product');
 
-
         // sub_categories_name
         $categories_name = Session::get('categories_name');
-
         // kilometer
         $kilometer = Session::get('kilometer');
+        
+        $filename = Session::get('product_filename');
 
-        return view('front.pages.products.create-step-three',compact('product','kilometer','categories_name'));
+
+        return view('front.pages.products.create-step-three',compact('product','kilometer','categories_name','filename'));
     }
   
 
@@ -217,15 +220,20 @@ class ProductsController extends Controller
         $product ->price =$product_price;
         $product->save();
 
+        // last insert id of this product
         $LastInsertId = $product->id;
         $filename = Session::get('product_filename');
-        // dd($filename);
+
         // save image to database
-        $imageUpload = new Image;
-        $imageUpload->photo =$filename;
-        $imageUpload->product_id = $LastInsertId;
-        $imageUpload->save();
-   
+        if($filename){
+            foreach ($filename as $image){
+                Image::create([
+                    'product_id' => $LastInsertId,
+                    'photo' => $image,
+                ]);
+            }
+        }
+
         $request->session()->forget('product');
 
         return redirect()->route('products.create.step.one');

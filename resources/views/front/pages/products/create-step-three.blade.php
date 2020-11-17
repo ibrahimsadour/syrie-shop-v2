@@ -35,6 +35,18 @@
                                     <td><strong>{{$kilometer}}</strong></td>
                                 </tr>
                             @endif
+                            <tr>
+                                <td> {{}}صور الاعلان:</td>
+                                <?php
+                                foreach($filename as $image){
+                                    $slice = Str::between($image, '"', '"');
+                                    $remove_slash=  Str::replaceArray('\/', ['/'], $slice);
+                                    $photo=  Str::replaceArray('\/', ['/'], $remove_slash);
+                                    echo"<td><strong><img src=";?>{{Request::root()}}<?php echo "/assets/$photo></strong></td>";
+                                }
+                                
+                                 ?>
+                            </tr>
                         </table>
   
                     </div>

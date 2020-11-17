@@ -12,14 +12,15 @@ use App\Models\Tag;
 use App\Models\Vendor;
 use Illuminate\Http\Request;
 use DB;
-
+use Illuminate\Support\Collection;
 class ProductsController extends Controller
 {
 
     public function index()
     {
-        $products = Product::Selection()->paginate(PAGINATION_COUNT);
-        // return $products;
+        $products = Product::with('images')->Selection()->get();
+
+
         return view('admin.products.index', compact('products'));
     }
     

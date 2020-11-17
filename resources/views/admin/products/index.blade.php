@@ -111,7 +111,20 @@
                                                         </td>
                                                         <th>@lang('admin/index.viewed')</th>
                                                         <th>{{$product -> description}}</th>
-                                                        <td> <img style="width: 150px; height: 100px;" src="{{$product -> 	photo}}"></td>
+                                                        <th>
+                                                        <?php
+                                                            foreach($products as $product){
+                                                                $collection = collect($product->images);
+                                                                foreach($collection as $collect){
+                                                                    $photo = $collect->photo;
+                                                                    $slice = Str::between($photo, '"', '"');
+                                                                    $remove_slash=  Str::replaceArray('\/', ['/'], $slice);
+                                                                    $photo2=  Str::replaceArray('\/', ['/'], $remove_slash);
+                                                                    echo"<strong><img width='25' height='25' src=";?>{{Request::root()}}<?php echo "/assets/$photo2></strong>";
+                                                                }
+                                                            }
+                                                        ?>
+                                                        </th>
                                                         <td>
                                                             <div class="btn-group" role="group"
                                                                  aria-label="Basic example">
