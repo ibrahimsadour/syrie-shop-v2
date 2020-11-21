@@ -61,7 +61,6 @@
                                         <div class="title-name">
                                             <h5 class="">مرحبا {{ Auth::user()->name }} </h5>
                                             <p><i class="fa fa-map-marker" aria-hidden="true"></i> الدانا </p>
-                                            <a href="{{route('user.logout')}}" class="item-subtitle"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> تعديل ملفي الشخصي </a>
 
                                         </div>
                                     </div>
@@ -78,39 +77,38 @@
                                                         </div>
                                                         <div class="item-inner">
                                                             <div class="item-title-row">
-                                                                <div class="item-title">أعلاناتي</div>
+                                                                <div class="item-title"><span>أعلاناتي</span></div>
                                                             </div>
-                                                            <div class="item-subtitle">هنا تجد جميع الأعلانات الخاصة بك</div>
+                                                            <div class="item-subtitle"><span>هنا تجد جميع الأعلانات الخاصة بك</span></div>
                                                         </div>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="/wishlist/" class="item-link item-content">
+                                                    <a href="{{route('user.editProfile')}}" class="item-link item-content">
                                                         <div class="item-media">
-                                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i> 
                                                         </div>
                                                         <div class="item-inner">
                                                             <div class="item-title-row">
-                                                                <div class="item-title">قائمة الرغبات</div>
+                                                                <div class="item-title"><span>تعديل ملفي الشخصي</span></div>
                                                             </div>
-                                                            <div class="item-subtitle">هنا تجد جميع الرغبات الخاصة بك</div>
+                                                            <div class="item-subtitle"><span>تعديل الاسم - الايميل - رقم الهاتف</span></div>
                                                         </div>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="/wishlist/" class="item-link item-content">
+                                                    <a href="{{route('user.editPassword')}}" class="item-link item-content">
                                                         <div class="item-media">
-                                                            <i class="fa fa-bell-o" aria-hidden="true"></i>
+                                                        <i class="fa fa-key" aria-hidden="true"></i>
                                                         </div>
                                                         <div class="item-inner">
                                                             <div class="item-title-row">
-                                                                <div class="item-title">الأشعارات</div>
+                                                                <div class="item-title"><span>تعديل كلمة المرور </span></div>
                                                             </div>
-                                                            <div class="item-subtitle">هنا تجد جميع الأشعارات الخاصة بك</div>
+                                                            <div class="item-subtitle"> <span>تعديل كلمة المرور الحالية</span></div>
                                                         </div>
                                                     </a>
                                                 </li>
-
                                                 <li>
                                                     <a href="/notification/" class="item-link item-content">
                                                         <div class="item-media">
@@ -118,9 +116,9 @@
                                                         </div>
                                                         <div class="item-inner">
                                                             <div class="item-title-row">
-                                                                <div class="item-title">المساعدة</div>
+                                                                <div class="item-title"><span>المساعدة</span></div>
                                                             </div>
-                                                            <div class="item-subtitle">للمساعد يمكنك ايجاد كافة المعلومات هنا</div>
+                                                            <div class="item-subtitle"><span>للمساعد يمكنك ايجاد كافة المعلومات هنا</span></div>
                                                         </div>
                                                     </a>
                                                 </li>
@@ -131,9 +129,9 @@
                                                         </div>
                                                         <div class="item-inner">
                                                             <div class="item-title-row">
-                                                                <div class="item-title">أتصل بنا</div>
+                                                                <div class="item-title"><span>أتصل بنا</span></div>
                                                             </div>
-                                                            <div class="item-subtitle">للاستفساار التواصل من هنا</div>
+                                                            <div class="item-subtitle"><span>للاستفساار التواصل من هنا</span></div>
                                                         </div>
                                                     </a>
                                                 </li>
@@ -144,7 +142,7 @@
                                                         </div>
                                                         <div class="item-inner">
                                                             <div class="item-title-row">
-                                                                <div class="item-title">تسجيل الخروج</div>
+                                                                <div class="item-title"><span> تسجيل الخروج</span></div>
                                                             </div>
                                                             <div class="item-subtitle"></div>
                                                         </div>

@@ -5,6 +5,7 @@ use App\Http\Controllers\Front\WebsiteController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Front\DashboardController;
 use App\Http\Controllers\Front\ProductsController;
+use App\Http\Controllers\Auth\EditProfileController;
 
 Auth::routes();
 
@@ -17,11 +18,22 @@ Auth::routes();
 *@todo Here is all route of the Front End Site
 */
 Route::group(['middleware' => 'auth'], function() {
+
+    ######################### Begin users route ###############################
+
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('user.dashboard');
     Route::get('/logout', [LoginController::class, 'logout'])->name('user.logout');
 
+    Route::get('/edit-profile', [EditProfileController::class, 'edit'])->name('user.editProfile');
+    Route::post('update-profile/{id}', [EditProfileController::class, 'updateProfile'])->name('user.updateProfile');
 
-    ######################### Begin advertisement route ###############################
+    Route::get('/edit-password', [EditProfileController::class, 'editPassword'])->name('user.editPassword');
+    Route::post('update-password/{id}', [EditProfileController::class, 'updatePassword'])->name('user.updatePassword');
+
+    ######################### End users route ###############################
+
+
+    ######################### Begin products route ###############################
     /** add-advertisement
     * @todo URL:www.DomeinName.com/advertisement
     * @todo Route name : advertisement.index
@@ -42,7 +54,7 @@ Route::group(['middleware' => 'auth'], function() {
         Route::post('images/db', [ProductsController::class,'saveProductImagesDB'])->name('admin.products.images.store.db');
 
     });
-    ######################### End advertisement route ###############################
+    ######################### End products route ###############################
 
 
 });
