@@ -40,6 +40,24 @@ class ProductsController extends Controller
         return view('front.pages.products.index',compact('categories'));
 
     }
+
+    /**
+     * Show the user products
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function getUserProducts()
+    {
+        $user = auth()->user();
+        $user_id = $user->id;
+        $products = Product::where('user_id', '=', $user_id )
+            ->Active()
+            ->selection()
+            ->get();
+            // return  $user_id;
+        return view('front.pages.products.my-products.index',compact('products'));
+
+    }
       
     /**
      * Show the step One Form for creating a new product.
@@ -207,11 +225,17 @@ class ProductsController extends Controller
 
         $product = $request->session()->get('product');
 
+        //user_id
+        $user = auth()->user();
+        $user_id = $user->id;
+
         // new product
         $product = new Product;
+        
         $product ->translation_lang ="ar";
+        $product ->user_id =$user_id;
         $product ->translation_of ="0";
-        $product ->category_id =$category_id;;
+        $product ->category_id =$category_id;
         $product ->brand_id =0;
         $product ->vendor_id =0;
         $product ->name =$product_name;
@@ -238,8 +262,6 @@ class ProductsController extends Controller
 
         return redirect()->route('products.create.step.one');
     }
-
-  
 
 
 

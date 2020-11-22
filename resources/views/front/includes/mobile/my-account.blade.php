@@ -71,7 +71,7 @@
 
                                             <ul class="list">
                                                 <li>
-                                                    <a href="/wishlist/" class="item-link item-content">
+                                                    <a href="{{route('user.myProducts')}}" class="item-link item-content">
                                                         <div class="item-media">
                                                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                         </div>
@@ -110,7 +110,7 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="/notification/" class="item-link item-content">
+                                                    <a href="{{route('site.faqs')}}" class="item-link item-content">
                                                         <div class="item-media">
                                                         <i class="fa fa-question-circle" aria-hidden="true"></i>
                                                         </div>
@@ -123,7 +123,7 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="/notification/" class="item-link item-content">
+                                                    <a href="{{route('site.contact-us')}}" class="item-link item-content">
                                                         <div class="item-media">
                                                         <i class="fa fa-envelope" aria-hidden="true"></i>
                                                         </div>

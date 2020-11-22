@@ -40,10 +40,10 @@ Route::group(['middleware' => 'auth'], function() {
     */
     Route::group(['prefix' => 'products'], function() {
 
+        ############### Begin add products ###############
         Route::get('/create-step-one', [ProductsController::class, 'createStepOne'])->name('products.create.step.one');
         Route::post('/create-step-one', [ProductsController::class, 'postCreateStepOne'])->name('products.create.step.one.post');
         
-
         Route::get('/create-step-two', [ProductsController::class, 'createStepTwo'])->name('products.create.step.two');
         Route::post('/create-step-two', [ProductsController::class, 'postCreateStepTwo'])->name('products.create.step.two.post');
         
@@ -52,6 +52,17 @@ Route::group(['middleware' => 'auth'], function() {
 
         Route::post('images', [ProductsController::class,'saveProductImages'])->name('admin.products.images.store');
         Route::post('images/db', [ProductsController::class,'saveProductImagesDB'])->name('admin.products.images.store.db');
+        ############### End add products ###############
+
+
+        ############### Begin My products ###############
+        Route::get('my-products', [ProductsController::class, 'getUserProducts'])->name('user.myProducts');
+        // Route::get('edit-product', [ProductsController::class, 'editUserProducts'])->name('user.editProducts');
+        // Route::get('update-product', [ProductsController::class, 'updateUserProducts'])->name('user.updateProducts');
+
+        ############### End My products ###############
+
+
 
     });
     ######################### End products route ###############################
