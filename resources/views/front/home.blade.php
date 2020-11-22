@@ -1,5 +1,5 @@
 @extends('front.layouts.site')
-
+@section('title','بـازاركـم')
 @section('content')
 
     <div id="homepage-1">
@@ -60,6 +60,5 @@
         <!-- Begin download-app -->
         @include('front.home-includes.download-app')
         <!-- End download-app -->
- 
     </div>
 @endsection

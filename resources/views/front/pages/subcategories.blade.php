@@ -1,4 +1,5 @@
 @extends('front.layouts.site')
+@section('title','الأشتراك ')
 
 @section('content')
     <div id="homepage-1">

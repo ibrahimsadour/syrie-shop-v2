@@ -1,4 +1,5 @@
 @extends('front.layouts.site')
+@section('title','اتصل بنا  ')
 
 @section('content')
 <div class="ps-page--single" id="contact-us">

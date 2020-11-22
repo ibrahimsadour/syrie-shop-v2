@@ -1,5 +1,5 @@
 @extends('front.layouts.site')
-
+@section('title','الاسئلة الشائعة')
 @section('content')
 
 <div class="ps-page--single">

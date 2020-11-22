@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <title>Martfury - Multi Vendor &amp; Marketplace</title>
+    <title>@yield('title')</title>
     <link href="https://fonts.googleapis.com/css2?family=Almarai&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('assets/front/plugins/font-awesome/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/front/fonts/Linearicons/Linearicons/Font/demo-files/demo.css')}}">
@@ -97,6 +97,10 @@
             </form>
         </div>
     </div>
+
+    <!-- Begin notifications  https://websolutionstuff.com/post/laravel-8-toastr-notifications-example / https://codeseven.github.io/toastr/demo.html-->
+    @include('front.includes.toastr_notifications')
+    <!-- Begin notifications -->
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </script><script src="{{asset('assets/front/plugins/jquery-1.12.4.min.js')}}"></script>

@@ -37,8 +37,7 @@ class LoginController extends Controller
         if (auth()->guard('admin')->attempt(['email' => $request->input("email"), 'password' => $request->input("password")], $remember_me)) {
 
             // dit geeft soort van notificatie aan de zij kant dat de gebuiker ingelogd is!!
-           // notify()->success('تم الدخول بنجاح  ');
-            return redirect() -> route('admin.dashboard');
+            return redirect() -> route('admin.dashboard')->with('success','نعم ! تم تسجيل الدخول بنجاح');
         }
        // notify()->error('خطا في البيانات  برجاء المجاولة مجدا ');
         return redirect()->back()->with(['error' => 'هناك خطا بالبيانات']);
@@ -54,6 +53,6 @@ class LoginController extends Controller
         $gaurd = $this->getGaurd();
         $gaurd->logout();
 
-        return redirect()->route('login');
+        return redirect()->route('site.index')->with('success','نعم ! تم تسجيل الخروج بنجاح');;
     }
 }

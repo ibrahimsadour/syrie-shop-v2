@@ -1,4 +1,5 @@
 @extends('front.layouts.site')
+@section('title','إضافة إعلان الخطوة الثالثة')
 @section('content')
 <div class="container" style="margin-top: 5%;margin-bottom: 5%;">
     <div class="row justify-content-center">

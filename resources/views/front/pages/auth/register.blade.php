@@ -1,4 +1,5 @@
 @extends('front.layouts.site')
+@section('title','الأشتراك')
 
 @section('content')
 <div class="ps-page--my-account">
@@ -25,7 +26,7 @@
                             @include('admin.includes.alerts.success')
                             @include('admin.includes.alerts.errors')
                             <h5>تسجيل حساب جديد</h5>
-                            <form  method="POST" action="{{ route('register') }}">
+                            <form  method="POST" action="{{ route('register')}}">
                                 @csrf
                                 <!-- Email -->
                                 <div class="form-group">

@@ -1,5 +1,5 @@
 @extends('front.layouts.site')
-
+@section('title','المتجر ')
 @section('content')
     <div class="ps-breadcrumb">
         <div class="ps-container">

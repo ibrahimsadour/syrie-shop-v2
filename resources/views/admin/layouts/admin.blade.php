@@ -73,6 +73,9 @@
 
 <!-- @notify_js
 @notify_render -->
+<!-- Begin notifications  https://websolutionstuff.com/post/laravel-8-toastr-notifications-example / https://codeseven.github.io/toastr/demo.html-->
+    @include('front.includes.toastr_notifications')
+<!-- Begin notifications -->
 
 <!-- BEGIN VENDOR JS-->
 <script src="{{asset('assets/admin/vendors/js/vendors.min.js')}}" type="text/javascript"></script>

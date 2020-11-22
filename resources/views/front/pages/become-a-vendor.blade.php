@@ -1,5 +1,5 @@
 @extends('front.layouts.site')
-
+@section('title','افتح متجرك في سوق البلد  ')
 @section('content')
 
 <div class="ps-page--single">

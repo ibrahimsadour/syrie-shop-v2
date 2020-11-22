@@ -1,5 +1,5 @@
 @extends('front.layouts.site')
-
+@section('title','نسيت كلمة المرور ')
 @section('content')
 <div class="ps-page--my-account">
     <div class="ps-breadcrumb">

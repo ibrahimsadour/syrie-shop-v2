@@ -1,4 +1,5 @@
 @extends('front.layouts.site')
+@section('title','صفحة غير موجودة')
 
 @section('content')
 <div class="ps-page--404">

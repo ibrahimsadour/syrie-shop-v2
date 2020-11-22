@@ -1,4 +1,5 @@
 @extends('front.layouts.site')
+@section('title',' قائمة الرغبات')
 
 @section('content')
 

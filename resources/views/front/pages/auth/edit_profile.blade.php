@@ -1,4 +1,5 @@
 @extends('front.layouts.site')
+@section('title','تعديل ملفي الشخصي  ')
 
 @section('content')
 <div class="ps-page--my-account">

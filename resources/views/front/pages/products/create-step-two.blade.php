@@ -1,4 +1,5 @@
 @include('front.pages.products.includes.header')
+@section('title','إضافة إعلان الخطوة الثانية')
 
     <div class="app-content content">
         <div class="content-wrapper">

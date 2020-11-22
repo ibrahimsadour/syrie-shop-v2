@@ -1,4 +1,6 @@
 @extends('front.layouts.site')
+@section('title',' إعلاناتي')
+
 <style>
 .mp-Listing-compact-body {
     display: flex;

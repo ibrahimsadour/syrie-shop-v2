@@ -1,5 +1,6 @@
 @extends('front.layouts.site')
 <meta name="csrf-token" content="{{ csrf_token() }}">
+@section('title','إضافة إعلان الخطوة الاولى')
 
 @section('content')
 

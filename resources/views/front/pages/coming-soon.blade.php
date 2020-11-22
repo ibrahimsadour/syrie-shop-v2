@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <title>Martfury - Multi Vendor &amp; Marketplace</title>
+    <title>@yield('title')</title>
     <link href="https://fonts.googleapis.com/css2?family=Almarai&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{asset('assets/front/css/style.css')}}">

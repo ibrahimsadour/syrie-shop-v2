@@ -87,7 +87,7 @@ class LoginController extends Controller
         $credentials = $request->only($field, 'password');
         if (Auth::attempt($credentials)) {
             // Authentication passed...
-            return redirect()->intended('/user/dashboard');
+            return redirect()->route('site.index')->with('success','نعم ! تم تسجيل الدخول بنجاح');
         }
 
         return redirect()->route('user.login')->with('error','خطأ في البريد الالكتروني او كلمة المرور');
@@ -151,7 +151,7 @@ class LoginController extends Controller
             if($findUser){
                 
                 Auth::login($findUser);
-                return redirect()->intended('/user/dashboard');
+                return redirect()->route('site.index')->with('success','نعم ! تم تسجيل الدخول بنجاح');
 
             }else{ //if the user not exist => we need to make new user
 
