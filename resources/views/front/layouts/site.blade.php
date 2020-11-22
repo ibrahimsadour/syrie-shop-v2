@@ -35,9 +35,9 @@
     @include('front.includes.header_mobile')
     <!-- End header_mobile -->
 
-    <!-- Begin cart-mobile -->
+    <!-- Begin login-mobile -->
     @include('front.includes.mobile.my-account')
-    <!-- End cart-mobile -->
+    <!-- End login-mobile -->
 
     <!--  Begin navigation-mobile-->
     @include('front.includes.mobile.navigation-mobile')

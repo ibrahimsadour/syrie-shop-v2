@@ -196,7 +196,7 @@
                                 </li>
                                 <li class="current-menu-item "><a href="order-tracking.html">Order Tracking</a>
                                 </li>
-                                <li class="current-menu-item "><a href="{{route('site.my-account')}}">My Account</a>
+                                <li class="current-menu-item "><a href="{{route('user.login')}}">My Account</a>
                                 </li>
                             </ul>
                         </div>

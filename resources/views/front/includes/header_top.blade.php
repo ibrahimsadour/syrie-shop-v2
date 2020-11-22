@@ -93,7 +93,7 @@
                         </li>
                     </ul>
                 </div>
-            </div><a class="ps-logo" href="{{route('site.index')}}"><img src="{{asset('assets/front/img/logo_light.png')}}" alt=""></a>
+            </div><a class="ps-logo" href="{{route('site.index')}}"><img style="width: 75%;" src="{{asset('assets/front/img/logo_light.webp')}}" alt=""></a>
         </div>
         <div class="header__center">
             <form class="ps-form--quick-search" action="{{route('site.index')}}" method="get">
@@ -197,8 +197,8 @@
                             <i class="icon-user-plus"></i>
                         </div>
                         <div class="ps-block__right">
-                            <a href="{{route('site.my-account')}}">تسجيل الدخول</a>
-                            <a href="{{route('site.my-account')}}">الأشتراك</a>
+                            <a href="{{route('user.login')}}">تسجيل الدخول</a>
+                            <a href="{{route('user.register')}}">الأشتراك</a>
                         </div>
                     </div>
                 @else

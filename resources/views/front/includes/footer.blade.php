@@ -39,7 +39,7 @@
                     <ul class="ps-list--link">
                         <li><a href="#">الصحافة لدينا</a></li>
                         <li><a href="checkout.html">الدفع</a></li>
-                        <li><a href="{{route('site.my-account')}}">حسابي</a></li>
+                        <li><a href="{{route('user.login')}}">حسابي</a></li>
                         <li><a href="{{route('site.store')}}">متجر</a></li>
                     </ul>
                 </aside>

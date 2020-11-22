@@ -23,14 +23,14 @@
             </div>
         </div>
         <div class="navigation--mobile">
-            <div class="navigation__left"><a class="ps-logo" href="{{route('site.index')}}"><img src="{{asset('assets/front/img/logo_light.png')}}" alt=""></a></div>
+            <div class="navigation__left"><a class="ps-logo" href="{{route('site.index')}}"><img style="width: 60%;" src="{{asset('assets/front/img/logo_light.webp')}}" alt=""></a></div>
             <div class="navigation__right">
                 <div class="header__actions">
                     <div class="ps-cart--mini"><a class="header__extra" href="{{route('site.wish-list')}}"><i class="icon-heart"></i><span><i>0</i></span></a>
                     </div>
                     @guest
                         <div class="ps-block--user-header">
-                            <a class="ps-block__left"href="{{route('site.my-account')}}" >
+                            <a class="ps-block__left"href="{{route('user.login')}}" >
                                 <i class="icon-user-plus"></i>
                             </a>
                         </div>    

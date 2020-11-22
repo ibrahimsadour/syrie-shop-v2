@@ -42,6 +42,15 @@ class RegisterController extends Controller
     }
 
     /**
+     * my_account
+     * @todo to show the login form
+     * @return void
+     */
+    public function register (){
+
+        return view('front.pages.auth.register');
+    }
+    /**
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
@@ -52,8 +61,18 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'mobile' => 'required|min:6',
+            'mobile' => 'required|min:8',
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ],
+        [
+            'name.required' => 'لم يتم إدخال  الأسم!!',
+            'email.required' => 'لم يتم إدخال البريد الإلكتروني!',
+            'email.unique' => 'هذا الايميل مستخدم مسبقا',
+            'mobile.required'=>'لم يتم إدخال رقم الهاتف  ',
+            'mobile.min'=>'يجب أن يتكون رقم الهاتف  من 8 ارقام على الأقل.  ',
+            'password.required'=>'لم يتم إدخال كلمة مرور ',
+            'password.min'=>'يجب أن تتكون كلمة المرور من 8 أحرف على الأقل. ',
+            'password.confirmed'=>'تأكيد كلمة المرور غير متطابق. ',
         ]);
     }
 

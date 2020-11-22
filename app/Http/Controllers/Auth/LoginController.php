@@ -53,8 +53,8 @@ class LoginController extends Controller
      * @todo to show the login form
      * @return void
      */
-    public function my_account (){
-        return view('front.pages.auth.my-account');
+    public function login (){
+        return view('front.pages.auth.login');
     }
 
     /**
@@ -67,7 +67,7 @@ class LoginController extends Controller
         if(Auth::check()){
             return view('home');
         }else{
-            return redirect()->route('site.my-account')->withSuccess('يجب عليك تسجيل الدخول اولا');
+            return redirect()->route('user.login')->with('error','يجب عليك تسجيل الدخول اولا');
         }
 
     }
@@ -90,7 +90,7 @@ class LoginController extends Controller
             return redirect()->intended('/user/dashboard');
         }
 
-        return redirect()->route('site.my-account')->withSuccess('خطأ في البريد الالكتروني او كلمة المرور');
+        return redirect()->route('user.login')->with('error','خطأ في البريد الالكتروني او كلمة المرور');
     }
 
     /**
@@ -102,11 +102,11 @@ class LoginController extends Controller
     {
         Session::flush();
         Auth::logout();
-        return redirect()->route('site.my-account')->withSuccess('نعم ! تم تسجيل الخروج بنجاح');
+        return redirect()->route('user.login')->withSuccess('نعم ! تم تسجيل الخروج بنجاح');
     }
 
-#################################################################
-######### Login With Facebook - Google - Twitter -instegram #####
+    #################################################################
+    ######### Login With Facebook - Google - Twitter -instegram #####
     /**
    * Redirect the user to the GitHub authentication page.
    *
@@ -169,13 +169,13 @@ class LoginController extends Controller
                     Auth::login($newUser);
                     return redirect()->intended('/user/dashboard');
                 }else{
-                    return redirect()->route('site.my-account')->withSuccess('هناك شئ خاطئ، يرجى المحاولة فى وقت لاحق');
+                    return redirect()->route('user.login')->withSuccess('هناك شئ خاطئ، يرجى المحاولة فى وقت لاحق');
                 }
             }
         } catch (\Exception $ex) {
             DB::rollback();
             // return $ex;
-            return redirect()->route('site.my-account')->withSuccess('هناك شئ خاطئ، يرجى المحاولة فى وقت لاحق');
+            return redirect()->route('user.login')->withSuccess('هناك شئ خاطئ، يرجى المحاولة فى وقت لاحق');
         }
 
     }

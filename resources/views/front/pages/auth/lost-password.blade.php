@@ -6,7 +6,7 @@
         <div class="container">
             <ul class="breadcrumb">
                 <li><a href="{{route('site.index')}}">الرئيسية </a></li>
-                <li><a href="{{route('site.my-account')}}">حسابي</a></li>
+                <li><a href="{{route('user.login')}}">حسابي</a></li>
                 <li>نسيت كلمة السر</li>
             </ul>
         </div>

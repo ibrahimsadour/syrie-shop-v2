@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\WebsiteController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Front\DashboardController;
 use App\Http\Controllers\Front\ProductsController;
 use App\Http\Controllers\Auth\EditProfileController;
@@ -77,12 +78,13 @@ Route::group(['middleware' => 'auth'], function() {
 */
 Route::post('/login-attempt', [LoginController::class, 'loginAttempt'])->name('login-attempt');
 
-/** my-account page
+/** login page
 * @todo URL:www.DomeinName.com/my-account
-* @todo Route name : site.my-account
+* @todo Route name : user.login
 * @todo this route for the login en regestir page.
 */
-Route::get('my-account',[LoginController::class ,'my_account']) -> name('site.my-account');
+Route::get('login',[LoginController::class ,'login']) -> name('user.login');
+Route::get('register',[RegisterController::class ,'register']) -> name('user.register');
 
 /** Login with facebook or google or twitter
 * @todo URL:www.DomeinName.com/login/{google}
