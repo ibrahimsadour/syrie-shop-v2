@@ -15726,7 +15726,7 @@ textarea.form-control {
 
 .ps-site-overlay.active {
     visibility: visible;
-    opacity: 1;
+    /* opacity: 1; */
 }
 
 .ps-search--mobile {

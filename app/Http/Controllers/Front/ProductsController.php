@@ -12,6 +12,8 @@ use App\Models\Image;
 use Illuminate\Support\Facades\Route;
 use Session;
 use Illuminate\Support\Str;
+use App\Http\Requests\Front\ProductsRequest;
+
 class ProductsController extends Controller
 {
     /**
@@ -92,8 +94,12 @@ class ProductsController extends Controller
     {
         // validatedData
         $validatedData = $request->validate([
-            'name' => 'required|unique:products',
+            'name' => 'required',
             'category_id' => 'required'
+        ],        
+        [
+            'name.required'=>'لم يتم إدخال  عنوان الاعلان ',
+            'category_id.required'=>'أختر القسم المناسب لاعلانك ',
         ]);
 
         if(empty($request->session()->get('product'))){
@@ -146,8 +152,14 @@ class ProductsController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required',
-            'price' => 'required',
-            'description' => 'required',
+            'price' => 'required|integer',
+            'description' => 'required|max:1000',
+        ],
+        [      
+            'name.required'=>'لم يتم إدخال  عنوان الاعلان ',
+            'price.required'=>'لم يتم إدخال سعر الاعلان  ',
+            'price.integer'=>'يجب ان يكون السعر من ارقام  ',
+            'description.required'=>'لم يتم إدخال الوصف الخاص بالاعلان  ',
         ]);
 
         $product = $request->session()->get('product');
@@ -213,56 +225,86 @@ class ProductsController extends Controller
     public function postCreateStepThree(Request $request )
     {
 
-
-        // products slug ( ' ' ) => ( '-' )
-        $product_name = $request->session()->get('product')->name;
-        $product_description = $request->session()->get('product')->description;
-        $product_price = $request->session()->get('product')->price;
+        try {
+            // products slug ( ' ' ) => ( '-' )
+            $product_name = $request->session()->get('product')->name;
+            $product_description = $request->session()->get('product')->description;
+            $product_price = $request->session()->get('product')->price;
+            $product_slug = str_replace(' ', '-', $product_name); 
         $product_slug = str_replace(' ', '-', $product_name); 
+            $product_slug = str_replace(' ', '-', $product_name); 
 
-        // product_id
-        $category_id = $request->session()->get('product')->category_id;
+            // product_id
+            $category_id = $request->session()->get('product')->category_id;
 
-        $product = $request->session()->get('product');
+            $product = $request->session()->get('product');
 
-        //user_id
-        $user = auth()->user();
-        $user_id = $user->id;
+            //user_id
+            $user = auth()->user();
+            $user_id = $user->id;
 
-        // new product
-        $product = new Product;
-        
-        $product ->translation_lang ="ar";
-        $product ->user_id =$user_id;
-        $product ->translation_of ="0";
-        $product ->category_id =$category_id;
-        $product ->brand_id =0;
-        $product ->vendor_id =0;
-        $product ->name =$product_name;
-        $product ->slug =$product_slug;
-        $product ->description =$product_description;
-        $product ->price =$product_price;
-        $product->save();
+            // new product
+            $product = new Product;
+            
+            $product ->translation_lang ="ar";
+            $product ->user_id =$user_id;
+            $product ->translation_of ="0";
+            $product ->category_id =$category_id;
+            $product ->brand_id =0;
+            $product ->vendor_id =0;
+            $product ->name =$product_name;
+            $product ->slug =$product_slug;
+            $product ->description =$product_description;
+            $product ->price =$product_price;
+            $product->save();
 
-        // last insert id of this product
-        $LastInsertId = $product->id;
-        $filename = Session::get('product_filename');
+            // last insert id of this product
+            $LastInsertId = $product->id;
+            $filename = Session::get('product_filename');
 
-        // save image to database
-        if($filename){
-            foreach ($filename as $image){
-                Image::create([
-                    'product_id' => $LastInsertId,
-                    'photo' => $image,
-                ]);
+            // save image to database
+            if($filename){
+                foreach ($filename as $image){
+                    Image::create([
+                        'product_id' => $LastInsertId,
+                        'photo' => $image,
+                    ]);
+                }
+            }
+
+            $request->session()->forget('product');
+
+            return redirect()->route('products.create.step.one')->with("success"," تم الاضافة بنجاح!");
+        } catch (\Exception $ex) {
+            // return $ex;
+            DB::rollback();
+            return redirect()->route('site.index')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+        }
+    }
+    
+    /**
+     * fileDestroy
+     * remobve images
+     * @param  mixed $request
+     * @return void
+     */
+    public function fileDestroy(Request $request)
+    {
+        $filsename = Session::get('product_filename');
+        // $product_filename = collect($filsename );
+        foreach($filsename as $filename){
+            $slice = Str::between($filename, '"', '"');
+            $remove_slash=  Str::replaceArray('\/', ['/'], $slice);
+            $photo=  Str::replaceArray('\/', ['/'], $remove_slash);
+            $image = public_path('assets'.'/' . $photo);
+            if (file_exists($image)) {
+                unlink  ($image);
+                return response()->json($image, 200);
+    
             }
         }
 
-        $request->session()->forget('product');
-
-        return redirect()->route('products.create.step.one');
     }
-
 
 
 }

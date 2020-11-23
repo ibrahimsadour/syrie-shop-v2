@@ -1,3 +1,4 @@
+
 <header class="header header--mobile" data-sticky="true">
         <div class="header__top">
             <div class="header__left">
@@ -38,7 +39,10 @@
                     <div class="ps-block--user-header">
 
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 85%;font-weight: 700; background: #fcb800;">
-                            مرحبا <span>{{ Auth::user()->name }} <span>
+                            مرحبا <span style="font-weight: 700;">{{ Auth::user()->name }} <span>
+                            <span class="avatar avatar-online">                         
+                                <img style="height: 35px; border-radius: 50%;" src="http://localhost:8000/assets/admin/images/logo/ibo.jpeg" alt="avatar">  
+                            </span>
                         </button>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{{route('user.editProfile')}}">تعديل ملفي الشخصي</a>

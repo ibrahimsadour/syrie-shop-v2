@@ -1,4 +1,16 @@
-
+<style>
+.online {
+    background-color: #28D094;
+}
+.online {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    right: 24%;
+    top: 15%;
+}
+    </style>
 <div class="ps-panel--sidebar" id="my-account">
     <div class="ps-my-account">
         <div class="container">
@@ -57,7 +69,7 @@
                             @else 
                                 <div class="ps-form_my_acount">
                                     <div class="header-account content-shadow">
-                                        <img src="https://imgcomfort.com/Userfiles/Upload/images/illustration-geiranger.jpg" alt="" class="user_avatar">
+                                        <img src="http://localhost:8000/assets/admin/images/logo/ibo.jpeg" alt="" class="user_avatar"><i class="online"></i>
                                         <div class="title-name">
                                             <h5 class="">مرحبا {{ Auth::user()->name }} </h5>
                                             <p><i class="fa fa-map-marker" aria-hidden="true"></i> الدانا </p>

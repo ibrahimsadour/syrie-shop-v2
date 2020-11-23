@@ -53,6 +53,8 @@ Route::group(['middleware' => 'auth'], function() {
 
         Route::post('images', [ProductsController::class,'saveProductImages'])->name('admin.products.images.store');
         Route::post('images/db', [ProductsController::class,'saveProductImagesDB'])->name('admin.products.images.store.db');
+        Route::post('image/delete',[ProductsController::class,'fileDestroy'])->name('admin.products.images.delet');
+
         ############### End add products ###############
 
 

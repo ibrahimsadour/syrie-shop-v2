@@ -47,7 +47,7 @@ class EditProfileController extends Controller
 
     public function updateProfile($id, Request $request)
     {
-        // try {
+        try {
             $this->validate($request,[
                 'name' => 'required',
                 'mobile' => 'required',
@@ -68,11 +68,11 @@ class EditProfileController extends Controller
 
 
 
-        // } catch (\Exception $ex) {
-        //     return $ex;
-        //     DB::rollback();
-        //     return redirect()->route('site.index')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
-        // }
+        } catch (\Exception $ex) {
+            // return $ex;
+            DB::rollback();
+            return redirect()->route('site.index')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+        }
     }
 
 
@@ -122,7 +122,7 @@ class EditProfileController extends Controller
 
 
         } catch (\Exception $ex) {
-            return $ex;
+            // return $ex;
             DB::rollback();
             return redirect()->route('site.index')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
         }

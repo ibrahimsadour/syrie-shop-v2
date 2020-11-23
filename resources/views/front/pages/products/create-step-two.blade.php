@@ -157,7 +157,7 @@
 <script type="text/javascript">
         Dropzone.options.dropzone =
          {
-            maxFilesize: 12,
+            maxFilesize: 10,
             renameFile: function(file) {
                 var dt = new Date();
                 var time = dt.getTime();
@@ -174,7 +174,7 @@
                                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
                             },
                     type: 'POST',
-                    url: '{{ url("image/delete") }}',
+                    url: '{{ url("user/products/image/delete") }}',
                     data: {filename: name},
                     success: function (data){
                         console.log("File has been successfully removed!!");

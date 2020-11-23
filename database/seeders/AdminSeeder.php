@@ -1,11 +1,12 @@
 <?php
 
 namespace Database\Seeders;
-
+use App\Models\Admin;
 use Illuminate\Database\Seeder;
-use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-class UserSeeder extends Seeder
+use Illuminate\Support\Str;
+class AdminSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +15,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $admin = new User;
+        $admin = new Admin;
         $admin ->name ="Ibrahim Sadour";
         $admin ->email ="i.m.s.1995@hotmail.com";
         $admin ->password = Hash::make('ibrahem810907');

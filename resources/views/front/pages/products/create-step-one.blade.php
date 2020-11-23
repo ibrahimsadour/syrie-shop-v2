@@ -11,21 +11,15 @@
         </div>
         <form action="{{ route('products.create.step.one.post') }}" method="post">
             @csrf
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
 
             <div class="form-group">
                 <label id="syi-categories-title" class="selection-title" for="radio-suggestion-manual">
                         <span> عنوان الأعلان</span>
                 </label>
                 <input  type="text" class="form-control" value="{{ $product->name ?? '' }}" name="name">
+                @error("name")
+                <span class="text-danger">{{$message}}</span>
+                @enderror
             </div>
 
             <div id="syi-categories-wrap" class="form-group">
@@ -42,6 +36,9 @@
                             @endif
                         </optgroup>
                     </select>
+                    @error("category_id")
+                    <span class="text-danger">{{$message}}</span>
+                    @enderror
                 </div>
 
             </div>

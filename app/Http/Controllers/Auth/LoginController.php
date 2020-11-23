@@ -102,7 +102,7 @@ class LoginController extends Controller
     {
         Session::flush();
         Auth::logout();
-        return redirect()->route('user.login')->withSuccess('نعم ! تم تسجيل الخروج بنجاح');
+        return redirect()->route('user.login')->with('success','نعم ! تم تسجيل الخروج بنجاح');
     }
 
     #################################################################
@@ -169,13 +169,13 @@ class LoginController extends Controller
                     Auth::login($newUser);
                     return redirect()->intended('/user/dashboard');
                 }else{
-                    return redirect()->route('user.login')->withSuccess('هناك شئ خاطئ، يرجى المحاولة فى وقت لاحق');
+                    return redirect()->route('user.login')->with('error','هناك شئ خاطئ، يرجى المحاولة فى وقت لاحق');
                 }
             }
         } catch (\Exception $ex) {
             DB::rollback();
             // return $ex;
-            return redirect()->route('user.login')->withSuccess('هناك شئ خاطئ، يرجى المحاولة فى وقت لاحق');
+            return redirect()->route('user.login')->with('error','هناك شئ خاطئ، يرجى المحاولة فى وقت لاحق');
         }
 
     }

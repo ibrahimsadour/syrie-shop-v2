@@ -37,7 +37,7 @@
                                 </tr>
                             @endif
                             <tr>
-                                <td> {{}}صور الاعلان:</td>
+                                <td> صور الاعلان:</td>
                                 <?php
                                 foreach($filename as $image){
                                     $slice = Str::between($image, '"', '"');
