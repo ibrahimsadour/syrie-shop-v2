@@ -7,7 +7,7 @@
             <form action="{{ route('products.create.step.three.post') }}" method="post" >
                 {{ csrf_field() }}
                 <div class="card">
-                    <div class="card-header"> مراجعة تفاصيل الأعلان قبل النشر</div>
+                    <div class="card-header"> <span>مراجعة تفاصيل الأعلان قبل النشر</span></div>
    
                     <div class="card-body">
   
@@ -18,7 +18,13 @@
                             </tr>
                             <tr>
                                 <td>السعر:</td>
-                                <td><strong>{{$product->price}}</strong></td>
+                                <td><strong>{{$price}}
+                                    @if($type_price != 1)
+                                    <i class="fa fa-turkish-lira"></i> ليرة تركية</h4>
+                                    @else 
+                                    <i class="fa fa-dollar"></i> دولار أمريكي</h4>
+                                    @endif
+                                </strong></td>
                             </tr>
                             <tr>
                                 <td>الوصف:</td>
@@ -38,14 +44,20 @@
                             @endif
                             <tr>
                                 <td> صور الاعلان:</td>
+
                                 <?php
-                                foreach($filename as $image){
-                                    $slice = Str::between($image, '"', '"');
-                                    $remove_slash=  Str::replaceArray('\/', ['/'], $slice);
-                                    $photo=  Str::replaceArray('\/', ['/'], $remove_slash);
-                                    echo"<td><strong><img src=";?>{{Request::root()}}<?php echo "/assets/$photo></strong></td>";
+                                if($filename != false){
+                                    foreach($filename as $image){
+                                        $slice = Str::between($image, '"', '"');
+                                        $remove_slash=  Str::replaceArray('\/', ['/'], $slice);
+                                        $photo=  Str::replaceArray('\/', ['/'], $remove_slash);
+                                        echo"<td><strong><img src=";?>{{Request::root()}}<?php echo "/assets/$photo></strong></td>";
+                                    }
+                                }else{
+                                    echo"<td><strong>لم تقم باضافة صور لاعلانك</strong></td>";
+
                                 }
-                                
+
                                  ?>
                             </tr>
                         </table>

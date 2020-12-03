@@ -167,7 +167,7 @@ class LoginController extends Controller
                 if($newUser->save()){ //check if the crated or not
                     // login the user
                     Auth::login($newUser);
-                    return redirect()->intended('/user/dashboard');
+                    return redirect()->route('site.index')->with('success','نعم ! تم تسجيل الدخول بنجاح');
                 }else{
                     return redirect()->route('user.login')->with('error','هناك شئ خاطئ، يرجى المحاولة فى وقت لاحق');
                 }

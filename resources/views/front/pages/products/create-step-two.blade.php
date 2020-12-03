@@ -66,6 +66,15 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
+                                                                <label for="exampleFormControlSelect1">السعر بالعملة: </label>
+                                                                <select class="form-control" name="type_price">
+                                                                    <option value="0">الليرة التركية</option>
+                                                                    <option value="1" selected>الدولار الامريكي</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
                                                                 <label for="projectinput1"> السعر
                                                                 </label>
                                                                 <input type="text"
@@ -77,7 +86,6 @@
                                                                 @enderror
                                                             </div>
                                                         </div>
-
                                                     </div>
 
                                                 <div class="row" >
@@ -87,7 +95,7 @@
                                                             <div class="form-group">
                                                                 <label for="projectinput1">القسم الفرعي</label>
                                                                 <select name="sub_category_id" class="form-control" >
-                                                                    <optgroup label="من فضلك أختر القسم الفرعي ">
+                                                                    <optgroup label=" أختر القسم الفرعي الخاص باعلانك">
                                                                             @foreach($sub_categories as $sub_category)
                                                                                 <option value="{{$sub_category -> id}}">{{$sub_category -> name ?? ''}}</option>
                                                                             @endforeach
@@ -100,7 +108,7 @@
                                                         </div>
                                                     @endif
 
-                                                    @if($product->category_id == 2)
+                                                    @if($product->category_id == 1)
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="projectinput1"> الكيلو متر

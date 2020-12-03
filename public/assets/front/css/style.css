@@ -3741,12 +3741,15 @@ textarea.form-control {
 .ps-block--category {
     margin-bottom: 30px;
     padding: 20px;
-    border: 1px solid #bfbfbf;
+    /* border: 1px solid #bfbfbf; */
     text-align: center;
     -webkit-transition: all .4s ease;
     transition: all .4s ease;
     height: 82%;
-    border-radius: 2%;
+    border-radius: 3%;
+    border: none;
+    box-shadow: 0 1px 4px 0 rgb(158 158 158);
+    background-color: #0000;
 }
 
 .ps-block--category a {

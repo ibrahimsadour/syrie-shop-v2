@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\MainCategory;
 use App\Models\Tag;
+use App\Models\User;
 use App\Models\Brands;
 use App\Models\Vendor;
-use App\Models\Image;
-use App\Models\Kilometer_vehicle;
+use App\Models\ProductImages;
+use App\Models\Product_price;
 
 class Product extends Model
 {
@@ -18,9 +19,9 @@ class Product extends Model
     protected $table = 'products';
 
     protected $fillable = [
-        'id ','translation_lang','translation_of',
+        'id ','translation_lang','translation_of','user_id',
         'vendor_id','brand_id','category_id','name','slug',
-        'photo','description','active','price',
+        'photo','description','active',
         'viewed','sales_status','created_at','updated_at'
     ];
 
@@ -85,9 +86,9 @@ class Product extends Model
     public function scopeSelection($query)
     {
         return $query->select(
-        'id','translation_lang','translation_of',
+        'id','translation_lang','translation_of','user_id',
         'vendor_id','brand_id','category_id','name','slug',
-        'photo','description','active','price',
+        'photo','description','active',
         'viewed','sales_status','created_at','updated_at');
     }
 
@@ -167,17 +168,27 @@ class Product extends Model
      */
     public function images()
     {
-        return $this -> hasMany(Image::class,'product_id','id');
+        return $this -> hasMany(ProductImages::class,'product_id','id');
     } 
+
     /**
-     * kilometer_vehicles
+     * user
      *
      * @return void
      */
-    public function kilometer_vehicles()
+    public function user()
     {
-        return $this->belongsTo(Kilometer_vehicle::class, 'product_id', 'id');
-    } 
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+    /**
+     * price
+     *
+     * @return void
+     */
+    public function product_price()
+    {
+        return $this -> hasOne(Product_price::class,'product_id','id');
+    }  
     ######################### End relationship  ########################
 
 }

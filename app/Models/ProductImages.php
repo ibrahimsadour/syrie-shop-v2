@@ -6,11 +6,11 @@ use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Image extends Model
+class ProductImages extends Model
 {
     use HasFactory;
 
-    protected $table = 'images';
+    protected $table = 'product_images';
 
     /**
      * The attributes that are mass assignable.
@@ -20,7 +20,7 @@ class Image extends Model
     protected $fillable = ['product_id','photo','created_at','updated_at'];
 
     /**
-     * kilometer_vehicles
+     * products
      *
      * @return void
      */

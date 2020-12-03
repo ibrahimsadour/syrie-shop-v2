@@ -65,7 +65,7 @@ Route::group( [
     * @todo URL:www.DomeinName.com/404-page
     * @todo Route name : site.404-page
     */
-    Route::get('404-page',[WebsiteController::class ,'page_404']) -> name('site.404-page');
+    // Route::get('404-page',[WebsiteController::class ,'page_404']) -> name('site.404-page');
 
     /** become-a-vendor page
     * @todo URL:www.DomeinName.com/become-a-vendor

@@ -1,0 +1,160 @@
+.mp-Listing-compact-body {
+    display: flex;
+}
+
+.FavoritesListItem-favorites-list-item {
+    margin: 0;
+    border-radius: 0;
+    border-bottom: 1px solid #e6e4e1;
+}
+
+.FavoritesListItem-mp-Listing-compact-selector {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.mp-Listing-compact,
+.mp-NotificationListItem-wrapper {
+    display: block;
+    margin-bottom: 5px;
+    overflow: hidden;
+    padding: 8px;
+    text-decoration: none;
+}
+
+.mp-Card,
+.mp-Form-body,
+.mp-Form-footer,
+.mp-Listing,
+.mp-Listing-card,
+.mp-Listing-compact,
+.mp-NotificationListItem-wrapper {
+    background: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .14);
+    color: #2d3c4d;
+    overflow: hidden;
+}
+
+.mp-Listing-compact-body .mp-Listing-compact-picture,
+.mp-Listing-compact-body .mp-NotificationListItem-picture,
+.mp-NotificationListItem-body .mp-Listing-compact-picture,
+.mp-NotificationListItem-body .mp-NotificationListItem-picture {
+    background-color: #f7f7f6;
+    background-size: cover;
+    border-radius: 3px;
+    font-size: 0;
+    height: 60px;
+    line-height: 60px;
+    margin: 0 0px 0 0;
+    text-align: center;
+    width: 60px;
+}
+
+.FavoritesListItem-favorites-list-item img.FavoritesListItem-unshrinkable-thumb {
+    width: 100%;
+}
+
+.mp-Listing-compact-body .mp-Listing-compact-picture img,
+.mp-Listing-compact-body .mp-NotificationListItem-picture img,
+.mp-NotificationListItem-body .mp-Listing-compact-picture img,
+.mp-NotificationListItem-body .mp-NotificationListItem-picture img {
+    height: 100%;
+    width: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+.mp-Listing-compact-body .mp-Listing-compact-content,
+.mp-Listing-compact-body .mp-NotificationListItem-content,
+.mp-NotificationListItem-body .mp-Listing-compact-content,
+.mp-NotificationListItem-body .mp-NotificationListItem-content {
+    font-family: Roboto, sans-serif;
+    font-family: var(--mp-font-base--light, "Roboto", sans-serif);
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    flex: 1 0 0;
+}
+
+.mp-Listing-compact-body .mp-Listing-compact-content .mp-Listing-compact-title,
+.mp-Listing-compact-body .mp-Listing-compact-content .mp-NotificationListItem-title,
+.mp-Listing-compact-body .mp-NotificationListItem-content .mp-Listing-compact-title,
+.mp-Listing-compact-body .mp-NotificationListItem-content .mp-NotificationListItem-title,
+.mp-NotificationListItem-body .mp-Listing-compact-content .mp-Listing-compact-title,
+.mp-NotificationListItem-body .mp-Listing-compact-content .mp-NotificationListItem-title,
+.mp-NotificationListItem-body .mp-NotificationListItem-content .mp-Listing-compact-title,
+.mp-NotificationListItem-body .mp-NotificationListItem-content .mp-NotificationListItem-title {
+    font-family: Roboto, sans-serif;
+    font-family: var(--mp-font-base, "Roboto", sans-serif);
+    font-style: normal;
+    font-weight: 400;
+    display: block;
+    font-size: 16px;
+    line-height: 22px;
+    margin: 0;
+    width: 100%;
+}
+
+.mp-Listing-compact-body .mp-Listing-compact-content .mp-Listing-compact-title--link.mp-NotificationListItem-title a,
+.mp-Listing-compact-body .mp-Listing-compact-content .mp-Listing-compact-title.mp-Listing-compact-title--link a,
+.mp-Listing-compact-body .mp-NotificationListItem-content .mp-Listing-compact-title--link.mp-NotificationListItem-title a,
+.mp-Listing-compact-body .mp-NotificationListItem-content .mp-Listing-compact-title.mp-Listing-compact-title--link a,
+.mp-NotificationListItem-body .mp-Listing-compact-content .mp-Listing-compact-title--link.mp-NotificationListItem-title a,
+.mp-NotificationListItem-body .mp-Listing-compact-content .mp-Listing-compact-title.mp-Listing-compact-title--link a,
+.mp-NotificationListItem-body .mp-NotificationListItem-content .mp-Listing-compact-title--link.mp-NotificationListItem-title a,
+.mp-NotificationListItem-body .mp-NotificationListItem-content .mp-Listing-compact-title.mp-Listing-compact-title--link a {
+    font-family: Roboto, sans-serif;
+    font-family: var(--mp-font-base, "Roboto", sans-serif);
+    font-style: normal;
+    font-weight: 400;
+    color: #116db4;
+    color: var(--mp-color-link, #116db4);
+    font-size: 14px;
+    line-height: 20px;
+    text-decoration: none;
+}
+
+.mp-Listing-compact-body .mp-Listing-compact-content,
+.mp-Listing-compact-body .mp-NotificationListItem-content,
+.mp-NotificationListItem-body .mp-Listing-compact-content,
+.mp-NotificationListItem-body .mp-NotificationListItem-content {
+    font-family: Roboto, sans-serif;
+    font-family: var(--mp-font-base--light, "Roboto", sans-serif);
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    flex: 1 0 0;
+}
+
+.mp-Card,
+.mp-Form-body,
+.mp-Form-footer,
+.mp-Listing,
+.mp-Listing-card,
+.mp-Listing-compact,
+.mp-NotificationListItem-wrapper {
+    background: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .14);
+    color: #2d3c4d;
+    overflow: hidden;
+}
+
+.FavoritesListItem-mobile-pricing {
+    font-weight: 600;
+}
+
+.no_produts {
+    color: #fcb800;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.mp-Listing-compact-location {
+    color: darkgray;
+    font-size: 12px;
+}

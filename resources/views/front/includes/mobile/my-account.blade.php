@@ -3,12 +3,14 @@
     background-color: #28D094;
 }
 .online {
-    position: absolute;
+    position: relative;
     width: 12px;
     height: 12px;
     border-radius: 100%;
-    right: 24%;
-    top: 15%;
+    right: -4%;
+    left: 6px;
+    top: 56px;
+    bottom: -39px;
 }
     </style>
 <div class="ps-panel--sidebar" id="my-account">
@@ -26,8 +28,8 @@
                                         @csrf
 
                                         <div class="form-group">
-                                            <input class="form-control" id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="identify" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="@lang('auth.E-Mail Address or username')">
-                                            @error('email')
+                                            <input class="form-control" id="identify" type="text" class="form-control @error('identify') is-invalid @enderror" name="identify" value="{{ old('identify') }}" required autocomplete="identify" autofocus placeholder="@lang('auth.E-Mail Address or username')">
+                                            @error('identify')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>

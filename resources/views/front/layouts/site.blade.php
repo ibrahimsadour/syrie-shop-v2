@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="{{asset('assets/front/plugins/jquery-ui/jquery-ui.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/front/plugins/select2/dist/css/select2.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/front/css/style.css')}}">
+    <!-- product_style this for My-products -->
+    <link rel="stylesheet" href="{{asset('assets/front/css/product_style.css')}}">
 </head>
 
 <body>

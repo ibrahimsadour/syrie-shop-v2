@@ -215,8 +215,6 @@
                                 </li>
                                 <li class="current-menu-item "><a href="{{route('site.coming-soon')}}">الموقع قيد الإنشاء</a>
                                 </li>
-                                <li class="current-menu-item "><a href="{{route('site.404-page')}}">404 Page</a>
-                                </li>
                             </ul>
                         </div>
                         <div class="mega-menu__column">

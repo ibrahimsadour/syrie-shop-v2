@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\MainCategory;
-use App\Models\Kilometer_vehicle;
 
 class SubCategory extends Model
 {
@@ -89,13 +88,4 @@ class SubCategory extends Model
         return $this -> belongsTo(MainCategory::class,'category_id','id');
     }
     
-    /**
-     * kilometer_vehicles
-     *
-     * @return void
-     */
-    public function kilometer_vehicles()
-    {
-        return $this->belongsTo(Kilometer_vehicle::class, 'sub_categories_id', 'id');
-    }
 }

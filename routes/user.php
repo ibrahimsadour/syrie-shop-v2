@@ -53,15 +53,17 @@ Route::group(['middleware' => 'auth'], function() {
 
         Route::post('images', [ProductsController::class,'saveProductImages'])->name('admin.products.images.store');
         Route::post('images/db', [ProductsController::class,'saveProductImagesDB'])->name('admin.products.images.store.db');
-        Route::post('image/delete',[ProductsController::class,'fileDestroy'])->name('admin.products.images.delet');
+        Route::post('image/delete',[ProductsController::class,'imageDestroy'])->name('admin.products.images.delet');
 
         ############### End add products ###############
 
 
-        ############### Begin My products ###############
+        ############### Begin My products + Edit products ###############
         Route::get('my-products', [ProductsController::class, 'getUserProducts'])->name('user.myProducts');
-        // Route::get('edit-product', [ProductsController::class, 'editUserProducts'])->name('user.editProducts');
-        // Route::get('update-product', [ProductsController::class, 'updateUserProducts'])->name('user.updateProducts');
+        Route::get('edit/{id}',[ProductsController::class ,'edit'])->name('user.products.edit');
+        // Route::get('update-product', [ProductsController::class, 'updateUserProducts'])->name('user.products.update');
+        Route::get('delete/{id}',[ProductsController::class ,'destroy'])->name('user.products.delete');
+    
 
         ############### End My products ###############
 
