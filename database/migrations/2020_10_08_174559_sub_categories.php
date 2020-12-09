@@ -16,7 +16,7 @@ class SubCategories extends Migration
         Schema::create('sub_categories', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('parent_id')->default('0');
-            $table->integer('category_id')->unsigned();
+            $table->bigInteger('category_id')->unsigned();
             $table->string('translation_lang');
             $table->integer('translation_of')->unsigned();
             $table->string('name');
@@ -24,6 +24,7 @@ class SubCategories extends Migration
             $table->string('photo')->nullable();
             $table->tinyInteger('active')
             ->comment('1 => show the product on the site, 0 => donot show the product on the site')->default('1');
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }

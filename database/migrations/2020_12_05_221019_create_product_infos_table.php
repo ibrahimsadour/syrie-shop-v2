@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ProductPrice extends Migration
+class CreateProductInfosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class ProductPrice extends Migration
      */
     public function up()
     {
-        Schema::create('product_price', function (Blueprint $table) {
+        Schema::create('product_infos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('product_id')->unsigned();
-            $table->tinyInteger('type_price')->comment('1 => USA (دولار امريكي) , 0 = TR (ليرة تركية)')->default('1');
-            $table->string('price');
-            $table->string('sale_price')->nullable();
+            $table->bigInteger('location_id')->unsigned();
+            $table->string('name');
+            $table->string('slug')->nullable();
+            $table->string('description')->nullable();
             $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +33,6 @@ class ProductPrice extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_price');
+        Schema::dropIfExists('product_infos');
     }
 }

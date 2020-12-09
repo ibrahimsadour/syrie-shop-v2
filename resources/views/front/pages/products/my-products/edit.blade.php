@@ -22,31 +22,33 @@
                             <figure>
                                 <div class="ps-wrapper">
                                     <div class="ps-product__gallery" data-arrow="true">
-                                        <?php
-                                            foreach($products->images as $image){
-                                                $slice = Str::between($image['photo'], '"', '"');
-                                                $remove_slash=  Str::replaceArray('\/', ['/'], $slice);
-                                                $photo=  Str::replaceArray('\/', ['/'], $remove_slash);
-                                                echo'<div class="item">';
-                                                echo "<img src=";?>{{Request::root()}}<?php echo "/assets/$photo>";
-                                                echo '</div>';
-                                            }
-                                        ?>
+          
+                                        @if($products->images->count() > 0)
+                                            @foreach($products->images as $image)
+                                                <div class="item">
+                                                    <img  class="FavoritesListItem-unshrinkable-thumb" src="{{Request::root()}}/assets/{{$image->photo}}">
+                                                </div>
+                                            @endforeach
+                                        @else
+                                            <div class="item">
+                                                <img  src="{{asset('assets/front/img/Noimage.jpg')}}">
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             </figure>
                             <div class="ps-product__variants" data-item="4" data-md="4" data-sm="4" data-arrow="false">
-                                <?php
-                                    foreach($products->images as $image){
-                                        $slice = Str::between($image['photo'], '"', '"');
-                                        $remove_slash=  Str::replaceArray('\/', ['/'], $slice);
-                                        $photo=  Str::replaceArray('\/', ['/'], $remove_slash);
-                                        echo'<div class="item">';
-                                        echo "<img src=";?>{{Request::root()}}<?php echo "/assets/$photo>";
-                                        echo '</div>';
-
-                                    }
-                                ?>
+                                @if($products->images->count() > 0)
+                                    @foreach($products->images as $image)
+                                        <div class="item">
+                                            <img  class="FavoritesListItem-unshrinkable-thumb" src="{{Request::root()}}/assets/{{$image->photo}}">
+                                        </div>
+                                    @endforeach
+                                @else
+                                    <div class="item">
+                                        <img  src="{{asset('assets/front/img/Noimage.jpg')}}">
+                                    </div>
+                                @endif
                             </div>
                         </div>
                         <div class="ps-product__info">

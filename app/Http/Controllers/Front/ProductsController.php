@@ -12,6 +12,7 @@ use App\Models\ProductImages;
 use App\Models\Brands;
 use App\Models\Tag;
 use App\Models\Vendor;
+use App\Models\Location;
 use Illuminate\Support\Facades\Route;
 use Session;
 use Illuminate\Support\Str;
@@ -89,8 +90,8 @@ class ProductsController extends Controller
             $product->fill($validatedData);
             $request->session()->put('product', $product);
         }
-  
-        return redirect()->route('products.create.step.two');
+        $name= $request->name;
+        return redirect()->route('products.create.step.two',['name'=>$name]);
     }
   
     /**
@@ -111,9 +112,10 @@ class ProductsController extends Controller
         ->Active()
         ->selection()
         ->get();
+        $locations = Location::Active()->selection()->get();
 
         $product = $request->session()->get('product');
-        return view('front.pages.products.create-step-two',compact('product','categories','sub_categories'));
+        return view('front.pages.products.create-step-two',compact('product','categories','sub_categories','locations'));
     }
   
     /**
@@ -150,15 +152,25 @@ class ProductsController extends Controller
 
         // send price and type_price and kilometer to another function
         // price - type_price
+        $name = $request->name;
+        $description = $request->description;
+        $location = $request->location_id;
         $price = $request->price;
         $type_price = $request->type_price;
         $kilometer = $request->kilometer;
 
+
+        Session::put('location', $location);
         Session::put('kilometer', $kilometer);
         Session::put('price', $price);
         Session::put('type_price', $type_price);
-
-        return redirect()->route('products.create.step.three');
+        Session::put('name', $name);
+        Session::put('description', $description);
+        // return $request;
+        $name= $request->name;
+        $location= $request->location_id;
+        $description= $request->description;
+        return redirect()->route('products.create.step.three',['name'=>$name,'description'=>$description,'location'=>$location]);
     }
   
     /**
@@ -176,9 +188,17 @@ class ProductsController extends Controller
         $filename = Session::get('product_filename');
         $type_price = Session::get('type_price');
         $price = Session::get('price');
-
-
-        return view('front.pages.products.create-step-three',compact('product','kilometer','categories_name','filename','type_price','price'));
+        $name = Session::get('name');
+        $description = Session::get('description');
+        $location = Session::get('location');
+        
+        //  to get the name from the location id.
+        $locations_name= Location::where('id',$location)->get();
+        foreach($locations_name as $location_name){
+            $location_name = $location_name->name;
+        }
+        
+        return view('front.pages.products.create-step-three',compact('product','kilometer','categories_name','filename','type_price','price','name','description','location_name'));
     }
   
  
@@ -214,7 +234,6 @@ class ProductsController extends Controller
             $product_description = $request->session()->get('product')->description;
             $product_price =  $request->session()->get('product')->price;
             $product_slug = str_replace(' ', '-', $product_name); 
-
             // product_id
             $category_id = $request->session()->get('product')->category_id;
 
@@ -225,20 +244,40 @@ class ProductsController extends Controller
                 'translation_of' =>"0",
                 'user_id' => Auth::id(),
                 'category_id' =>$category_id,
-                'brand_id' =>  0,
-                'vendor_id' => 0,
-                'name' =>$product_name,
-                'slug' =>$product_slug,
-                'description' =>$product_description,
+                'brand_id' =>  Null,
+                'vendor_id' => Null,
             ]);
+            // save product_info
+            $name = Session::get('name');
+            $description = Session::get('description');
+            $location = Session::get('location');
+            $product->product_info()->create([
+                'name' => $name,
+                'slug' => $name,
+                'description' => $description,
+                'location_id' => $location,
+            ]);
+
+            // save product_price
             $price = Session::get('price');
             $type_price = Session::get('type_price');
             $product->product_price()->create([
                'type_price' => $type_price,
                'price' =>$price,
             ]);
-          
-            
+
+            // save product_status
+            $product->product_status()->create([
+            'viewed' =>1,
+            'sales_status' =>1,
+            ]);
+            // save product_attributs
+            $product->product_attribut()->create([
+                'kilometers' => $request->kilometers,
+                'age' => $request->age,
+                'color' => $request->color,
+                'size' => $request->size,
+            ]);
             // last insert id of this product
             $LastInsertId = $product->id;
             $filename = Session::get('product_filename');
@@ -246,9 +285,13 @@ class ProductsController extends Controller
             // save image to database
             if($filename){
                 foreach ($filename as $image){
+                    $slice = Str::between($image, '"', '"');
+                    $remove_slash=  Str::replaceArray('\/', ['/'], $slice);
+                    $photo=  Str::replaceArray('\/', ['/'], $remove_slash);
+                    // return $photo;
                     ProductImages::create([
                         'product_id' => $LastInsertId,
-                        'photo' => $image,
+                        'photo' => $photo,
                     ]);
                 }
             }
@@ -271,9 +314,9 @@ class ProductsController extends Controller
      */
     public function imageDestroy(Request $request)
     {
-        
+  
         $filsename = Session::get('product_filename');
-        // $product_filename = collect($filsename );
+        $product_filename = collect($filsename );
         foreach($filsename as $filename){
             $slice = Str::between($filename, '"', '"');
             $remove_slash=  Str::replaceArray('\/', ['/'], $slice);
@@ -285,6 +328,8 @@ class ProductsController extends Controller
     
             }
         }
+        $request->session()->forget($filename);
+
 
     }
     
@@ -295,15 +340,21 @@ class ProductsController extends Controller
      */
     public function getUserProducts()
     {
-        $user = auth()->user();
-        $user_id = $user->id;
-        $products = Product::where('user_id', '=', $user_id )->with(['product_price','images'])
-            ->Active()
-            ->selection()
-            ->paginate(PAGINATION_COUNT);
-            // return  $products;
-        return view('front.pages.products.my-products.index',compact('products'));
+        try {
+            $user = auth()->user();
+            $user_id = $user->id;
+            $products = Product::where('user_id', '=', $user_id )->with(['product_price','images','product_info'])
+                ->Active()
+                ->selection()
+                ->paginate(PAGINATION_COUNT);
+        
+                // return$products;
+            return view('front.pages.products.my-products.index',compact('products'));
 
+        } catch (\Exception $ex) {
+            // return $ex;
+            return redirect()->route('site.index')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+        }
     }
     /**
      * edit
@@ -313,28 +364,35 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        $products = Product::find($id);
+        try {
+            $products = Product::find($id);
 
-        $data = [];
-        $data['products'] = Product::find($id);
-        $data['brands'] = Brands::active()->select('id','name')->get();
-        $data['tags'] = Tag::select('id','name')->get();
-        $data['categories'] = MainCategory::active()->select('id','name')->get();
-        $data['vendors'] = Vendor::active()->select('id','name')->get();
+            $data = [];
+            $data['products'] = Product::find($id);
+            $data['brands'] = Brands::active()->select('id','name')->get();
+            $data['tags'] = Tag::select('id','name')->get();
+            $data['categories'] = MainCategory::active()->select('id','name')->get();
+            $data['vendors'] = Vendor::active()->select('id','name')->get();
 
-        // return $data['products']->product_price->price;
+            // return $data['products']->product_price->price;
 
-        if (!$products){
-            return redirect()->route('user.myProducts')->with(['error' => 'هذا القسم غير موجود ']);
+            if (!$products){
+                return redirect()->route('user.myProducts')->with(['error' => 'هذا القسم غير موجود ']);
+            }
+
+            return view('front.pages.products.my-products.edit',$data);
+        } catch (\Exception $ex) {
+            // return $ex;
+            return redirect()->route('admin.maincategories')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
         }
-        // foreach ($data['products']->images as $image) {
-        //     // return  $image->photo;
-
-        // }
-        return view('front.pages.products.my-products.edit',$data);
-
     }
-
+    
+    /**
+     * destroy
+     * to remove product with his image and his info
+     * @param  mixed $id
+     * @return void
+     */
     public function destroy($id)
     {
 
@@ -345,17 +403,18 @@ class ProductsController extends Controller
 
             ## Delet image
             ##Srt is cutting helper method
-            $product_images= collect ($product->images);
+            $product_images= $product->images;
             foreach($product_images as $product_image ){
-                $slice = Str::between($product_image->photo, '"', '"');
-                $remove_slash=  Str::replaceArray('\/', ['/'], $slice);
-                $photo=  Str::replaceArray('\/', ['/'], $remove_slash);
-                $image = public_path('assets'.'/' . $photo);
+                $image = Str::after($product_image['photo'], 'assets/');
+                $image = public_path('assets/' . $image);
                 unlink($image); //delete from folder
             }
 
             #Delet all info of the product
             $product -> product_price()-> delete();
+            $product -> product_info()-> delete();
+            $product -> product_status()-> delete();
+            $product -> product_attribut()-> delete();
             $product -> images()-> delete();
             $product -> delete();
         
@@ -364,7 +423,7 @@ class ProductsController extends Controller
 
         } catch (\Exception $ex) {
             // return $ex;
-            return redirect()->route('admin.maincategories')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
+            return redirect()->route('user.myProducts')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
         }
     }
 

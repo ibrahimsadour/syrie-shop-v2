@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ProductPrice extends Migration
+class CreateProductStatusesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class ProductPrice extends Migration
      */
     public function up()
     {
-        Schema::create('product_price', function (Blueprint $table) {
+        Schema::create('product_statuses', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('product_id')->unsigned();
-            $table->tinyInteger('type_price')->comment('1 => USA (دولار امريكي) , 0 = TR (ليرة تركية)')->default('1');
-            $table->string('price');
-            $table->string('sale_price')->nullable();
+            $table->string('viewed')->nullable();
+            $table->tinyInteger('sales_status')
+            ->comment('1 =>not sold, 0 => sold')->default('1');
             $table->foreign('product_id')->references('id')->on('products');
             $table->timestamps();
         });
@@ -31,6 +31,6 @@ class ProductPrice extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_price');
+        Schema::dropIfExists('product_statuses');
     }
 }

@@ -64,7 +64,7 @@
                                 </div>
                                 <!-- confirm Passord -->
                                 <div class="form-group">
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password"  placeholder="@lang('auth.confirm Passord')">
+                                        
                                 </div>
 
                                 <div class="as-Vendor" style="display:none;">

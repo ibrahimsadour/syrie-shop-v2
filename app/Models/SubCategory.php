@@ -87,5 +87,14 @@ class SubCategory extends Model
     public  function categories(){
         return $this -> belongsTo(MainCategory::class,'category_id','id');
     }
+
+    /**
+     * Product
+     * @todo get all products 
+     * @return void
+     */
+    public  function products(){
+        return $this -> hasMany(Product::class,'sub_category_id','id');
+    }
     
 }

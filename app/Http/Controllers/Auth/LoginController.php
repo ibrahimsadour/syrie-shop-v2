@@ -83,7 +83,6 @@ class LoginController extends Controller
         $field = filter_var($value,FILTER_VALIDATE_EMAIL) ? 'email' : 'mobile'; 
 
         request() -> merge([$field => $value ]);
-    
         $credentials = $request->only($field, 'password');
         if (Auth::attempt($credentials)) {
             // Authentication passed...
@@ -147,31 +146,38 @@ class LoginController extends Controller
              * @return  User
              */
             $findUser= User::where('provider_id',$user->id)->first();
-
-            if($findUser){
+            // check if the not blokking
+            $checkUser= User::where(['provider_id'=>$user->id,'active'=>1])->first();
+            if($checkUser){
+                if($findUser){
                 
-                Auth::login($findUser);
-                return redirect()->route('site.index')->with('success','نعم ! تم تسجيل الدخول بنجاح');
-
-            }else{ //if the user not exist => we need to make new user
-
-                //add new user to database
-                $newUser = new User([
-                'email' => $user->getEmail(),
-                'name' => $name,
-                'provider'=>$provider,
-                'provider_id' => $user->id,
-                'password' => Hash::make('ibrahem810907') //or bcrypt();
-                ]);
-
-                if($newUser->save()){ //check if the crated or not
-                    // login the user
-                    Auth::login($newUser);
+                    Auth::login($findUser);
                     return redirect()->route('site.index')->with('success','نعم ! تم تسجيل الدخول بنجاح');
-                }else{
-                    return redirect()->route('user.login')->with('error','هناك شئ خاطئ، يرجى المحاولة فى وقت لاحق');
+    
+                }else{ //if the user not exist => we need to make new user
+    
+                    //add new user to database
+                    $newUser = new User([
+                    'email' => $user->getEmail(),
+                    'name' => $name,
+                    'active' => 1,
+                    'provider'=>$provider,
+                    'provider_id' => $user->id,
+                    'password' => Hash::make('ibrahem810907') //or bcrypt();
+                    ]);
+    
+                    if($newUser->save()){ //check if the crated or not
+                        // login the user
+                        Auth::login($newUser);
+                        return redirect()->route('site.index')->with('success','نعم ! تم تسجيل الدخول بنجاح');
+                    }else{
+                        return redirect()->route('user.login')->with('error','هناك شئ خاطئ، يرجى المحاولة فى وقت لاحق');
+                    }
                 }
+            }else{
+                return redirect()->route('user.login')->with('error','نعتذر منك لقد تم حظر حسابك ');
             }
+
         } catch (\Exception $ex) {
             DB::rollback();
             // return $ex;

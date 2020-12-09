@@ -43,7 +43,7 @@
                                                                 <input type="text"
                                                                     class="form-control"
                                                                     placeholder=""
-                                                                    value="{{ $product->name ?? '' }}"
+                                                                    value="{{ request()->get('name') }}"
                                                                     name="name">
                                                                 @error("name")
                                                                 <span class="text-danger">{{$message}}</span>
@@ -123,18 +123,20 @@
                                                         </div>
                                                     </div>
                                                     @endif
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="projectinput1">الموقع</label>
-                                                            <select name="location_id" class="form-control" value="{{ $product->category_id ?? '' }}" >
-                                                                <optgroup label="من فضلك أختر الموقع ">
-                                                                    <option value="">الدانا</option>
-                                                                    <option value="">سرمدا</option>
-                                                                    <option value="">اطمة</option>
-                                                                </optgroup>
-                                                            </select>            
+                                                    @if($locations && $locations -> count() > 0)
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="projectinput1">الموقع</label>
+                                                                <select name="location_id" class="form-control" >
+                                                                    <optgroup label=" أختر الموقع الخاص باعلانك">
+                                                                            @foreach($locations as $location)
+                                                                                <option value="{{$location -> id}}">{{$location -> name ?? ''}}</option>
+                                                                            @endforeach
+                                                                    </optgroup>
+                                                                </select>           
+                                                            </div>
                                                         </div>
-                                                    </div>
+                                                    @endif
                                                 </div>
 
 

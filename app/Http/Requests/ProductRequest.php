@@ -27,11 +27,11 @@ class ProductRequest extends FormRequest
 
             'categories' => 'array|min:1', //[]
             'categories.*' => 'numeric|exists:categories,id',
-            'tags' => 'nullable',
-            'brand_id' => 'required|exists:brands,id',
+            // 'tags' => 'nullable',
+            // 'brand_id' => 'required|exists:brands,id',
             'photo' => 'required_without:id|mimes:jpg,jpeg,png',
             'product' => 'required|array|min:1',
-            'slug' => 'required|unique:products,slug,'.$this -> id,
+            'slug' => 'required',
             'price' => 'required|max:10',
             'description' => 'required|max:1000',
             'name'=> 'required|max:100',

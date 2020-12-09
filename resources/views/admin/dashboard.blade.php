@@ -16,11 +16,11 @@
                                             <h1><i class="cc BTC warning font-large-2" title="BTC"></i></h1>
                                         </div>
                                         <div class="col-5 pl-2">
-                                            <h4>BTC</h4>
-                                            <h6 class="text-muted">Bitcoin</h6>
+                                            <h4>الإعلانات</h4>
+                                            <h6 class="text-muted">جميع الاعلانات المنشورة</h6>
                                         </div>
                                         <div class="col-5 text-right">
-                                            <h4>$9,980</h4>
+                                            <h4>{{App\Models\Product::count()}}</h4>
                                             <h6 class="success darken-4">31% <i class="la la-arrow-up"></i></h6>
                                         </div>
                                     </div>
@@ -42,11 +42,11 @@
                                             <h1><i class="cc ETH blue-grey lighten-1 font-large-2" title="ETH"></i></h1>
                                         </div>
                                         <div class="col-5 pl-2">
-                                            <h4>ETH</h4>
-                                            <h6 class="text-muted">Ethereum</h6>
+                                            <h4>المتاجر</h4>
+                                            <h6 class="text-muted">جميع المتاجر الموجودة لديك</h6>
                                         </div>
                                         <div class="col-5 text-right">
-                                            <h4>$944</h4>
+                                            <h4>{{App\Models\Vendor::count()}}</h4>
                                             <h6 class="success darken-4">12% <i class="la la-arrow-up"></i></h6>
                                         </div>
                                     </div>
@@ -68,11 +68,11 @@
                                             <h1><i class="cc XRP info font-large-2" title="XRP"></i></h1>
                                         </div>
                                         <div class="col-5 pl-2">
-                                            <h4>XRP</h4>
-                                            <h6 class="text-muted">Balance</h6>
+                                            <h4>البائعين</h4>
+                                            <h6 class="text-muted">جميع البائعين الموجودة لديك</h6>
                                         </div>
                                         <div class="col-5 text-right">
-                                            <h4>$1.2</h4>
+                                            <h4>{{App\Models\User::count()}}</h4>
                                             <h6 class="danger">20% <i class="la la-arrow-down"></i></h6>
                                         </div>
                                     </div>
@@ -93,10 +93,10 @@
                     <div class="col-12 col-xl-6">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Sell Order</h4>
+                                <h4 class="card-title">أعلانات منشورة</h4>
                                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
-                                    <p class="text-muted">Total BTC available: 6542.56585</p>
+                                    <p class="text-muted">أخر عشر اعلانات منشورة</p>
                                 </div>
                             </div>
                             <div class="card-content">
@@ -104,9 +104,9 @@
                                     <table class="table table-de mb-0">
                                         <thead>
                                         <tr>
-                                            <th>Price per BTC</th>
-                                            <th>BTC Ammount</th>
-                                            <th>Total($)</th>
+                                            <th>الاسم</th>
+                                            <th>القسم</th>
+                                            <th>السعر</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -149,10 +149,10 @@
                     <div class="col-12 col-xl-6">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Buy Order</h4>
+                                <h4 class="card-title">الاعلانات المباعة</h4>
                                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
-                                    <p class="text-muted">Total USD available: 9065930.43</p>
+                                    <p class="text-muted">أخر عشر اعلانات مباعة</p>
                                 </div>
                             </div>
                             <div class="card-content">
@@ -160,9 +160,9 @@
                                     <table class="table table-de mb-0">
                                         <thead>
                                         <tr>
-                                            <th>Price per BTC</th>
-                                            <th>BTC Ammount</th>
-                                            <th>Total($)</th>
+                                            <th>الاسم</th>
+                                            <th>القسم</th>
+                                            <th>السعر</th>
                                         </tr>
                                         </thead>
                                         <tbody>

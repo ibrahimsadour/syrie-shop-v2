@@ -24,8 +24,10 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'email'=>'required|email',
-            'password'=>'required'
+            'email'=>'required|email|unique:users',
+            'name'=>'required',
+            'password' => 'required|confirmed',
+
         ];
     }
 
@@ -33,8 +35,12 @@ class LoginRequest extends FormRequest
     {
         return [
 
-            'email.required'=>'de email van de user is niet ingevuld',
-            'password.required'=>'de password van de user is niet ingevuld',
+            'name.required' => 'لم يتم إدخال  الأسم!!',
+            'email.required' => 'لم يتم إدخال البريد الإلكتروني!',
+            'email.unique' => 'هذا الايميل مستخدم مسبقا',
+            'password.required'=>'لم يتم إدخال كلمة مرور ',
+            'password.min'=>'يجب أن تتكون كلمة المرور من 8 أحرف على الأقل. ',
+            'password.confirmed'=>'تأكيد كلمة المرور غير متطابق. ',
             
         ];
     }

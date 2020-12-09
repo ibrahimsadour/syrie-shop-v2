@@ -5,13 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\MainCategory;
+use App\Models\SubCategory;
 use App\Models\Tag;
 use App\Models\User;
 use App\Models\Brands;
 use App\Models\Vendor;
 use App\Models\ProductImages;
 use App\Models\Product_price;
-
+use App\Models\ProductStatus;
+use App\Models\ProductInfo;
+use App\Models\ProductAttribut;
 class Product extends Model
 {
     use HasFactory;
@@ -20,9 +23,8 @@ class Product extends Model
 
     protected $fillable = [
         'id ','translation_lang','translation_of','user_id',
-        'vendor_id','brand_id','category_id','name','slug',
-        'photo','description','active',
-        'viewed','sales_status','created_at','updated_at'
+        'vendor_id','brand_id','category_id','sub_category_id',
+        'active','created_at','updated_at'
     ];
 
     public $timestamps = true;
@@ -53,18 +55,6 @@ class Product extends Model
     }
 
     /**
-     * scopeSales_status
-     * this a global scope to show all product that not sold on store with Method (where ('sales_status', 1))
-     * @todo 1 => it is not sold
-     * @todo 0 => it is sold
-     * @param  mixed $query
-     * @return void
-     */
-    public function scopeSales_status($query)
-    {
-        return $query->where('sales_status', 1);
-    }
-    /**
      * getSold
      * @todo this just to display on the website instead of the number text set
      * @return void
@@ -73,7 +63,7 @@ class Product extends Model
     {
         $not_slod = __('admin/index.not slod');
         $slod = __('admin/index.slod');
-        return $this->sales_status === 1 ? $not_slod  : $slod;
+        return $this->product_status->sales_status === 1 ? $not_slod  : $slod;
 
     }
 
@@ -86,10 +76,8 @@ class Product extends Model
     public function scopeSelection($query)
     {
         return $query->select(
-        'id','translation_lang','translation_of','user_id',
-        'vendor_id','brand_id','category_id','name','slug',
-        'photo','description','active',
-        'viewed','sales_status','created_at','updated_at');
+        'id','translation_lang','translation_of','user_id','active',
+        'vendor_id','brand_id','category_id','sub_category_id','created_at','updated_at');
     }
 
     /**
@@ -104,6 +92,7 @@ class Product extends Model
         return ($val !== null) ? asset('assets/' . $val) : "";
 
     }
+    
 
     /**
      * scopeDefaultCategory
@@ -135,6 +124,15 @@ class Product extends Model
         return $this->belongsTo(MainCategory::class, 'category_id', 'id');
     }
     /**
+     * sub_categories
+     *
+     * @return void
+     */
+    public function sub_categories()
+    {
+        return $this->belongsTo(SubCategory::class, 'sub_category_id', 'id');
+    }
+    /**
      * Brands
      *
      * @return void
@@ -162,16 +160,6 @@ class Product extends Model
         return $this->belongsToMany(Tag::class, 'product_tag');
     }
     /**
-     * images
-     *
-     * @return void
-     */
-    public function images()
-    {
-        return $this -> hasMany(ProductImages::class,'product_id','id');
-    } 
-
-    /**
      * user
      *
      * @return void
@@ -181,6 +169,15 @@ class Product extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
     /**
+     * images
+     *
+     * @return void
+     */
+    public function images()
+    {
+        return $this -> hasMany(ProductImages::class,'product_id','id');
+    } 
+    /**
      * price
      *
      * @return void
@@ -188,6 +185,33 @@ class Product extends Model
     public function product_price()
     {
         return $this -> hasOne(Product_price::class,'product_id','id');
+    } 
+    /**
+     * status
+     *
+     * @return void
+     */
+    public function product_status()
+    {
+        return $this -> hasOne(ProductStatus::class,'product_id','id');
+    }  
+    /**
+     * info
+     *
+     * @return void
+     */
+    public function product_info()
+    {
+        return $this -> hasOne(ProductInfo::class,'product_id','id');
+    }
+    /**
+     * Attribut
+     *
+     * @return void
+     */
+    public function product_attribut()
+    {
+        return $this -> hasOne(ProductAttribut::class,'product_id','id');
     }  
     ######################### End relationship  ########################
 

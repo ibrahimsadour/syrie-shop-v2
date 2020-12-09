@@ -5,13 +5,13 @@
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2">
-                    <h3 class="content-header-title"> @lang('admin/index.products')</h3>
+                    <h3 class="content-header-title"> @lang('admin/create.Main Catgegory')</h3>
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">@lang('admin/create.Main')</a>
                                 </li>
-                                <li class="breadcrumb-item active">@lang('admin/index.products')
+                                <li class="breadcrumb-item active">@lang('admin/create.Main Catgegory')
                                 </li>
                             </ol>
                         </div>
@@ -25,7 +25,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">@lang('admin/index.products')</h4>
+                                    <h4 class="card-title">@lang('admin/create.Main Catgegory')</h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -47,67 +47,42 @@
                                             class="table display nowrap table-striped table-bordered scroll-horizontal">
                                             <thead class="">
                                             <tr>
-                                                <th>رقم المنتج</th>
-                                                <th>@lang('admin/create.Main Catgegory')</th>
-                                                <th>@lang('admin/create.Sub Catgegory')</th>
-                                                <th>@lang('admin/create.Vendors')</th>
-                                                <th>@lang('admin/create.Brands')</th>
+                                                <th>@lang('admin/index.Name')</th>
+                                                <th>الاسم بالرابط</th>
+                                                <th>@lang('admin/index.Status')</th>
                                                 <th>@lang('admin/index.Action')</th>
                                             </tr>
                                             </thead>
                                             <tbody>
 
-                                            @isset($products)
-                                                @foreach($products as $product)
+                                            @isset($locations)
+                                                @foreach($locations as $location)
                                                     <tr>
-                                                        <td>{{$product->id}}</td>
-
-                                                        <th>
-                                                            @if($product->category_id != true) 
-                                                            <b class="warning">@lang('admin/create.without section')
+                                                        <td>{{$location -> name}}</td>
+                                                        <td>{{$location -> slug}}</td>
+                                                        <td>
+                                                            @if($location -> getActive() === "active" || $location -> getActive() === "مفعل") 
+                                                            <b class="success">{{$location -> getActive() }}
                                                             @else  
-                                                            <b class="">{{$product -> categories->name}}</b>
+                                                            <b class="warning">{{$location -> getActive()}}</b>
                                                             @endif
-                                                        </th>
-                                                        <th>
-                                                            @if($product->sub_category_id  != true) 
-                                                            <b class="warning">@lang('admin/create.without section')
-                                                            @else  
-                                                            <b class="">{{$product -> sub_categories->name}}</b>
-
-                                                            @endif
-                                                        </th>
-                                                        <th>
-                                                            @if($product->vendor_id != true) 
-                                                            <b class="warning">@lang('admin/create.without section')
-                                                            @else  
-                                                            <b class="">{{$product -> vendors->name}}</b>
-                                                            @endif
-                                                        </th>
-
-                                                        <th>
-                                                            @if($product->brand_id != true) 
-                                                            <b class="warning">@lang('admin/create.without section')
-                                                            @else  
-                                                            <b class="">{{$product -> brands->name}}</b>
-                                                            @endif
-                                                        </th>
+                                                        </td>
                                                         <td>
                                                             <div class="btn-group" role="group"
                                                                  aria-label="Basic example">
-                                                                <a href="{{route('admin.products.edit',$product -> id)}}"
+                                                                <a href="{{route('admin.location.edit',$location -> id)}}"
                                                                    class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">@lang('admin/index.Edit')</a>
 
 
-                                                                <a href="{{route('admin.products.delete',$product -> id)}}"
+                                                                <a href="{{route('admin.location.delete',$location -> id)}}"
                                                                    class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">@lang('admin/index.Remove')</a>
 
 
-                                                                    @if($product -> active == 0)
-                                                                    <a href="{{route('admin.products.status',$product -> id)}}"
+                                                                    @if($location -> active == 0)
+                                                                    <a href="{{route('admin.location.status',$location -> id)}}"
                                                                    class="btn btn-outline-success btn-min-width box-shadow-3 mr-1 mb-1">@lang('admin/index.Active')</a>
                                                                         @else
-                                                                    <a href="{{route('admin.products.status',$product -> id)}}"
+                                                                    <a href="{{route('admin.location.status',$location -> id)}}"
                                                                    class="btn btn-outline-warning btn-min-width box-shadow-3 mr-1 mb-1">
                                                                    @lang('admin/index.Deactivate')</a>
                                                                     @endif

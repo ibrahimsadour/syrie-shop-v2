@@ -23,6 +23,7 @@ class User extends Authenticatable
         'email',
         'password',
         'mobile',
+        'active',
         'provider',
         'provider_id'
     ];
@@ -46,6 +47,43 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    #################### Begin Scop ###########################
+    /**
+     * scopeActive
+     * this a global scope to show an active user on the store with Method (where ('active', 1))
+     * @todo 1 => it is active
+     * @todo 0 => it is not active
+     * @param  mixed $query
+     * @return void
+     */
+    public function scopeActive($query)
+    {
+        return $query->where('active', 1);
+    }    
+    /**
+     * scopeSelection
+     *
+     * @param  mixed $query
+     * @return void
+     */
+    public function scopeSelection($query)
+    {
+
+        return $query->select('id','name', 'email','mobile','provider','created_at', 'active');
+    }
+    /**
+     * getActive
+     * @todo this just to display on the website instead of the number text set
+     * @return void
+     */
+    public function getActive()
+    {
+        $inactive = __('admin/index.inactive');
+        $active = __('admin/index.active');
+        return $this->active === 1 ? $active  : $inactive;
+
+    }
+    #################### End Scopp  ###########################
     /**
      * avatar
      *

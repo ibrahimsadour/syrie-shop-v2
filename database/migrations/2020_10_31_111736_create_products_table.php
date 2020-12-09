@@ -16,23 +16,15 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
-            $table->string('translation_lang');
-            $table->bigInteger('translation_of')->unsigned();
-            $table->bigInteger('category_id')->unsigned()->nullable();
-            $table->bigInteger('vendor_id')->unsigned()->nullable();
-            $table->bigInteger('brand_id')->unsigned()->nullable();
-            $table->string('name');
-            $table->string('slug')->nullable();
-            $table->string('photo')->nullable();
-            $table->string('description')->nullable();
-            $table->string('price')->nullable();
-            $table->string('viewed')->nullable();
+            $table->string('translation_lang')->nullable();
+            $table->bigInteger('translation_of')->unsigned()->nullable();
+            $table->bigInteger('category_id')->unsigned();
+            $table->bigInteger('sub_category_id')->unsigned()->nullable()->default('0');
+            $table->bigInteger('vendor_id')->unsigned()->nullable()->default('0');
+            $table->bigInteger('brand_id')->unsigned()->nullable()->default('0');
             $table->tinyInteger('active')
-            ->comment('1 => show the product on the site, 0 => donot show the product on the site')->default('1');
-            $table->tinyInteger('sales_status')
-            ->comment('1 => it is not sold , 0 => it is sold')->default('1');
-
-            $table->foreign('user_id')->references('id')->on('users');
+            ->comment('1 => show the price on the site, 0 => donot show the price on the site')->default('1');
+            //foreignkey
             $table->timestamps();
         });
     }

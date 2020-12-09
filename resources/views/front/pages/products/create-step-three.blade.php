@@ -14,7 +14,7 @@
                         <table class="table">
                             <tr>
                                 <td>عنوان الاعلان</td>
-                                <td><strong>{{$product->name}}</strong></td>
+                                <td><strong>{{ request()->get('name') }}</strong></td>
                             </tr>
                             <tr>
                                 <td>السعر:</td>
@@ -28,12 +28,18 @@
                             </tr>
                             <tr>
                                 <td>الوصف:</td>
-                                <td><strong>{{$product->description }}</strong></td>
+                                <td><strong>{{ request()->get('description') }}</strong></td>
                             </tr>
                             @if($categories_name != false)
                                 <tr>
                                     <td> القسم:</td>
                                     <td><strong>{{$categories_name}}</strong></td>
+                                </tr>
+                            @endif
+                            @if($location_name != false)
+                                <tr>
+                                    <td> الموقع:</td>
+                                    <td><strong>{{$location_name}}</strong></td>
                                 </tr>
                             @endif
                             @if($kilometer != false)

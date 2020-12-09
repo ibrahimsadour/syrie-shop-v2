@@ -7,7 +7,7 @@
               </li>
 
               <li class="{{ Request::is('admin/languages') ? 'nav-item active' : '' }}">
-                     <a href=""><i class="la la-home"></i>
+                     <a href=""><i class="icon-globe"></i>
                             <span class="menu-title" data-i18n="nav.dash.main">لغات الموقع</span>
                             <span
                             class="badge badge badge-info badge-pill float-right mr-2">{{App\Models\Language::count()}}</span>
@@ -23,7 +23,7 @@
               </li>
 
 
-            <li class="{{ Request::is('admin/main_categories') ? 'nav-item active' : '' }}"><a href=""><i class="la la-group"></i>
+              <li class="{{ Request::is('admin/main_categories') ? 'nav-item active' : '' }}"><a href=""><i class="icon-grid"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">الاقسام الرئيسية</span>
                     <span
                         class="badge badge badge-danger badge-pill float-right mr-2">{{App\Models\MainCategory::defaultCategory() ->count()}}</span>
@@ -35,9 +35,9 @@
                     <li class="{{ Request::is('admin/main_categories/create') ? 'active' : '' }}"><a class="menu-item" href="{{route('admin.maincategories.create')}}" data-i18n="nav.dash.crypto"> اضافة قسم رئيسي </a>
                     </li>
                 </ul>
-            </li>
+              </li>
 
-            <li class="{{ Request::is('admin/sub_categories') ? 'nav-item active' : '' }}"><a href=""><i class="la la-group"></i>
+              <li class="{{ Request::is('admin/sub_categories') ? 'nav-item active' : '' }}"><a href=""><i class="icon-layers"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">الأقسام الفرعية</span>
                     <span
                         class="badge badge badge-danger badge-pill float-right mr-2">{{App\Models\SubCategory::defaultSubCategory() ->count()}}</span>
@@ -46,12 +46,66 @@
                     <li  class="{{ Request::is('admin/sub_categories') ? 'active' : '' }}"><a class="menu-item" href="{{route('admin.subcategories')}}"
                                           data-i18n="nav.dash.ecommerce"> عرض الكل</a>
                     </li>
-                    <li  class="{{ Request::is('admin/sub_categories/create') ? 'active' : '' }}"><a class="menu-item" href="{{route('admin.subcategories.create')}}" data-i18n="nav.dash.crypto"> أضافة قسم فرعي </a>
+                    <li  class="{{ Request::is('admin/sub_categories/create') ? 'active' : '' }}"><a class="menu-item" href="{{route('admin.location.create')}}" data-i18n="nav.dash.crypto"> أضافة قسم فرعي </a>
                     </li>
                 </ul>
-            </li>
+              </li>
+              <li class="{{ Request::is('admin/location') ? 'nav-item active' : '' }}"><a href=""><i class="ft-map-pin"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">المناطق</span>
+                    <span
+                        class="badge badge badge-danger badge-pill float-right mr-2">{{App\Models\Location::count()}}</span>
+                </a>
+                <ul class="menu-content">
+                    <li  class="{{ Request::is('admin/location') ? 'active' : '' }}"><a class="menu-item" href="{{route('admin.location')}}"
+                                          data-i18n="nav.dash.ecommerce"> عرض الكل</a>
+                    </li>
+                    <li  class="{{ Request::is('admin/location/create') ? 'active' : '' }}"><a class="menu-item" href="{{route('admin.location.create')}}" data-i18n="nav.dash.crypto"> أضافة  مدينة جديدة </a>
+                    </li>
+                </ul>
+              </li>
 
-            <li  class="{{ Request::is('admin/vendors') ? 'nav-item active' : '' }}"><a href=""><i class="la la-male"></i>
+              <li class="nav-item"><a href=""><i class="icon-diamond"></i>
+                     <span class="menu-title" data-i18n="nav.dash.main">الماركات </span>
+                    <span   class="badge badge badge-warning  badge-pill float-right mr-2">{{App\Models\Brands::count()}}</span>
+                </a>
+                <ul class="menu-content">
+                    <li class=""><a class="menu-item" href="{{route('admin.brands')}}" data-i18n="nav.dash.ecommerce"> عرض الكل الماركات </a>
+                    </li>
+                    <li><a class="menu-item" href="{{route('admin.brands.create')}}" data-i18n="nav.dash.crypto">أضافة ماركة جديدة</a>
+                    </li>
+                </ul>
+              </li>
+
+              <li class="nav-item"><a href=""><i class="la la-tags"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">العلامات  </span>
+                    <span
+                        class="badge badge badge-warning  badge-pill float-right mr-2">{{App\Models\Tag::count()}}</span>
+                </a>
+                <ul class="menu-content">
+                    <li class=""><a class="menu-item" href="{{route('admin.tags')}}" data-i18n="nav.dash.ecommerce"> عرض الكل العلامات </a>
+                    </li>
+                    <li><a class="menu-item" href="{{route('admin.tags.create')}}" data-i18n="nav.dash.crypto"> أضافة علامة جديدة</a>
+                    </li>
+                </ul>
+              </li>
+    
+              <li class="nav-item"><a href=""><i class="icon-basket"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">المنتجات  </span>
+                    <span
+                        class="badge badge badge-warning  badge-pill float-right mr-2">{{App\Models\Product::count()}}</span>
+                </a>
+                <ul class="menu-content">
+                    <li class=""><a class="menu-item" href="{{route('admin.products')}}" data-i18n="nav.dash.ecommerce"><i class="ft-grid"></i> عرض الكل المنتجات </a>
+                    </li>
+                    <li class=""><a class="menu-item" href="{{route('admin.products_info')}}" data-i18n="nav.dash.ecommerce"><i class="ft-shopping-cart"></i> المعلومات الرئيسية </a>
+                    </li>
+                    <li class=""><a class="menu-item" href="{{route('admin.products_attribut')}}" data-i18n="nav.dash.ecommerce"><i class="ft-filter"></i> صفات ( خصائص ) المنتجات </a>
+                    </li>
+                    <li><a class="menu-item" href="{{route('admin.products.create')}}" data-i18n="nav.dash.crypto"> أضافة منتج جديد</a>
+                    </li>
+                </ul>
+              </li>
+              <li  class="{{ Request::is('admin/vendors') ? 'nav-item active' : '' }}"><a href=""><i class="la la-male"></i>
                     <span class="menu-title" data-i18n="nav.dash.main"> المتاجر  </span>
                     <span
                         class="badge badge badge-success badge-pill float-right mr-2">{{App\Models\Vendor::count()}}</span>
@@ -63,46 +117,20 @@
                     <li  class="{{ Request::is('admin/vendors/create') ? 'active' : '' }}" ><a class="menu-item" href="{{route('admin.vendors.create')}}" data-i18n="nav.dash.crypto">أضافة متجر جديد  </a>
                     </li>
                 </ul>
-            </li>
-
-
-            <li class="nav-item"><a href=""><i class="la la-male"></i>
-                     <span class="menu-title" data-i18n="nav.dash.main">الماركات </span>
-                    <span   class="badge badge badge-warning  badge-pill float-right mr-2">{{App\Models\Brands::count()}}</span>
-                </a>
-                <ul class="menu-content">
-                    <li class=""><a class="menu-item" href="{{route('admin.brands')}}" data-i18n="nav.dash.ecommerce"> عرض الكل الماركات </a>
-                    </li>
-                    <li><a class="menu-item" href="{{route('admin.brands.create')}}" data-i18n="nav.dash.crypto">أضافة ماركة جديدة</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="nav-item"><a href=""><i class="la la-tags"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">العلامات  </span>
-                    <span
-                        class="badge badge badge-warning  badge-pill float-right mr-2">{{App\Models\Tag::count()}}</span>
-                </a>
-                <ul class="menu-content">
-                    <li class=""><a class="menu-item" href="{{route('admin.tags')}}" data-i18n="nav.dash.ecommerce"> عرض الكل العلامات </a>
-                    </li>
-                    <li><a class="menu-item" href="{{route('admin.tags.create')}}" data-i18n="nav.dash.crypto"> أضافة علامة جديدة</a>
-                    </li>
-                </ul>
-            </li>
-    
-            <li class="nav-item"><a href=""><i class="la la-male"></i>
-                    <span class="menu-title" data-i18n="nav.dash.main">المنتجات  </span>
-                    <span
-                        class="badge badge badge-warning  badge-pill float-right mr-2">{{App\Models\Product::count()}}</span>
-                </a>
-                <ul class="menu-content">
-                    <li class=""><a class="menu-item" href="{{route('admin.products')}}" data-i18n="nav.dash.ecommerce"> عرض الكل المنتجات </a>
-                    </li>
-                    <li><a class="menu-item" href="{{route('admin.products.create')}}" data-i18n="nav.dash.crypto"> أضافة منتج جديد</a>
-                    </li>
-                </ul>
-            </li>
+              </li>
+              <li class="{{ Request::is('admin/users') ? 'nav-item active' : '' }}"><a href=""><i class="la la-group"></i>
+                     <span class="menu-title" data-i18n="nav.dash.main">المستخدمين</span>
+                     <span
+                            class="badge badge badge-danger badge-pill float-right mr-2">{{App\Models\User::count()}}</span>
+                     </a>
+                     <ul class="menu-content">
+                     <li  class="{{ Request::is('admin/user') ? 'active' : '' }}"><a class="menu-item" href="{{route('admin.users')}}"
+                                          data-i18n="nav.dash.ecommerce"> عرض الكل</a>
+                     </li>
+                     <li  class="{{ Request::is('admin/users/create') ? 'active' : '' }}"><a class="menu-item" href="{{route('admin.users.create')}}" data-i18n="nav.dash.crypto"> أضافة مستخدم جديد  </a>
+                     </li>
+                     </ul>
+              </li>
 
 <!-- 
             <li class=" nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title"

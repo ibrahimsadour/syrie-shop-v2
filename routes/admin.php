@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\TagsController;
 use App\Http\Controllers\Admin\VendorsController;
 use App\Http\Controllers\Admin\SubCategoriesController;
 use App\Http\Controllers\Admin\ProductsController;
+use App\Http\Controllers\Admin\LocationController;
+use App\Http\Controllers\Admin\UsersController;
 Auth::routes(['verify' =>true]);
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +48,34 @@ Route::group(['namespace'=>'Admin','middleware' => 'auth:admin'], function() {
     });
     ############################# End Languages Route ###############################
 
+
+    ######################### Begin Location Routes ########################
+    Route::group(['prefix' => 'location'], function () {
+
+        Route::get('/', [LocationController::class ,'index']) -> name('admin.location');
+        Route::get('create',[LocationController::class ,'create']) -> name('admin.location.create');
+        Route::post('store',[LocationController::class ,'store']) -> name('admin.location.store');
+        Route::get('edit/{id}',[LocationController::class ,'edit']) -> name('admin.location.edit');
+        Route::post('update/{id}',[LocationController::class ,'update']) -> name('admin.location.update');
+        Route::get('delete/{id}',[LocationController::class ,'destroy']) -> name('admin.location.delete');
+        //change Status location
+        Route::get('changeStatus/{id}',[LocationController::class ,'changeStatus']) -> name('admin.location.status');
+    });
+    ######################### End  Location Routes  ########################
+
+    ######################### Begin Users Routes ########################
+    Route::group(['prefix' => 'users'], function () {
+
+        Route::get('/', [UsersController::class ,'index']) -> name('admin.users');
+        Route::get('create',[UsersController::class ,'create']) -> name('admin.users.create');
+        Route::post('store',[UsersController::class ,'store']) -> name('admin.users.store');
+        Route::get('edit/{id}',[UsersController::class ,'edit']) -> name('admin.users.edit');
+        Route::post('update/{id}',[UsersController::class ,'update']) -> name('admin.users.update');
+        Route::get('delete/{id}',[UsersController::class ,'destroy']) -> name('admin.users.delete');
+        //change Status users
+        Route::get('changeStatus/{id}',[UsersController::class ,'changeStatus']) -> name('admin.users.status');
+    });
+    ######################### End  Users Routes  ########################
 
 
     ######################### Begin Main Categoris Routes ########################
@@ -131,6 +161,8 @@ Route::group(['namespace'=>'Admin','middleware' => 'auth:admin'], function() {
     Route::group(['prefix' => 'products'], function () {
 
         Route::get('/', [ProductsController::class ,'index']) -> name('admin.products');
+        Route::get('/info', [ProductsController::class ,'products_info']) -> name('admin.products_info');
+        Route::get('/attribut', [ProductsController::class ,'products_attribut']) -> name('admin.products_attribut');
         Route::get('create',[ProductsController::class ,'create']) -> name('admin.products.create');
         Route::post('store',[ProductsController::class ,'store']) -> name('admin.products.store');
         Route::get('edit/{id}',[ProductsController::class ,'edit']) -> name('admin.products.edit');

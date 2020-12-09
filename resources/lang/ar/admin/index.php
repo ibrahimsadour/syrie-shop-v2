@@ -20,7 +20,7 @@ return [
     'Active'=>'تفعيل',
     'active'=>'مفعل',
     'slod'=>'مباع',
-    'not slod'=>' متاح',
+    'not slod'=>'متاح',
     'inactive'=>'غير مفعل',
     'Deactivate'=>'إلغاء التفعيل',
     'search'=>'البحث',

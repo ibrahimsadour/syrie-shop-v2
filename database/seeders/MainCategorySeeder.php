@@ -92,7 +92,7 @@ class MainCategorySeeder extends Seeder
                 'translation_of' => '0',
                 'name' => ' المجوهرات & الساعات',
                 'slug' => ' المجوهرات-الساعات',
-                'photo' => 'images/maincategories/MainCategorySeeder/Jewelry & watches.png',
+                'photo' => 'images/maincategories/MainCategorySeeder/Jewelry & watches.jpg',
                 'active' => '1',
             ],
             [
@@ -108,7 +108,7 @@ class MainCategorySeeder extends Seeder
                 'translation_of' => '0',
                 'name' => ' أجهزة الكمبيوتر',
                 'slug' => ' أجهزة-الكمبيوتر',
-                'photo' => 'images/maincategories/MainCategorySeeder/3.png',
+                'photo' => 'images/maincategories/MainCategorySeeder/computer.jpg',
                 'active' => '1',
             ],
             [
@@ -116,7 +116,7 @@ class MainCategorySeeder extends Seeder
                 'translation_of' => '0',
                 'name' => ' الملابس',
                 'slug' => ' الملابس',
-                'photo' => 'images/maincategories/MainCategorySeeder/Clothes.png',
+                'photo' => 'images/maincategories/MainCategorySeeder/Clothes.jpg',
                 'active' => '1',
             ],
             [
