@@ -158,8 +158,10 @@ class ProductsController extends Controller
         $price = $request->price;
         $type_price = $request->type_price;
         $kilometer = $request->kilometer;
+        $sub_category_id = $request->sub_category_id;
 
 
+        Session::put('sub_category_id', $sub_category_id);
         Session::put('location', $location);
         Session::put('kilometer', $kilometer);
         Session::put('price', $price);
@@ -236,7 +238,7 @@ class ProductsController extends Controller
             $product_slug = str_replace(' ', '-', $product_name); 
             // product_id
             $category_id = $request->session()->get('product')->category_id;
-
+            $sub_category_id = Session::get('sub_category_id');
             $product = $request->session()->get('product');
 
             $product  = Product::create([
@@ -244,6 +246,7 @@ class ProductsController extends Controller
                 'translation_of' =>"0",
                 'user_id' => Auth::id(),
                 'category_id' =>$category_id,
+                'sub_category_id' =>$sub_category_id,
                 'brand_id' =>  Null,
                 'vendor_id' => Null,
             ]);

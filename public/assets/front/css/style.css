@@ -1930,8 +1930,8 @@ button.ps-btn.ps-btn--reverse:hover {
 
 .ps-btn.ps-btn--gray,
 button.ps-btn.ps-btn--gray {
-    background-color: #e5e5e5;
-    color: #000000;
+    background-color: #28a745;
+    color: #fff;
     font-size: 1.6rem;
 }
 
@@ -3573,7 +3573,7 @@ textarea.form-control {
     .ps-pagination .pagination>li>a {
         min-width: 40px;
         line-height: 40px;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 }
 
@@ -8146,6 +8146,7 @@ textarea.form-control {
     text-align: center;
     font-weight: 600;
     padding: 11px 20px;
+    margin: 10px;
 }
 
 .ps-product--wide .ps-product__shopping .ps-product__actions {
@@ -8667,7 +8668,7 @@ textarea.form-control {
 }
 
 .ps-product--detail .ps-product__shopping .ps-btn--gray {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #28a745;
     color: #ffffff;
 }
 

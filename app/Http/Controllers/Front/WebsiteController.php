@@ -52,9 +52,7 @@ class WebsiteController extends Controller
     public function about_us (){
         return view('front.pages.about-us');
     }
-    public function store (){
-        return view('front.pages.store');
-    }
+
     public function faqs (){
         return view('front.pages.faqs');
     }

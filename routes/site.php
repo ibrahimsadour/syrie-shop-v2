@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\WebsiteController;
+use App\Http\Controllers\Front\StoreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,11 +44,7 @@ Route::group( [
     */
     Route::get('about-us',[WebsiteController::class ,'about_us']) -> name('site.about-us');
 
-    /** store page
-    * @todo URL:www.DomeinName.com/store
-    * @todo Route name : site.store
-    */
-    Route::get('store',[WebsiteController::class ,'store']) -> name('site.store');
+
 
     /** faqs page
     * @todo URL:www.DomeinName.com/faqs
@@ -98,6 +95,16 @@ Route::group( [
 
     });
     ######################### End subCategory route ###############################
+
+    ######################### Begin Store route ###############################
+    /** store page
+    * @todo URL:www.DomeinName.com/store
+    * @todo Route name : site.store
+    */
+    Route::get('store',[StoreController::class ,'index']) -> name('site.store');
+
+    ######################### End Store route #################################
+
 });
 
 

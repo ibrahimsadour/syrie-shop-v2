@@ -1,5 +1,5 @@
 @extends('front.layouts.site')
-@section('title','الأشتراك ')
+@section('title','الاقسام الفرعية ')
 
 @section('content')
     <div id="homepage-1">

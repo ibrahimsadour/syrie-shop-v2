@@ -63,6 +63,15 @@
                 </div>
             </div>
             @endforeach
+            <div class="ps-pagination">
+                <ul class="pagination">
+                    <li><a href="{{$products->previousPageUrl()}}"><i class="icon-chevron-right"></i> الصفحة السابقة </a></li>
+                    @for($i=1;$i<=$products->lastPage();$i++)
+                    <li><a class="active" href="{{$products->url($i)}}">{{$i}}</a></li>
+                    @endfor
+                    <li><a href="{{$products->nextPageUrl()}}">الصفحة التالية<i class="icon-chevron-left"></i></a></li>
+                </ul>
+            </div>
             @else
             <div class="mp-Listing-compact FavoritesListItem-favorites-list-item">
                 <div class="mp-Listing-compact-body FavoritesListItem-not_published">

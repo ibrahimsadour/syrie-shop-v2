@@ -8,7 +8,7 @@
     <ul class="breadcrumb">
             <li><a href="{{route('site.index')}}">الرئيسية</a></li>
             <li><a href="{{route('user.myProducts')}}">أعلاناتي</a></li>
-            <li>{{$products->name}}</li>
+            <li>@if($products->product_info  != false ){{$products ->product_info-> name}}@endif</li>
         </ul>
     </div>
 </div>
@@ -52,13 +52,19 @@
                             </div>
                         </div>
                         <div class="ps-product__info">
-                            <h1>{{$products->name}}</h1>
+                            <h1>@if($products->product_info  != false ){{$products ->product_info-> name}}@endif</h1>
                             <!-- <div class="ps-product__actions">
                                 <a href="#"><i class="icon-heart"></i></a>
                             </div> -->
                             <div class="ps-product__meta">
                                 <p>{{$products->created_at->diffForHumans()}}</p>
-                                <p >الحالة:<a class="text-success" href="#">{{$products->getSold()}}</a></p>
+                                <p >الحالة :<a class="text-success" href="#">{{$products->getSold()}}</a></p>
+                                <p >الموقع :<a class="text-success" href="#">
+                                    @php $locations = App\Models\Location::where('id',$products->product_info->location_id)->get();
+                                    foreach($locations as $location){
+                                        echo $location->name;
+                                    }
+                                    @endphp</a></p>
                                 <div class="ps-product__rating">
                                     <span><i class="fa fa-eye" aria-hidden="true"></i> {{$products->viewed}} </span>
                                 </div>
