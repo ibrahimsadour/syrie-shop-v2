@@ -64,19 +64,20 @@
                                             @isset($products)
                                                 @foreach($products as $product)
                                                     <tr>
-                                                        <td>{{$product->id}}</td>
-                                                        <td>{{$product->product_info->name}}</td>
+                                                        <td>{{$product->id ?? ''}}</td>
+                                                        <td>{{$product->product_info->name ?? ''}}</td>
                                                         <td> 
                                                             @php
-                                                                $locations = App\Models\Location::where('id',$product->product_info->location_id)->get();
+                                                                $location_id = $product->product_info->location_id ?? '';
+                                                                $locations = App\Models\Location::where('id',$location_id)->get();
                                                                 foreach($locations as $location){
                                                                     echo $location->name;
                                                                 }
                                                             @endphp
                                                         </td>
-                                                        <td>{{$product->product_info->description}}</td>
-                                                        <td> {{$product->product_price->price}}
-                                                            @if($product->product_price->type_price != 0)
+                                                        <td>{{$product->product_info->description ?? ''}}</td>
+                                                        <td> {{$product->product_price->price ?? ''}}
+                                                            @if($product->product_price->type_price ?? '' != 0)
                                                             <p>دولار امريكي</p>
                                                             @else
                                                             <p>ليرة تركي </p>
@@ -85,24 +86,24 @@
                                                         </td>
                                                         <td>
                                                             @if($product -> getActive() === "active" || $product -> getActive() === "مفعل") 
-                                                            <b class="success">{{$product -> getActive() }}
+                                                            <b class="success">{{$product -> getActive()  ?? ''}}
                                                             @else  
-                                                            <b class="warning">{{$product -> getActive()}}</b>
+                                                            <b class="warning">{{$product -> getActive() ?? ''}}</b>
                                                             @endif
                                                         </td>
                                                         <td>
                                                             @if($product -> getSold() === "not slod" || $product -> getSold() === "متاح") 
                                                             <b class="success">{{$product -> getSold() }}
                                                             @else  
-                                                            <b class="warning">{{$product -> getSold()}}</b>
+                                                            <b class="warning">{{$product -> getSold() ?? ''}}</b>
                                                             @endif
                                                         </td>
-                                                        <td>{{$product->product_status->viewed}}</td>
-                                                        <td>{{$product->created_at->diffForHumans()}}</td>
+                                                        <td>{{$product->product_status->viewed ?? ''}}</td>
+                                                        <td>{{$product->created_at->diffForHumans() ?? ''}}</td>
                                                         <td>
                                                             @foreach($product->images as $image)
                                                                 @if ($loop->first)
-                                                                    <img width='50' height='50' src="{{Request::root()}}/assets/{{$image->photo}}"> 
+                                                                    <img width='50' height='50' src="{{Request::root()}}/assets/{{$image->photo ?? ''}}"> 
                                                                 @endif
                                                             @endforeach
                                                         </td>

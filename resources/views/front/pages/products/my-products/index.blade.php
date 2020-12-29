@@ -22,7 +22,7 @@
                             @if($product->images->count() > 0))
                                 @foreach($product->images as $image)
                                 @if ($loop->first)
-                                    <img  class="FavoritesListItem-unshrinkable-thumb" src="{{Request::root()}}/assets/{{$image->photo}}">
+                                    <img  class="FavoritesListItem-unshrinkable-thumb" src="{{Request::root()}}/assets/{{$image->photo ?? ''}}">
                                 @endif
                                 @endforeach
                             @else
@@ -35,23 +35,23 @@
                     <div class="mp-Listing-compact-content">
                         <h4 class="mp-Listing-compact-title mp-Listing-compact-title--link">
                         @if($product->product_info  != false )
-                            <a href="{{route('user.products.edit',$product -> id)}}"><i class="fa fa-edit"></i> {{$product ->product_info-> name}} </a>
+                            <a href="{{route('user.products.edit',$product -> id)}}"><i class="fa fa-edit"></i> {{$product ->product_info-> name ?? ''}} </a>
                         @endif
                         </h4>
                         <div>
-                            <span class="mp-Listing-compact-location">@if($product->viewed != false) {{ $product->viewed}} <i class="fa fa-eye" aria-hidden="true"></i> @endif </span>
+                            <span class="mp-Listing-compact-location">@if($product->viewed != false) {{ $product->viewed ?? ''}} <i class="fa fa-eye" aria-hidden="true"></i> @endif </span>
                         </div>
                         <div class="FavoritesListItem-mobile-pricing" style="font-size: 12px;">
                             @if($product->product_price  != false )
                                 @if($product->product_price->type_price === 1)
-                                    <span class="FavoritesListItem-mobile-pricing">السعر: &nbsp;{{$product->product_price->price}} <i class="fa fa-dollar"></i> دولار أمريكي</span>
+                                    <span class="FavoritesListItem-mobile-pricing">السعر: &nbsp;{{$product->product_price->price ?? ''}} <i class="fa fa-dollar"></i> دولار أمريكي</span>
                                 @else
-                                    <span class="FavoritesListItem-mobile-pricing" >السعر: &nbsp;{{$product->product_price->price}} <i class="fa fa-turkish-lira"></i> ليرة تركية</span>
+                                    <span class="FavoritesListItem-mobile-pricing" >السعر: &nbsp;{{$product->product_price->price ?? ''}} <i class="fa fa-turkish-lira"></i> ليرة تركية</span>
                                 @endif
                             @endif
                         </div>
                         <div class="FavoritesListItem-mobile-pricing">
-                            <span class="FavoritesListItem-mobile-pricing" style="font-weight: 400;color: darkgray;font-size: 10px;" > تم النشر&nbsp;{{$product->created_at->diffForHumans()}}</span>
+                            <span class="FavoritesListItem-mobile-pricing" style="font-weight: 400;color: darkgray;font-size: 10px;" > تم النشر&nbsp;{{$product->created_at->diffForHumans() ?? ''}}</span>
                         </div>
 
                                 
@@ -63,11 +63,11 @@
                 </div>
             </div>
             @endforeach
-            <div class="ps-pagination">
+            <div class="ps-pagination" style="padding-top: 30px;">
                 <ul class="pagination">
                     <li><a href="{{$products->previousPageUrl()}}"><i class="icon-chevron-right"></i> الصفحة السابقة </a></li>
                     @for($i=1;$i<=$products->lastPage();$i++)
-                    <li><a class="active" href="{{$products->url($i)}}">{{$i}}</a></li>
+                    <li><a class="active" href="{{$products->url($i)}}">{{$i ?? ''}}</a></li>
                     @endfor
                     <li><a href="{{$products->nextPageUrl()}}">الصفحة التالية<i class="icon-chevron-left"></i></a></li>
                 </ul>

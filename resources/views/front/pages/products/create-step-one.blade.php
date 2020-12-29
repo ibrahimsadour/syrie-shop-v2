@@ -7,7 +7,7 @@
 <div id="content" class="l-page">
     <div class="category-selection-container box">
         <div class="form-group">
-            <h3 class="row mr-2 ml-2"> أضافة أعلان جديد</h3>
+            <h3 class="row mr-2 ml-2"> أضافة أعلان جديد مجاناً</h3>
         </div>
         <form action="{{ route('products.create.step.one.post') }}" method="post">
             @csrf
@@ -31,7 +31,7 @@
                         <optgroup label="من فضلك أختر القسم ">
                             @if($categories && $categories -> count() > 0)
                                 @foreach($categories as $category)
-                                    <option value="{{$category -> id}}">{{$category -> name}}</option>
+                                    <option value="{{$category -> id}}">{{$category -> name ?? ''}}</option>
                                 @endforeach
                             @endif
                         </optgroup>

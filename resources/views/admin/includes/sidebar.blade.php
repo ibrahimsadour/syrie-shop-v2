@@ -23,30 +23,30 @@
               </li>
 
 
-              <li class="{{ Request::is('admin/main_categories') ? 'nav-item active' : '' }}"><a href=""><i class="icon-grid"></i>
+              <li class="{{ Request::is('admin/categories') ? 'nav-item active' : '' }}"><a href=""><i class="icon-grid"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">الاقسام الرئيسية</span>
                     <span
                         class="badge badge badge-danger badge-pill float-right mr-2">{{App\Models\MainCategory::defaultCategory() ->count()}}</span>
                 </a>
                 <ul class="menu-content">
-                    <li class="{{ Request::is('admin/main_categories') ? 'active' : '' }}"><a class="menu-item" href="{{route('admin.maincategories')}}"
+                    <li class="{{ Request::is('admin/categories') ? 'active' : '' }}"><a class="menu-item" href="{{route('admin.maincategories')}}"
                                           data-i18n="nav.dash.ecommerce"> عرض الكل</a>
                     </li>
-                    <li class="{{ Request::is('admin/main_categories/create') ? 'active' : '' }}"><a class="menu-item" href="{{route('admin.maincategories.create')}}" data-i18n="nav.dash.crypto"> اضافة قسم رئيسي </a>
+                    <li class="{{ Request::is('admin/categories/create') ? 'active' : '' }}"><a class="menu-item" href="{{route('admin.maincategories.create')}}" data-i18n="nav.dash.crypto"> اضافة قسم رئيسي </a>
                     </li>
                 </ul>
               </li>
 
-              <li class="{{ Request::is('admin/sub_categories') ? 'nav-item active' : '' }}"><a href=""><i class="icon-layers"></i>
+              <li class="{{ Request::is('admin/sub-categories') ? 'nav-item active' : '' }}"><a href=""><i class="icon-layers"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">الأقسام الفرعية</span>
                     <span
                         class="badge badge badge-danger badge-pill float-right mr-2">{{App\Models\SubCategory::defaultSubCategory() ->count()}}</span>
                 </a>
                 <ul class="menu-content">
-                    <li  class="{{ Request::is('admin/sub_categories') ? 'active' : '' }}"><a class="menu-item" href="{{route('admin.subcategories')}}"
+                    <li  class="{{ Request::is('admin/sub-categories') ? 'active' : '' }}"><a class="menu-item" href="{{route('admin.subcategories')}}"
                                           data-i18n="nav.dash.ecommerce"> عرض الكل</a>
                     </li>
-                    <li  class="{{ Request::is('admin/sub_categories/create') ? 'active' : '' }}"><a class="menu-item" href="{{route('admin.location.create')}}" data-i18n="nav.dash.crypto"> أضافة قسم فرعي </a>
+                    <li  class="{{ Request::is('admin/sub-categories/create') ? 'active' : '' }}"><a class="menu-item" href="{{route('admin.location.create')}}" data-i18n="nav.dash.crypto"> أضافة قسم فرعي </a>
                     </li>
                 </ul>
               </li>

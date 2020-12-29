@@ -63,7 +63,8 @@ class Product extends Model
     {
         $not_slod = __('admin/index.not slod');
         $slod = __('admin/index.slod');
-        return $this->product_status->sales_status === 1 ? $not_slod  : $slod;
+        $value=  $this->product_status->sales_status ?? '';
+        return $value === 1 ? $not_slod  : $slod;
 
     }
 

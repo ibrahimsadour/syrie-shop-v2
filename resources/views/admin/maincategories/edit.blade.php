@@ -103,7 +103,20 @@
                                                             @enderror
                                                         </div>
                                                     </div>
-
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1"> الايقونة
+                                                            </label>
+                                                            <input type="text" id="icon"
+                                                                    class="form-control"
+                                                                    placeholder=""
+                                                                    value="{{$mainCategory -> icon}}"
+                                                                    name="category[0][icon]">
+                                                            @error("category.0.icon")
+                                                            <span class="text-danger"> هذا الحقل مطلوب</span>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
 
                                                     <div class="col-md-6 hidden">
                                                         <div class="form-group">

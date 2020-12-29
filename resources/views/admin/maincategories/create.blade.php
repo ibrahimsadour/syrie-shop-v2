@@ -84,12 +84,26 @@
                                                                             placeholder="  "
                                                                             value="{{old('slug')}}"
                                                                             name="category[{{$index}}][slug]">
-                                                                    @error("category.$index.name")
+                                                                    @error("category.$index.slug")
                                                                     <span class="text-danger"> هذا الحقل مطلوب</span>
                                                                     @enderror
                                                                 </div>
                                                             </div>
 
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="projectinput1"> الايقونة
+                                                                    </label>
+                                                                    <input type="text" id="icon"
+                                                                            class="form-control"
+                                                                            placeholder="<i class='icon-star'></i>"
+                                                                            value="{{old('icon')}}"
+                                                                            name="category[{{$index}}][icon]">
+                                                                    @error("category.$index.icon")
+                                                                    <span class="text-danger"> هذا الحقل مطلوب</span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
 
                                                             <div class="col-md-6 hidden">
                                                                 <div class="form-group">

@@ -14,11 +14,11 @@
                         <table class="table">
                             <tr>
                                 <td>عنوان الاعلان</td>
-                                <td><strong>{{ request()->get('name') }}</strong></td>
+                                <td><strong>{{ request()->get('name')  ?? ''}}</strong></td>
                             </tr>
                             <tr>
                                 <td>السعر:</td>
-                                <td><strong>{{$price}}
+                                <td><strong>{{$price ?? ''}}
                                     @if($type_price != 1)
                                     <i class="fa fa-turkish-lira"></i> ليرة تركية</h4>
                                     @else 
@@ -28,24 +28,24 @@
                             </tr>
                             <tr>
                                 <td>الوصف:</td>
-                                <td><strong>{{ request()->get('description') }}</strong></td>
+                                <td><strong>{{ request()->get('description')  ?? ''}}</strong></td>
                             </tr>
                             @if($categories_name != false)
                                 <tr>
                                     <td> القسم:</td>
-                                    <td><strong>{{$categories_name}}</strong></td>
+                                    <td><strong>{{$categories_name ?? ''}}</strong></td>
                                 </tr>
                             @endif
                             @if($location_name != false)
                                 <tr>
                                     <td> الموقع:</td>
-                                    <td><strong>{{$location_name}}</strong></td>
+                                    <td><strong>{{$location_name ?? ''}}</strong></td>
                                 </tr>
                             @endif
                             @if($kilometer != false)
                                 <tr>
                                     <td>الكيلو متر:</td>
-                                    <td><strong>{{$kilometer}}</strong></td>
+                                    <td><strong>{{$kilometer ?? ''}}</strong></td>
                                 </tr>
                             @endif
                             <tr>

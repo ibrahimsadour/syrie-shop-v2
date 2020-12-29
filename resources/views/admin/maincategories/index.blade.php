@@ -47,10 +47,12 @@
                                             class="table display nowrap table-striped table-bordered scroll-horizontal">
                                             <thead class="">
                                             <tr>
+                                                <th>ID</th>
                                                 <th>@lang('admin/index.Name')</th>
                                                 <th>@lang('admin/index.language')</th>
                                                 <th>@lang('admin/index.Status')</th>
                                                 <th>@lang('admin/index.image')</th>
+                                                <th>االايقونة</th>
                                                 <th>@lang('admin/index.Action')</th>
                                             </tr>
                                             </thead>
@@ -59,6 +61,7 @@
                                             @isset($categories)
                                                 @foreach($categories as $category)
                                                     <tr>
+                                                        <td>{{$category -> id}}</td>
                                                         <td>{{$category -> name}}</td>
                                                         <td>{{get_default_lang()}}</td>
                                                         <td>
@@ -69,6 +72,7 @@
                                                             @endif
                                                         </td>
                                                         <td> <img style="width: 150px; height: 100px;" src="{{$category -> 	photo}}"></td>
+                                                        <td><input type="code" value="{{ $category -> icon }}" /></td>
                                                         <td>
                                                             <div class="btn-group" role="group"
                                                                  aria-label="Basic example">

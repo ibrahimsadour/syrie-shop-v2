@@ -12,7 +12,7 @@ use App\Models\SubCategory;
 
 use Illuminate\Support\Str;
 
-class MainCategoriesController extends Controller
+class CategoriesController extends Controller
 {
     public function index()
 
@@ -22,7 +22,6 @@ class MainCategoriesController extends Controller
         $categories = MainCategory::where('translation_lang', $default_lang)
             ->selection()
             ->get();
-
         return view('admin.maincategories.index', compact('categories'));
     }
 
@@ -85,6 +84,7 @@ class MainCategoriesController extends Controller
                 'translation_of' => 0,
                 'name' => $default_category['name'],
                 'slug' => $default_category['slug'],
+                'icon' => $default_category['icon'],
                 'photo' => $filePath
             ]);
 
@@ -102,6 +102,7 @@ class MainCategoriesController extends Controller
                         'translation_of' => $default_category_id,
                         'name' => $category['name'],
                         'slug' => $category['slug'],
+                        'icon' => $category['icon'],
                         'photo' => $filePath
                     ];
                 }
@@ -163,6 +164,7 @@ class MainCategoriesController extends Controller
                 ->update([
                     'name' => $category['name'],
                     'slug' => $category['slug'],
+                    'icon' => $category['icon'],
                     'active' => $request->active,
                 ]);
 

@@ -19,10 +19,11 @@ class WebsiteController extends Controller
 
         // selection() deze methode is gemaakt in de Models 
         $default_lang = get_default_lang();
-        $categories = MainCategory::where('translation_lang', $default_lang)
+        $categories = MainCategory::with('subCategories')->where('translation_lang', $default_lang)
             ->Active()
             ->selection()
             ->get();
+
 
         return view('front.home', compact('categories'));
     }
@@ -42,7 +43,7 @@ class WebsiteController extends Controller
             // return $categories;
         $subCategories = SubCategory::where('category_id',$request->id) ->Active()->selection()->get();
 
-        return view('front.pages.subcategories  ',compact('subCategories','categories'));
+        return view('front.pages.subcategories',compact('subCategories','categories'));
 
     }
 

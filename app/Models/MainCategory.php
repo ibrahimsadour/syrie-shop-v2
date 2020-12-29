@@ -18,7 +18,7 @@ class MainCategory extends Model
     protected $table = 'categories';
 
     protected $fillable = [
-        'id ', 'translation_lang','translation_of','name','slug','photo','active','created_at','updated_at'
+        'id ', 'translation_lang','translation_of','name','slug','photo','active','icon','created_at','updated_at'
     ];
     
     public $timestamps = true;
@@ -40,7 +40,7 @@ class MainCategory extends Model
     public function scopeSelection($query)
     {
 
-        return $query->select('id', 'translation_lang', 'name', 'slug', 'photo', 'active', 'translation_of');
+        return $query->select('id', 'translation_lang', 'name', 'slug', 'photo','icon', 'active', 'translation_of');
     }
 
     //whene you get Photo from database (automacly added http://dominName/ecommerce/assets/)

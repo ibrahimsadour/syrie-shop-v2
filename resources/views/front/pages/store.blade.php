@@ -17,170 +17,26 @@
                     <aside class="widget widget_shop">
                         <h4 class="widget-title">الاقسام</h4>
                         <ul class="ps-list--categories">
-                            <li class="menu-item-has-children"><a href="{{route('site.store')}}">الملابس &amp; الالبسة</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
-                                <ul class="sub-menu">
-                                    <li><a href="{{route('site.store')}}">النساء</a>
-                                    </li>
-                                    <li><a href="{{route('site.store')}}">الرجال</a>
-                                    </li>
-                                    <li><a href="{{route('site.store')}}">الحفائب</a>
-                                    </li>
-                                    <li><a href="{{route('site.store')}}">النظارات</a>
-                                    </li>
-                                    <li><a href="{{route('site.store')}}">الاكسسوارات</a>
-                                    </li>
-                                    <li><a href="{{route('site.store')}}">أزياء الاطفال</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="menu-item-has-children"><a href="{{route('site.store')}}">حديقة &amp; مطبخ</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
-                                <ul class="sub-menu">
-                                    <li><a href="{{route('site.store')}}">تجهيزات المطابخ</a>
-                                    </li>
-                                    <li><a href="{{route('site.store')}}">زخرفة</a>
-                                    </li>
-                                    <li><a href="{{route('site.store')}}">أثاث المنزل</a>
-                                    </li>
-                                    <li><a href="{{route('site.store')}}">أدوات الحدائق</a>
-                                    </li>
-                                    <li><a href="{{route('site.store')}}">تحسين المنزل</a>
-                                    </li>
-                                    <li><a href="{{route('site.store')}}">Powers And Hand Tools</a>
-                                    </li>
-                                    <li><a href="{{route('site.store')}}">Utensil &amp; Gadget</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="menu-item-has-children"><a href="{{route('site.store')}}">الكترونيات</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
-                                <ul class="sub-menu">
-                                    <li class="menu-item-has-children"><a href="{{route('site.store')}}">مكيفات الهواء</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
-                                        <ul class="sub-menu">
-                                            <li><a href="{{route('site.store')}}">الاكسسوارات</a>
-                                            </li>
-                                            <li><a href="{{route('site.store')}}">Type Hanging Cell</a>
-                                            </li>
-                                            <li><a href="{{route('site.store')}}">Type Hanging Wall</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children"><a href="{{route('site.store')}}">صوتيات ومسارح</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
-                                        <ul class="sub-menu">
-                                            <li><a href="{{route('site.store')}}">سماعات</a>
-                                            </li>
-                                            <li><a href="{{route('site.store')}}">Home Theater System</a>
-                                            </li>
-                                            <li><a href="{{route('site.store')}}">مكبرات الصوت</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children"><a href="{{route('site.store')}}"> الكترونيات</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
-                                        <ul class="sub-menu">
-                                            <li><a href="{{route('site.store')}}">Audio &amp; Video</a>
-                                            </li>
-                                            <li><a href="{{route('site.store')}}">Car Security</a>
-                                            </li>
-                                            <li><a href="{{route('site.store')}}">Radar Detector</a>
-                                            </li>
-                                            <li><a href="{{route('site.store')}}">Vehicle GPS</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children"><a href="{{route('site.store')}}">Office الكترونياتs</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
-                                        <ul class="sub-menu">
-                                            <li><a href="{{route('site.store')}}">طابعات</a>
-                                            </li>
-                                            <li><a href="{{route('site.store')}}">أجهزة عرض</a>
-                                            </li>
-                                            <li><a href="{{route('site.store')}}">الماسحات الضوئية</a>
-                                            </li>
-                                            <li><a href="{{route('site.store')}}">Store Business</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children"><a href="{{route('site.store')}}">التلفزيونات</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
-                                        <ul class="sub-menu">
-                                            <li><a href="{{route('site.store')}}">تلفزيونات 4K Ultra HD</a>
-                                            </li>
-                                            <li><a href="{{route('site.store')}}">LED تلفزيونات</a>
-                                            </li>
-                                            <li><a href="{{route('site.store')}}">تلفزيونات OLED</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item-has-children"><a href="{{route('site.store')}}">غسالة ملابس</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
-                                        <ul class="sub-menu">
-                                            <li><a href="{{route('site.store')}}">Type Drying Clothes</a>
-                                            </li>
-                                            <li><a href="{{route('site.store')}}">Type Horizontal</a>
-                                            </li>
-                                            <li><a href="{{route('site.store')}}">Type Vertical</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="{{route('site.store')}}">ثلاجات</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="menu-item-has-children"><a href="{{route('site.store')}}">الصحة والجمال</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
-                                <ul class="sub-menu">
-                                    <li><a href="{{route('site.store')}}">Equipments</a>
-                                    </li>
-                                    <li><a href="{{route('site.store')}}">العناية بالشعر</a>
-                                    </li>
-                                    <li><a href="{{route('site.store')}}">العطور</a>
-                                    </li>
-                                    <li><a href="{{route('site.store')}}">عناية البشرة</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="menu-item-has-children"><a href="{{route('site.store')}}">Computers &amp; Technologies</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
-                                <ul class="sub-menu">
-                                    <li><a href="{{route('site.store')}}">Desktop PC</a>
-                                    </li>
-                                    <li><a href="{{route('site.store')}}">Laptop</a>
-                                    </li>
-                                    <li><a href="{{route('site.store')}}">Smartphones</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="menu-item-has-children"><a href="{{route('site.store')}}">Jewelry &amp; Watches</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
-                                <ul class="sub-menu">
-                                    <li><a href="{{route('site.store')}}">Gemstone Jewelry</a>
-                                    </li>
-                                    <li><a href="{{route('site.store')}}">Men's Watches</a>
-                                    </li>
-                                    <li><a href="{{route('site.store')}}">Women's Watches</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="menu-item-has-children"><a href="{{route('site.store')}}">Phones &amp; Accessories</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
-                                <ul class="sub-menu">
-                                    <li><a href="{{route('site.store')}}">Iphone 8</a>
-                                    </li>
-                                    <li><a href="{{route('site.store')}}">Iphone X</a>
-                                    </li>
-                                    <li><a href="{{route('site.store')}}">Sam Sung Note 8</a>
-                                    </li>
-                                    <li><a href="{{route('site.store')}}">Sam Sung S8</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="menu-item-has-children"><a href="{{route('site.store')}}">Sport &amp; Outdoor</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
-                                <ul class="sub-menu">
-                                    <li><a href="{{route('site.store')}}">Freezer Burn</a>
-                                    </li>
-                                    <li><a href="{{route('site.store')}}">Fridge Cooler</a>
-                                    </li>
-                                    <li><a href="{{route('site.store')}}">Wine Cabinets</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a href="{{route('site.store')}}">Babies &amp; Moms</a>
-                            </li>
-                            <li><a href="{{route('site.store')}}">Books &amp; Office</a>
-                            </li>
-                            <li><a href="{{route('site.store')}}">Cars &amp; Motocycles</a>
-                            </li>
+                            <?php
+                                $categories = App\Models\MainCategory::with('subCategories')->Active()->get();
+                                if($categories && $categories -> count() > 0){
+                                    foreach($categories as $category){
+                                    echo "<li class='menu-item-has-children'>";?>
+                                        <a href="{{route('site.getProductCategory',[$category->id,$category-> slug])}}">{!!$category->icon!!} {{$category->name}}</a>
+                                        <?php if($category->subCategories && $category->subCategories->count() > 0  ){
+                                            echo "<span class='sub-toggle'><i class='fa fa-angle-down'></i></span>
+                                                <ul class='sub-menu'>";
+                                                    foreach($category->subCategories as $subCategory){
+                                                        echo "<li>";?>
+                                                        <a href="{{route('site.getProductSubCategory',[$subCategory->id,$subCategory-> slug])}}">{{$subCategory->name }}</a>
+                                                        <?php echo "</li>";
+                                                    }
+                                                echo "</ul>
+                                    </li>";
+                                        }
+                                    }
+                                }
+                            ?>
                         </ul>
                     </aside>
                     <aside class="widget widget_shop">
@@ -305,9 +161,17 @@
                 </div>
                 <div class="ps-layout__right">
 
-                    <div class="ps-shopping ps-tab-root"><a class="ps-shop__filter-mb" href="#" id="filter-sidebar"><i class="fa fa-filter" aria-hidden="true"></i> عرض الفلتر</a>
+                    <div class="ps-shopping ps-tab-root">
+                        <div class ="filter-sidebar" id="filter-sidebar">
+                            <a class="ps-shop__filter-mb" href="#" ><i class="fa fa-filter" aria-hidden="true"></i> عرض الفلتر</a>
+                        </div>
                         <div class="ps-shopping__header">
-                            <p>تم العثور على  <strong>  {{App\Models\Product::count()}} </strong> </p>
+                            <p>تم العثور على  <strong>
+                            {{App\Models\Product::where('category_id', request()->id   ?? '')->count()}} 
+                            @if(strpos($a,'are') !== false) 
+                                // do stuff 
+                            @endif
+                                </strong> </p>
                             <div class="ps-shopping__actions">
                                 <select class="ps-select" data-placeholder="Sort Items">
                                     <option>ترتيب حسب الأحدث</option>
@@ -338,7 +202,7 @@
                                                                 @if($product->images->count() > 0)
                                                                     @foreach($product->images as $image)
                                                                     @if ($loop->first)
-                                                                        <img  style="height:150px;width: 180px;" src="{{Request::root()}}/assets/{{$image->photo}}">
+                                                                        <img  style="height:150px;width: 180px;" src="{{Request::root()}}/assets/{{$image->photo ?? ''}}">
                                                                     @endif
                                                                     @endforeach
                                                                 @else
@@ -350,22 +214,24 @@
                                                                 <li><a href="#" data-toggle="tooltip" data-placement="top" title="أضف إلى قائمة الامنيات"><i class="icon-heart"></i></a></li>
                                                             </ul>
                                                         </div>
-                                                        <div class="ps-product__container"><a class="ps-product__vendor" href="#">{{$product->user->name}}</a>
-                                                            <div class="ps-product__content"><a class="ps-product__title" href="product-default.html">{{$product->product_info->name}}</a>
+                                                        <div class="ps-product__container"><a class="ps-product__vendor" href="#">{{$product->user->name ?? ''}}</a>
+                                                            <div class="ps-product__content">
+                                                            <a class="ps-product__title" href="">{{$product->product_info->name ?? ''}}</a>
                                                                 @if($product->product_price  != false )
                                                                     @if($product->product_price->type_price === 1)
-                                                                        <p style="font-size: 13px;font-weight: 600;" class="ps-product__price">السعر: &nbsp;{{$product->product_price->price}} <i class="fa fa-dollar"></i> دولار أمريكي</p>
+                                                                        <p style="font-size: 13px;font-weight: 600;" class="ps-product__price">السعر: &nbsp;{{$product->product_price->price ?? ''}} <i class="fa fa-dollar"></i> دولار أمريكي</p>
                                                                     @else
-                                                                        <p  style="font-size: 13px;font-weight: 600;"   class="ps-product__price">السعر: &nbsp;{{$product->product_price->price}} <i class="fa fa-turkish-lira"></i> ليرة تركية</p>
+                                                                        <p  style="font-size: 13px;font-weight: 600;"   class="ps-product__price">السعر: &nbsp;{{$product->product_price->price ?? ''}} <i class="fa fa-turkish-lira"></i> ليرة تركية</p>
                                                                     @endif
                                                                 @endif
                                                             </div>
-                                                            <div class="ps-product__content hover"><a class="ps-product__title" href="product-default.html">{{$product->product_info->name}}</a>
+                                                            <div class="ps-product__content hover">
+                                                            <a class="ps-product__title" href="product-default.html">{{$product->product_info->name ?? ''}}</a>
                                                                 @if($product->product_price  != false )
                                                                     @if($product->product_price->type_price === 1)
-                                                                        <p class="ps-product__price">السعر: &nbsp;{{$product->product_price->price}} <i class="fa fa-dollar"></i> دولار أمريكي</p>
+                                                                        <p class="ps-product__price">السعر: &nbsp;{{$product->product_price->price ?? ''}} <i class="fa fa-dollar"></i> دولار أمريكي</p>
                                                                     @else
-                                                                        <p class="ps-product__price">السعر: &nbsp;{{$product->product_price->price}} <i class="fa fa-turkish-lira"></i> ليرة تركية</p>
+                                                                        <p class="ps-product__price">السعر: &nbsp;{{$product->product_price->price ?? ''}} <i class="fa fa-turkish-lira"></i> ليرة تركية</p>
                                                                     @endif
                                                                 @endif                                                    
                                                             </div>
@@ -398,7 +264,7 @@
                                                         @if($product->images->count() > 0)
                                                             @foreach($product->images as $image)
                                                             @if ($loop->first)
-                                                                <img   src="{{Request::root()}}/assets/{{$image->photo}}">
+                                                                <img   src="{{Request::root()}}/assets/{{$image->photo ?? ''}}">
                                                             @endif
                                                             @endforeach
                                                         @else
@@ -407,19 +273,20 @@
                                                     </a>
                                                 </div>
                                                 <div class="ps-product__container">
-                                                    <div class="ps-product__content"><a class="ps-product__title" href="product-default.html">{{$product->product_info->name}}</a>
-                                                    <span class="FavoritesListItem-mobile-pricing" style="font-weight: 400;color: darkgray;font-size: 10px;" > تم النشر&nbsp;{{$product->created_at->diffForHumans()}}</span>
-                                                        <p class="ps-product__vendor">البائع : <a href="#">{{$product->user->name}}</a></p>
+                                                    <div class="ps-product__content">
+                                                    <a class="ps-product__title" href="product-default.html">{{$product->product_info->name ?? ''}}</a>
+                                                    <span class="FavoritesListItem-mobile-pricing" style="font-weight: 400;color: darkgray;font-size: 10px;" > تم النشر&nbsp;{{$product->created_at->diffForHumans() ?? '' }}</span>
+                                                        <p class="ps-product__vendor">البائع : <a href="#">{{$product->user->name ?? ''}}</a></p>
                                                         <ul class="ps-product__desc">
-                                                            <li><P>{{$product->product_info->description}}</P></li>
+                                                            <li><P>{{$product->product_info->description ?? ''}}</P></li>
                                                         </ul>
                                                     </div>
                                                     <div class="ps-product__shopping">
                                                             @if($product->product_price  != false )
                                                                 @if($product->product_price->type_price === 1)
-                                                                    <p class="ps-product__price">السعر: &nbsp;{{$product->product_price->price}} <i class="fa fa-dollar"></i> دولار أمريكي</p>
+                                                                    <p class="ps-product__price">السعر: &nbsp;{{$product->product_price->price ?? ''}} <i class="fa fa-dollar"></i> دولار أمريكي</p>
                                                                 @else
-                                                                    <p class="ps-product__price">السعر: &nbsp;{{$product->product_price->price}} <i class="fa fa-turkish-lira"></i> ليرة تركية</p>
+                                                                    <p class="ps-product__price">السعر: &nbsp;{{$product->product_price->price ?? ''}} <i class="fa fa-turkish-lira"></i> ليرة تركية</p>
                                                                 @endif
                                                             @endif
                                                         
@@ -428,9 +295,13 @@
                                                         <ul class="ps-product__actions">
                                                             <li><a href="#"><i class="icon-heart"></i> أضف إلى قائمة الامنيات</a></li>
                                                             <li><a href="#"><i class="icon-map-marker"></i>
-                                                            @php $locations = App\Models\Location::where('id',$product->product_info->location_id)->get();
+                                                            @php 
+                                                             $location_id = $product->product_info->location_id ?? '';
+                                                            $locations = App\Models\Location::where('id',$location_id)->get();
                                                             foreach($locations as $location){
-                                                                echo $location->name;
+                                                                if($location){
+                                                                    echo $location->name;
+                                                                }
                                                             }
                                                             @endphp
                                                             </a></li>

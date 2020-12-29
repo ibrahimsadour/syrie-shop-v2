@@ -63,7 +63,9 @@
 
     @include('front.includes.footer')
 
-
+    <!-- Begin filter-sidebar -->
+    @include('front.includes.mobile.filter-sidebar')
+    <!-- End filter-sidebar  -->
 
     <!-- <div class="ps-popup" id="subscribe" data-time="500">
         <div class="ps-popup__content bg--cover" data-background="{{asset('assets/front/img/bg/subscribe.jpg')}}"><a class="ps-popup__close" href="#"><i class="icon-cross"></i></a>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LanguagesController;
-use App\Http\Controllers\Admin\MainCategoriesController;
+use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\BrandsController;
 use App\Http\Controllers\Admin\TagsController;
 use App\Http\Controllers\Admin\VendorsController;
@@ -79,23 +79,23 @@ Route::group(['namespace'=>'Admin','middleware' => 'auth:admin'], function() {
 
 
     ######################### Begin Main Categoris Routes ########################
-    Route::group(['prefix' => 'main_categories'], function () {
+    Route::group(['prefix' => 'categories'], function () {
 
-        Route::get('/', [MainCategoriesController::class ,'index']) -> name('admin.maincategories');
-        Route::get('create',[MainCategoriesController::class ,'create']) -> name('admin.maincategories.create');
-        Route::post('store',[MainCategoriesController::class ,'store']) -> name('admin.maincategories.store');
-        Route::get('edit/{id}',[MainCategoriesController::class ,'edit']) -> name('admin.maincategories.edit');
-        Route::post('update/{id}',[MainCategoriesController::class ,'update']) -> name('admin.maincategories.update');
-        Route::get('delete/{id}',[MainCategoriesController::class ,'destroy']) -> name('admin.maincategories.delete');
+        Route::get('/', [CategoriesController::class ,'index']) -> name('admin.maincategories');
+        Route::get('create',[CategoriesController::class ,'create']) -> name('admin.maincategories.create');
+        Route::post('store',[CategoriesController::class ,'store']) -> name('admin.maincategories.store');
+        Route::get('edit/{id}',[CategoriesController::class ,'edit']) -> name('admin.maincategories.edit');
+        Route::post('update/{id}',[CategoriesController::class ,'update']) -> name('admin.maincategories.update');
+        Route::get('delete/{id}',[CategoriesController::class ,'destroy']) -> name('admin.maincategories.delete');
         //change Status the category and the vendors 
-        Route::get('changeStatus/{id}',[MainCategoriesController::class ,'changeStatus']) -> name('admin.maincategories.status');
+        Route::get('changeStatus/{id}',[CategoriesController::class ,'changeStatus']) -> name('admin.maincategories.status');
     });
     ######################### End  Main Categoris Routes  ########################
 
 
     
     ######################### Begin Sub Categoris Routes ########################
-    Route::group(['prefix' => 'sub_categories'], function () {
+    Route::group(['prefix' => 'sub-categories'], function () {
         Route::get('/',[SubCategoriesController::class ,'index']) -> name('admin.subcategories');
         Route::get('create',[SubCategoriesController::class ,'create']) -> name('admin.subcategories.create');
         Route::post('store',[SubCategoriesController::class ,'store']) -> name('admin.subcategories.store');

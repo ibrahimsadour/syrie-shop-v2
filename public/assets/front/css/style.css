@@ -3555,7 +3555,7 @@ textarea.form-control {
     margin-left: 0;
 }
 
-.ps-pagination {
+ps-pagination {
     padding-top: 70px;
     text-align: center;
 }
@@ -8508,9 +8508,9 @@ textarea.form-control {
     position: relative;
     display: inline-block;
     margin-bottom: 0;
-    margin-left: 10px;
-    padding-left: 10px;
-    line-height: 20px;
+    margin-left: 8px;
+    padding-left: 8px;
+    line-height: 16px;
 }
 
 .ps-product--detail .ps-product__meta p a {
@@ -12411,12 +12411,19 @@ textarea.form-control {
     color: #000;
 }
 
+.filter-sidebar {
+    text-align: center;
+    box-shadow: 0 1px 4px 0 rgb(158 158 158);
+    background-color: #fcb800f5;
+    margin-bottom: 5px;
+}
+
 .ps-shopping .ps-shop__filter-mb {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     font-size: 16px;
     vertical-align: top;
     display: -webkit-box;
-    display: flex;
+    display: inline-flex;
     color: #000;
     -webkit-box-align: center;
     align-items: center;

@@ -87,11 +87,13 @@ Route::group( [
     ######################### Begin subCategory route ###############################
     /** add-advertisement
     * @todo URL:www.DomeinName.com/advertisement
+    * @todo this route is made to get the sub category from the category on the home page
+    * @todo لجلب الاقسام الفرعية من الاقسام الرئيسية في الصفحة الرئيسية للموقع
     * @todo Route name : advertisement.index
     */
     Route::group(['prefix' => 'sub-category'], function() {
 
-        Route::get('{id}', [WebsiteController::class, 'showSubCategory'])->name('site.showSubCategory');
+        Route::get('{id}/{slug}', [WebsiteController::class, 'showSubCategory'])->name('site.showSubCategory');
 
     });
     ######################### End subCategory route ###############################
@@ -99,10 +101,14 @@ Route::group( [
     ######################### Begin Store route ###############################
     /** store page
     * @todo URL:www.DomeinName.com/store
+    * @todo this route to get the products through the category ID or sub-category ID.
     * @todo Route name : site.store
     */
-    Route::get('store',[StoreController::class ,'index']) -> name('site.store');
-
+    Route::group(['prefix' => 'store'], function() {
+        Route::get('',[StoreController::class ,'index']) -> name('site.store');
+        Route::get('category/{id}/{slug}',[StoreController::class ,'getProductCategory']) -> name('site.getProductCategory');
+        Route::get('sub-category/{id}/{slug}',[StoreController::class ,'getProductSubCategory']) -> name('site.getProductSubCategory');
+    });
     ######################### End Store route #################################
 
 });

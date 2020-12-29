@@ -26,7 +26,7 @@
                                         @if($products->images->count() > 0)
                                             @foreach($products->images as $image)
                                                 <div class="item">
-                                                    <img  class="FavoritesListItem-unshrinkable-thumb" src="{{Request::root()}}/assets/{{$image->photo}}">
+                                                    <img  class="FavoritesListItem-unshrinkable-thumb" src="{{Request::root()}}/assets/{{$image->photo ?? ''}}">
                                                 </div>
                                             @endforeach
                                         @else
@@ -41,7 +41,7 @@
                                 @if($products->images->count() > 0)
                                     @foreach($products->images as $image)
                                         <div class="item">
-                                            <img  class="FavoritesListItem-unshrinkable-thumb" src="{{Request::root()}}/assets/{{$image->photo}}">
+                                            <img  class="FavoritesListItem-unshrinkable-thumb" src="{{Request::root()}}/assets/{{$image->photo ?? ''}}">
                                         </div>
                                     @endforeach
                                 @else
@@ -52,34 +52,36 @@
                             </div>
                         </div>
                         <div class="ps-product__info">
-                            <h1>@if($products->product_info  != false ){{$products ->product_info-> name}}@endif</h1>
+                            <h1>@if($products->product_info  != false ){{$products ->product_info-> name ?? '' }}@endif</h1>
                             <!-- <div class="ps-product__actions">
                                 <a href="#"><i class="icon-heart"></i></a>
                             </div> -->
                             <div class="ps-product__meta">
-                                <p>{{$products->created_at->diffForHumans()}}</p>
-                                <p >الحالة :<a class="text-success" href="#">{{$products->getSold()}}</a></p>
+                                <p>{{$products->created_at->diffForHumans() ?? ''}}</p>
+                                <p >الحالة :<a class="text-success" href="#">{{$products->getSold() ?? ''}}</a></p>
                                 <p >الموقع :<a class="text-success" href="#">
-                                    @php $locations = App\Models\Location::where('id',$products->product_info->location_id)->get();
+                                    @php 
+                                    $location_id = $product->product_info->location_id ?? '';
+                                    $locations = App\Models\Location::where('id',$location_id )->get();
                                     foreach($locations as $location){
                                         echo $location->name;
                                     }
                                     @endphp</a></p>
                                 <div class="ps-product__rating">
-                                    <span><i class="fa fa-eye" aria-hidden="true"></i> {{$products->viewed}} </span>
+                                    <span><i class="fa fa-eye" aria-hidden="true"></i> {{$products->viewed ?? ''}} </span>
                                 </div>
                             </div>
                             @if($products->product_price  != false )
                                 @if($products->product_price->type_price == 1)
-                                <h4 class="ps-product__price">{{$products->product_price->price}} <i class="fa fa-dollar"></i> دولار أمريكي</h4>
+                                <h4 class="ps-product__price">{{$products->product_price->price ?? ''}} <i class="fa fa-dollar"></i> دولار أمريكي</h4>
                                 @else
-                                <h4 class="ps-product__price">{{$products->product_price->price}}  <i class="fa fa-turkish-lira"></i> ليرة تركية</h4>
+                                <h4 class="ps-product__price">{{$products->product_price->price ?? ''}}  <i class="fa fa-turkish-lira"></i> ليرة تركية</h4>
                                 @endif
                             @endif
                             <div class="ps-product__desc">
-                                <p>أعلن بواسطة:<a href="shop-default.html"> {{$products->user->name}}</a></p>
+                                <p>أعلن بواسطة:<a href="shop-default.html"> {{$products->user->name ?? ''}}</a></p>
                                 <ul class="ps-list--dot">
-                                   <p style="color: #666;">{{$products->description}}</p>
+                                   <p style="color: #666;">{{$products->description ?? ''}}</p>
                                 </ul>
                             </div>
 
@@ -144,7 +146,7 @@
                                 </div>
                             </div>
                             <div class="ps-tab" id="tab-3">
-                                <h4>{{$products->user->name}}</h4>
+                                <h4>{{$products->user->name ?? ''}}</h4>
                                 <p></p><a href="#">لايوجد معلومات</a>
                             </div>
                         </div>
