@@ -166,12 +166,7 @@
                             <a class="ps-shop__filter-mb" href="#" ><i class="fa fa-filter" aria-hidden="true"></i> عرض الفلتر</a>
                         </div>
                         <div class="ps-shopping__header">
-                            <p>تم العثور على  <strong>
-                            {{App\Models\Product::where('category_id', request()->id   ?? '')->count()}} 
-                            @if(strpos($a,'are') !== false) 
-                                // do stuff 
-                            @endif
-                                </strong> </p>
+                            <p>تم العثور على  <strong>0</strong> </p>
                             <div class="ps-shopping__actions">
                                 <select class="ps-select" data-placeholder="Sort Items">
                                     <option>ترتيب حسب الأحدث</option>
