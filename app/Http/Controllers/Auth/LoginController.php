@@ -147,7 +147,7 @@ class LoginController extends Controller
              */
             $findUser= User::where('provider_id',$user->id)->first();
             // check if the not blokking
-            $checkUser= User::where(['provider_id'=>$user->id,'active'=>1])->first();
+            $checkUser= User::where(['provider_id'=>$user->id])->first();
             if($checkUser){
                 if($findUser){
                 
